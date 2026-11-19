@@ -1075,6 +1075,13 @@
       ])
     ]);
     montrer(section);
+    /* Le chronomètre, le compteur et la boîte appartiennent à la partie,
+       et aucune partie n'a commencé : on ne montre pas une boîte vide à
+       quelqu'un qui n'a pas encore choisi de jouer. L'écran suivant les
+       rétablit tout seul. */
+    ['chrono', 'compte-lettres', 'phrase'].forEach(function (id) {
+      var n = $(id); if (n) n.hidden = true;
+    });
   }
 
   function montrerPorte() {
