@@ -645,69 +645,170 @@
   /* Dessiné dans le navigateur, sur une toile : rien n'est demandé à un
      serveur, et le lecteur garde son prénom pour lui s'il préfère.
      Deux versions : celle du site, sombre et dorée, et une version
-     claire qui ne vide pas une cartouche d'encre à l'impression. */
+     claire qui ne vide pas une cartouche d'encre à l'impression.
+
+     Le dessin suit le modèle de l'auteur (Diplome_Memoire_du_Nord) :
+     lampe de mineur au trait, surtitre en petites capitales espacées,
+     titre doré, note et mention côte à côte séparées d'un filet, et une
+     ligne de terrils au bas de la page. A4 couché, 150 points par pouce. */
+  var POLICE = '"Palatino Linotype", "Book Antiqua", Palatino, "TeX Gyre Pagella", Georgia, serif';
+  var MOIS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet',
+    'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+
   function dessinerDiplome(toile, clair) {
-    var L = 1754, H = 1240;                  /* A4 couché, à 150 points par pouce */
+    var L = 1754, H = 1240;
     toile.width = L; toile.height = H;
     var c = toile.getContext('2d');
-    var fond = clair ? '#ffffff' : '#1e1a17';
-    var encre = clair ? '#1b1714' : '#f3ece1';
-    var or = clair ? '#8a6a28' : '#c9a227';
-    var douce = clair ? '#5d534a' : '#bdb2a3';
+
+    var fond = clair ? '#fbf7ee' : '#16110c';
+    var encre = clair ? '#2a2017' : '#efe6d4';
+    var or = clair ? '#9a7428' : '#c9a24a';
+    var douce = clair ? '#6d5f4c' : '#9d9180';
+    var terril = clair ? '#ece2cd' : '#241b12';
 
     c.fillStyle = fond; c.fillRect(0, 0, L, H);
 
-    /* un double filet, comme un encadrement de papeterie */
-    c.strokeStyle = or; c.lineWidth = 6;
-    c.strokeRect(50, 50, L - 100, H - 100);
-    c.lineWidth = 2;
-    c.strokeRect(72, 72, L - 144, H - 144);
+    /* --- les terrils, derrière tout le reste --- */
+    c.save();
+    c.beginPath();
+    c.rect(68, 66, L - 136, H - 132);
+    c.clip();
+    /* Des terrils, pas des pics : ce sont des collines de schiste, et
+       elles s'arrondissent depuis soixante ans. */
+    c.fillStyle = terril;
+    c.beginPath();
+    c.moveTo(68, H - 66);
+    c.lineTo(68, 1118);
+    c.lineTo(340, 1118);
+    c.bezierCurveTo(420, 1118, 430, 1052, 505, 1052);
+    c.bezierCurveTo(580, 1052, 592, 1118, 672, 1118);
+    c.lineTo(960, 1118);
+    c.bezierCurveTo(1080, 1118, 1090, 1028, 1195, 1028);
+    c.bezierCurveTo(1300, 1028, 1315, 1104, 1425, 1104);
+    c.lineTo(L - 68, 1104);
+    c.lineTo(L - 68, H - 66);
+    c.closePath();
+    c.fill();
+    c.restore();
 
-    function texte(t, y, taille, couleur, police, espacement) {
-      c.fillStyle = couleur;
-      c.font = (police || '') + ' ' + taille + 'px Cambria, Georgia, "Times New Roman", serif';
-      c.textAlign = 'center';
-      if (espacement) {
-        /* l'espacement des lettres n'existe pas sur toutes les toiles :
-           on l'écrit à la main, lettre par lettre */
-        var lettres = String(t).split('');
-        var large = lettres.reduce(function (s, x) { return s + c.measureText(x).width + espacement; }, -espacement);
-        var x = L / 2 - large / 2;
-        c.textAlign = 'left';
-        lettres.forEach(function (x2) { c.fillText(x2, x, y); x += c.measureText(x2).width + espacement; });
-        c.textAlign = 'center';
-        return;
-      }
+    /* --- le double filet --- */
+    c.strokeStyle = or;
+    c.lineWidth = 2.5;
+    c.strokeRect(50, 35, L - 100, H - 70);
+    c.lineWidth = 1.5;
+    c.strokeRect(68, 66, L - 136, H - 132);
+
+    /* --- les écritures --- */
+    function police(taille, poids, italique) {
+      c.font = (italique ? 'italic ' : '') + (poids ? poids + ' ' : '') + taille + 'px ' + POLICE;
+    }
+    function centre(t, y, taille, couleur, poids, italique) {
+      police(taille, poids, italique);
+      c.fillStyle = couleur; c.textAlign = 'center';
       c.fillText(t, L / 2, y);
     }
+    /* Les petites capitales espacées : aucune toile ne sait le faire,
+       on pose les lettres une à une. */
+    function capitales(t, y, taille, couleur, espacement, centreX) {
+      police(taille, '', false);
+      c.fillStyle = couleur;
+      var lettres = String(t).toUpperCase().split('');
+      var large = lettres.reduce(function (s, x) { return s + c.measureText(x).width + espacement; }, -espacement);
+      var x = (centreX === undefined ? L / 2 : centreX) - large / 2;
+      c.textAlign = 'left';
+      lettres.forEach(function (lettre) {
+        c.fillText(lettre, x, y);
+        x += c.measureText(lettre).width + espacement;
+      });
+      c.textAlign = 'center';
+    }
 
-    texte('LES DÉMONS DE LÉA LAPREL', 190, 44, or, '700', 6);
-    texte('roman de Paul Cardon', 240, 30, douce, 'italic');
+    /* --- la lampe de mineur, au trait --- */
+    (function lampe(cx, haut) {
+      c.save();
+      c.strokeStyle = or; c.lineWidth = 3;
+      c.lineJoin = 'round'; c.lineCap = 'round';
+      /* l'anneau */
+      c.beginPath(); c.arc(cx, haut + 7, 7, Math.PI, 0); c.stroke();
+      /* la tige */
+      c.beginPath(); c.moveTo(cx, haut + 14); c.lineTo(cx, haut + 22); c.stroke();
+      /* le chapeau */
+      c.beginPath();
+      c.moveTo(cx - 20, haut + 34); c.lineTo(cx - 13, haut + 22);
+      c.lineTo(cx + 13, haut + 22); c.lineTo(cx + 20, haut + 34);
+      c.closePath(); c.stroke();
+      /* le corps, et ses barreaux */
+      c.beginPath(); c.rect(cx - 17, haut + 34, 34, 48); c.stroke();
+      c.lineWidth = 1.6;
+      [-8, 0, 8].forEach(function (d) {
+        c.beginPath(); c.moveTo(cx + d, haut + 38); c.lineTo(cx + d, haut + 78); c.stroke();
+      });
+      /* le socle */
+      c.lineWidth = 3;
+      c.beginPath(); c.rect(cx - 21, haut + 82, 42, 10); c.stroke();
+      c.beginPath(); c.moveTo(cx - 14, haut + 92); c.lineTo(cx + 14, haut + 92); c.stroke();
+      c.restore();
+    })(L / 2, 172);
 
-    texte('Diplôme de lecteur', 390, 86, encre, '700');
+    capitales('Les Démons de Léa Laprel · Le questionnaire du lecteur', 299, 25, douce, 5.5);
+    centre('Diplôme de la Mémoire du Nord', 374, 62, or, '700');
 
     var prenom = String(etat.prenom || '').trim();
-    texte(prenom ? 'décerné à' : 'décerné au lecteur', 500, 32, douce, 'italic');
-    if (prenom) texte(prenom, 590, 72, encre, '700');
+    centre('est décerné à', 452, 26, douce, '', true);
+    centre(prenom || 'Lecteur du coron', 522, 56, encre, '', true);
 
+    centre('pour avoir descendu les quinze chapitres du roman', 585, 27, encre);
+    centre('et rapporté au jour la mémoire des corons.', 627, 27, encre);
+
+    /* --- note et mention, de part et d'autre d'un filet --- */
     var n = note(), m = mention();
-    texte(noteEcrite(n) + ' sur 20', 760, 96, or, '700');
-    texte('mention « ' + m.nom + ' »', 830, 44, encre, '700');
-    texte(totalBons() + ' bonnes réponses sur ' + totalQuestions() +
-      ', à travers les quinze chapitres du roman.', 900, 28, douce, 'italic');
+    var axe = L / 2;
+    c.strokeStyle = or; c.lineWidth = 1.2;
+    c.beginPath(); c.moveTo(axe, 690); c.lineTo(axe, 782); c.stroke();
 
+    var gauche = axe - 190, droite = axe + 190;
+    capitales('Note', 712, 18, douce, 5, gauche);
+    police(56, '700', false);
+    var valeur = noteEcrite(n), surVingt = '/20';
+    var largeValeur = c.measureText(valeur).width;
+    police(30, '', false);
+    var largeSur = c.measureText(surVingt).width;
+    var depart = gauche - (largeValeur + largeSur) / 2;
+    c.textAlign = 'left'; c.fillStyle = encre;
+    police(56, '700', false); c.fillText(valeur, depart, 764);
+    police(30, '', false); c.fillStyle = douce;
+    c.fillText(surVingt, depart + largeValeur, 764);
+    c.textAlign = 'center';
+
+    /* « Gueule noire d'honneur » est deux fois plus long que « Porion » :
+       centré comme lui, il passerait sur le filet. On le décale vers la
+       droite juste ce qu'il faut, plutôt que de le rapetisser — une
+       mention qu'on a méritée se lit en grand. */
+    police(44, '700', false);
+    var largeMention = c.measureText(m.nom).width;
+    var centreMention = Math.max(droite, axe + 46 + largeMention / 2);
+    centreMention = Math.min(centreMention, L - 110 - largeMention / 2);
+    capitales('Mention', 712, 18, douce, 5, centreMention);
+    police(44, '700', false);
+    c.fillStyle = or; c.textAlign = 'center';
+    c.fillText(m.nom, centreMention, 762);
+
+    centre('« ' + m.phrase + ' »', 855, 25, encre, '', true);
+
+    /* --- le bas de page --- */
     var d = new Date();
-    var mois = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet',
-      'août', 'septembre', 'octobre', 'novembre', 'décembre'];
-    texte('Fait le ' + d.getDate() + ' ' + mois[d.getMonth()] + ' ' + d.getFullYear(), 1020, 28, douce, '');
+    capitales('Fait le', 1057, 17, douce, 5, 318);
+    centre('', 0, 10, douce);
+    police(28, '', false); c.fillStyle = encre; c.textAlign = 'center';
+    c.fillText(d.getDate() + ' ' + MOIS[d.getMonth()] + ' ' + d.getFullYear(), 318, 1092);
 
-    c.strokeStyle = douce; c.lineWidth = 1;
-    c.beginPath(); c.moveTo(L / 2 - 200, 1105); c.lineTo(L / 2 + 200, 1105); c.stroke();
-    texte('Paul Cardon', 1150, 34, encre, 'italic');
+    police(40, '', true); c.fillStyle = encre;
+    c.fillText('Paul Cardon', L - 318, 1055);
+    capitales('L’auteur', 1090, 17, douce, 5, L - 318);
   }
 
   function montrerDiplome() {
-    var toile = el('canvas', { class: 'diplome-toile', 'aria-label': 'Votre diplôme de lecteur' });
+    var toile = el('canvas', { class: 'diplome-toile', 'aria-label': 'Votre diplôme de la Mémoire du Nord' });
     var clair = false;
     var champ = el('input', { type: 'text', class: 'champ-saisie', maxlength: '24',
       autocomplete: 'given-name', 'aria-label': 'Votre prénom, facultatif',
@@ -723,7 +824,7 @@
           if (lien.dataset && lien.dataset.url) URL.revokeObjectURL(lien.dataset.url);
           var u = URL.createObjectURL(b);
           lien.href = u;
-          lien.setAttribute('download', 'Diplome-de-lecteur-Lea-Laprel.png');
+          lien.setAttribute('download', 'Diplome-de-la-Memoire-du-Nord.png');
           if (lien.dataset) lien.dataset.url = u;
         }, 'image/png');
       } catch (e) {}
@@ -744,8 +845,8 @@
 
     montrer(el('section', { class: 'ecran' }, [
       el('p', { class: 'sur-titre', texte: 'Votre diplôme' }),
-      el('h2', { tabindex: '-1', texte: 'Diplôme de lecteur' }),
-      el('p', { class: 'narration', texte: 'Votre prénom n’est pas obligatoire — le diplôme se décerne aussi « au lecteur ». Rien n’est envoyé nulle part : l’image est fabriquée sur votre appareil.' }),
+      el('h2', { tabindex: '-1', texte: 'Diplôme de la Mémoire du Nord' }),
+      el('p', { class: 'narration', texte: 'Votre prénom n’est pas obligatoire — le diplôme se décerne alors « au Lecteur du coron ». Rien n’est envoyé nulle part : l’image est fabriquée sur votre appareil.' }),
       el('p', {}, [champ]),
       el('div', { class: 'diplome-cadre' }, [toile]),
       el('div', { class: 'ligne-actions' }, [lien, bascule]),
