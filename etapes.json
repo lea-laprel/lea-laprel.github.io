@@ -1,0 +1,3033 @@
+{
+  "titreJeu": "Les Démons de Léa Laprel",
+  "sousTitre": "Quatorze étapes à travers les quinze chapitres du roman. Vous avez refermé la boîte ? Ouvrez le jeu.",
+  "image": "lieu-00",
+  "salle": {
+    "touches": [
+      {
+        "cle": "porte",
+        "libelle": "Le fermoir",
+        "x": 0.445,
+        "y": 0.6
+      }
+    ]
+  },
+  "avertissement": "Ce jeu révèle la fin du roman. À faire après la lecture.",
+  "lettres": "AABDEILMNOPRST",
+  "etapes": [
+    {
+      "chapitre": "I",
+      "titre": "La boîte du buffet",
+      "image": "lieu-01",
+      "salle": {
+        "touches": [
+          {
+            "cle": "texte",
+            "libelle": "Les papiers du buffet",
+            "x": 0.665,
+            "y": 0.48
+          },
+          {
+            "cle": "enigme",
+            "libelle": "La boîte en fer",
+            "x": 0.822,
+            "y": 0.6
+          }
+        ]
+      },
+      "lettre": true,
+      "format": "selection",
+      "enonce": "Léa, cinq ans, soulève le couvercle pendant que Maria fait la buée. Sept objets s'affichent, mais deux n'étaient pas dans la boîte. Retirez-les.",
+      "elements": [
+        "Une montre à gousset",
+        "Une bague aux initiales « JL »",
+        "Un pot de terre",
+        "Un morceau de tissu",
+        "Une croix en bois",
+        "La médaille militaire de Jan",
+        "Une poupée de bois"
+      ],
+      "aSelectionner": [
+        "La médaille militaire de Jan",
+        "Une poupée de bois"
+      ],
+      "aide": "Touchez les objets à retirer. Touchez-les de nouveau pour annuler.",
+      "indice": "Tout ce qui est dans le buffet n'est pas dans la boîte.",
+      "passage": {
+        "titre": "Chapitre I — La boîte du buffet",
+        "extraits": [
+          {
+            "titre": "Le buffet",
+            "page": "5, 12",
+            "lignes": [
+              "Elle revint au buffet.",
+              "Des assiettes à fleurs, en faïence de Saint-Amand. Une",
+              "carafe en verre. Le service à chicorée. Une statue de la Vierge",
+              "Marie. La médaille militaire de Jan, dernier souvenir de lui.",
+              "Elle vit aussi de nombreux papiers. Carnet de mineur. Feuilles",
+              "de paie. Et quelques bouteilles d’alcool.",
+              "Comme elle trifouillait partout, son attention se porta sur",
+              "un recoin qu’elle n’avait jamais remarqué. Une planche de",
+              "bois entrouvrait une cachette. Quelqu’un avait oublié de",
+              "refermer. Léa glissa sa main pour agripper l’objet. C’était une",
+              "boîte. Métallique.",
+              "Son cœur palpitait. Le secret d’une cache aux trésors.",
+              "Hésitant à l’ouvrir. Pas longtemps. La curiosité prédominait.",
+              "Les respirations s’espacèrent. Ses doigts séparèrent le",
+              "couvercle du socle. L’admiration figea l’instant. Puis céda à la",
+              "tentation. Elle fouilla.",
+              "Des lettres ficelées, écrites par son grand-père Jan",
+              "Laprelinski, sans doute datant de la guerre, comme si",
+              "personne n’avait jamais osé les lire."
+            ]
+          },
+          {
+            "titre": "Ce que contenait la boîte",
+            "page": "14",
+            "lignes": [
+              "L’une des lettres lui était destinée. Elle reconnut l’écriture",
+              "de sa mère. Mais n’osa l’ouvrir.",
+              "Il y avait aussi une montre à gousset, une bague aux",
+              "initiales « JL », un pot de terre, un morceau de tissu, une croix",
+              "en bois.",
+              "À cinq ans, ses petites mains tremblaient de curiosité",
+              "devant ce mystère familial.",
+              "[…]",
+              "Babcia. Sa grand-mère. Les grincements du bois, d’ordinaire",
+              "agréables, du moins sans désagréments équivoques,",
+              "devinrent angoisse.",
+              "Léa paniqua. Elle referma la boîte et la remit en place. Dans",
+              "la précipitation, sa position initiale ne fut pas respectée. La",
+              "planche s’affaissait. Tant pis."
+            ]
+          }
+        ]
+      },
+      "indice2": "Chapitre I, p. 12 du livre broché : « Elle revint au buffet… » — comparez ce qui est dans le buffet et ce qui est dans la boîte.",
+      "etude": {
+        "questions": [
+          {
+            "domaine": "Grammaire",
+            "libelle": "« Ses doigts séparèrent le couvercle du socle ». À quel temps le verbe est-il conjugué ?",
+            "format": "boutons",
+            "options": [
+              "Au passé simple",
+              "À l’imparfait",
+              "Au passé composé"
+            ],
+            "reponse": "Au passé simple",
+            "aide": "Comparez avec « elle trifouillait » et « son cœur palpitait » : ce n’est pas le même temps.",
+            "explication": "Le passé simple raconte l’action : elle arrive, une fois, d’un coup. L’imparfait, autour, installe le décor.",
+            "renvoiAide": [
+              "Comme elle trifouillait partout, son attention se porta sur un recoin qu’elle n’avait jamais remarqué.",
+              "Son cœur palpitait."
+            ]
+          },
+          {
+            "domaine": "Orthographe",
+            "libelle": "« Ses doigts » : pourquoi « ses » et non « ces » ?",
+            "format": "boutons",
+            "options": [
+              "Ce sont les doigts de Léa : « ses » est un possessif",
+              "On montre ces doigts-là : c’est un démonstratif",
+              "Les deux s’écrivent indifféremment"
+            ],
+            "reponse": "Ce sont les doigts de Léa : « ses » est un possessif",
+            "aide": "Essayez de remplacer par « les siens », puis par « ceux-là ». Un seul des deux marche.",
+            "explication": "« Ses » appartient (les siens), « ces » montre (ceux-là). Le test du remplacement tranche à tous les coups."
+          },
+          {
+            "domaine": "Champ lexical",
+            "libelle": "Relevez le nom féminin qui désigne le sentiment décidant Léa à ouvrir la boîte.",
+            "format": "saisie",
+            "reponse": "curiosité",
+            "variantes": [
+              "la curiosité"
+            ],
+            "aide": "Il est sujet du verbe « prédominait ».",
+            "explication": "« La curiosité prédominait ». Autour d’elle, tout un champ lexical de l’envie : « tentation », « hésitant », « fouilla », « secret ».",
+            "renvoi": {
+              "de": "Son cœur palpitait.",
+              "a": "Elle fouilla."
+            },
+            "renvoiAide": "La curiosité prédominait."
+          },
+          {
+            "domaine": "Compréhension",
+            "libelle": "Qu’est-ce qui trahira le passage de Léa dans la cachette ?",
+            "format": "boutons",
+            "options": [
+              "La planche, qu’elle n’a pas remise exactement à sa place",
+              "La lettre de sa mère, qu’elle a emportée",
+              "La boîte, restée ouverte sur le buffet"
+            ],
+            "reponse": "La planche, qu’elle n’a pas remise exactement à sa place",
+            "aide": "Relisez les trois dernières phrases de l’extrait.",
+            "explication": "« Dans la précipitation, sa position initiale ne fut pas respectée. La planche s’affaissait. » Léa le sait, et part quand même."
+          }
+        ]
+      }
+    },
+    {
+      "chapitre": "II",
+      "titre": "La nouvelle aide-soignante",
+      "image": "lieu-02",
+      "salle": {
+        "touches": [
+          {
+            "cle": "texte",
+            "libelle": "Le livre de chevet",
+            "x": 0.82,
+            "y": 0.455
+          },
+          {
+            "cle": "enigme",
+            "libelle": "Le plateau-repas",
+            "x": 0.56,
+            "y": 0.645
+          }
+        ]
+      },
+      "lettre": true,
+      "format": "questions",
+      "presentation": "menus",
+      "enonce": "Complétez la fiche de la nouvelle recrue du couloir de Léa.",
+      "questions": [
+        {
+          "libelle": "Projet professionnel",
+          "options": [
+            "aide-soignante",
+            "infirmière",
+            "kinésithérapeute"
+          ],
+          "reponse": "infirmière"
+        },
+        {
+          "libelle": "Ancienneté dans l'établissement",
+          "options": [
+            "un jour",
+            "à peine plus d'une semaine",
+            "trois ans"
+          ],
+          "reponse": "à peine plus d'une semaine"
+        },
+        {
+          "libelle": "Couleur des yeux",
+          "options": [
+            "bleu ciel",
+            "vert pâle",
+            "noisette"
+          ],
+          "reponse": "vert pâle"
+        }
+      ],
+      "indice": "Relisez le premier échange entre Léa et Nadine, autour du plateau-repas. « Trois ans », c'est le délai avant l'école d'infirmière, pas son ancienneté.",
+      "passage": {
+        "titre": "Chapitre II — La nouvelle aide-soignante",
+        "extraits": [
+          {
+            "titre": "Le plateau-repas",
+            "page": "18",
+            "lignes": [
+              "Elle fait abstraction de ses tourments et échange",
+              "quelques mots avec Nadine. Une belle jeune femme dans la",
+              "fleur de l’âge. Ses cheveux bruns forment une longue tresse",
+              "qui coule le long de sa nuque. Elle a de grands yeux d’un vert",
+              "pâle, discret mais hypnotisant.",
+              "Sa venue est récente. Cela fait à peine plus d’une semaine",
+              "qu’elle a intégré l’établissement. Léa ne la connaît pas encore.",
+              "Ce n’est pas dans ses habitudes d’entamer la conversation,",
+              "mais elle profite de sa présence pour rafraîchir ses pensées",
+              "vagabondes.",
+              "Quelle belle jeune femme vous êtes ! lance-t-elle sans",
+              "détour.",
+              "Je vous remercie… Madame Morimée, rétorque-t-elle avec",
+              "un sourire gêné, donnant l’impression d’une femme en",
+              "manque de confiance.",
+              "[…]",
+              "La curiosité inspire sa demande. C’est maladroit, mais la",
+              "jeune fille ne le prend pas mal.",
+              "Je me destine à devenir infirmière et je dois passer trois ans",
+              "avant de postuler à la formation. En plus, cela me permet de gagner",
+              "ma vie et j’aime travailler ici, je peux m’épanouir au contact des",
+              "anciens.",
+              "Des mots qui forcent le respect de Léa : elle esquisse un",
+              "sourire bienveillant. Sa curiosité est piquée.",
+              "[…]",
+              "Léa sourit. Elle s’est laissé attendrir."
+            ]
+          },
+          {
+            "titre": "Le nom",
+            "page": "19",
+            "lignes": [
+              "Plus je te parle… plus tu me dis quelque chose…",
+              "On peut lire la perplexité dans son regard.",
+              "Quel est ton nom, ma belle ?",
+              "Lemoine !",
+              "Une réponse qui intrigue Léa. Son visage se raidit sous les",
+              "yeux candides de son interlocutrice.",
+              "Tu es de la famille de Louis… Louis Lemoine ?"
+            ]
+          }
+        ]
+      },
+      "indice2": "Chapitre II, p. 18 du livre broché : « Elle fait abstraction de ses tourments… » — « trois ans », c’est le délai avant l’école d’infirmière, pas son ancienneté.",
+      "etude": {
+        "questions": [
+          {
+            "domaine": "Grammaire",
+            "libelle": "« lance-t-elle sans détour ». À quoi sert le « -t- » placé entre les deux traits d’union ?",
+            "format": "boutons",
+            "options": [
+              "À éviter la rencontre de deux voyelles",
+              "À marquer le passé",
+              "À indiquer que le sujet est au pluriel"
+            ],
+            "reponse": "À éviter la rencontre de deux voyelles",
+            "aide": "Essayez de prononcer la phrase sans lui : « lance-elle ».",
+            "explication": "On l’appelle le « t » euphonique. Il n’existe que dans cette position, encadré de deux traits d’union : va-t-il, chante-t-elle, convainc-t-il."
+          },
+          {
+            "domaine": "Orthographe",
+            "libelle": "« Des mots qui forcent le respect de Léa ». Pourquoi « forcent » et non « force » ?",
+            "format": "boutons",
+            "options": [
+              "Le sujet est « qui », qui remplace « des mots », au pluriel",
+              "Le sujet est « le respect », au singulier",
+              "Parce que le verbe suit un nom masculin"
+            ],
+            "reponse": "Le sujet est « qui », qui remplace « des mots », au pluriel",
+            "aide": "Posez la question : qui est-ce qui force le respect ? La réponse est juste avant « qui ».",
+            "explication": "Le pronom relatif « qui » prend la personne et le nombre de son antécédent. Ici « des mots » : donc pluriel."
+          },
+          {
+            "domaine": "Champ lexical",
+            "libelle": "Relevez le nom qui désigne la coiffure de Nadine.",
+            "format": "saisie",
+            "reponse": "tresse",
+            "variantes": [
+              "une tresse",
+              "la tresse",
+              "une longue tresse"
+            ],
+            "aide": "Un nom féminin, dans la description des cheveux.",
+            "explication": "Une longue tresse brune. Le roman décrit souvent ses personnages par un seul détail qu’on retient d’eux : une tresse, une mèche, une canne.",
+            "renvoi": "Ses cheveux bruns forment une longue tresse qui coule le long de sa nuque."
+          },
+          {
+            "domaine": "Compréhension",
+            "libelle": "Pourquoi le visage de Léa se raidit-il ?",
+            "format": "boutons",
+            "options": [
+              "Parce que le nom de Nadine lui rappelle un homme de son passé",
+              "Parce que Nadine vient de la tutoyer",
+              "Parce que son repas refroidit"
+            ],
+            "reponse": "Parce que le nom de Nadine lui rappelle un homme de son passé",
+            "aide": "Regardez ce que Léa demande juste après avoir entendu le nom.",
+            "explication": "« Lemoine » : Nadine est la petite-fille de Louis Lemoine. La douceur de la jeune femme ne change rien — « elle sait ! ».",
+            "renvoi": "Son visage se raidit sous les yeux candides de son interlocutrice."
+          }
+        ]
+      }
+    },
+    {
+      "chapitre": "III",
+      "titre": "Le rêve noir",
+      "image": "lieu-03",
+      "salle": {
+        "touches": [
+          {
+            "cle": "texte",
+            "libelle": "Les lettres sur la corde",
+            "x": 0.26,
+            "y": 0.34
+          },
+          {
+            "cle": "enigme",
+            "libelle": "La grenouille au képi",
+            "x": 0.875,
+            "y": 0.675
+          }
+        ]
+      },
+      "lettre": true,
+      "format": "association",
+      "enonce": "Dans son rêve, Léa ne comprend rien. Vous, vous avez lu la suite. Reliez chaque image à ce qu'elle annonçait.",
+      "titreGauche": "Dans le rêve",
+      "titreDroite": "Ce que cela annonçait",
+      "paires": [
+        {
+          "gauche": "Un javelot planté seul dans la pelouse",
+          "droite": "La rencontre avec Léonide au café de la Paix"
+        },
+        {
+          "gauche": "Des lettres pendues à une corde à linge, l'encre qui coule",
+          "droite": "Les lettres ficelées de la boîte"
+        },
+        {
+          "gauche": "Des yeux bleus dans le miroir, une voix : « Rouvre les yeux »",
+          "droite": "Son frère, et non Léonide"
+        },
+        {
+          "gauche": "Une porte qui se rouvre : « l'autre monde me regarde »",
+          "droite": "L'entre-deux, le passage entre les mondes"
+        }
+      ],
+      "indice": "Dans le rêve, Léa croit reconnaître Léonide. Au chapitre XII, quand elle prononce son nom, on lui répond : « Non… »",
+      "indice2": "Chapitre III, p. 38 du livre broché : « Elle sait que c’est un rêve… » — et p. 151 pour ce que le rêve annonçait.",
+      "versions": [
+        "public"
+      ]
+    },
+    {
+      "chapitre": "III",
+      "titre": "Le rêve noir",
+      "image": "lieu-03",
+      "salle": {
+        "touches": [
+          {
+            "cle": "texte",
+            "libelle": "Les lettres sur la corde",
+            "x": 0.26,
+            "y": 0.34
+          },
+          {
+            "cle": "enigme",
+            "libelle": "La grenouille au képi",
+            "x": 0.875,
+            "y": 0.675
+          }
+        ]
+      },
+      "lettre": true,
+      "versions": [
+        "eleves"
+      ],
+      "format": "association",
+      "enonce": "Léa dort, et son rêve se raconte tout seul. Reliez chaque image à ce que le texte en dit.",
+      "titreGauche": "Dans le rêve",
+      "titreDroite": "Ce que le texte en dit",
+      "paires": [
+        {
+          "gauche": "La grenouille, quand elle apparaît",
+          "droite": "Elle porte un képi"
+        },
+        {
+          "gauche": "La grenouille, à la toute fin",
+          "droite": "Ses coassements deviennent « Crois ! »"
+        },
+        {
+          "gauche": "Les lettres pendues à la corde à linge",
+          "droite": "L’encre coule, goutte à goutte"
+        },
+        {
+          "gauche": "La pluie",
+          "droite": "Ce sont des plumes, et aucun oiseau"
+        },
+        {
+          "gauche": "La voix qui l’appelle dans le miroir",
+          "droite": "Léa croit voir Léonide"
+        }
+      ],
+      "leurres": [
+        "Elle porte une lampe de mineur",
+        "Les enveloppes sont vides"
+      ],
+      "indice": "Tout est dans le rêve : relisez-le du jardin jusqu’au miroir. La grenouille y parle deux fois, et pas de la même façon.",
+      "passage": {
+        "titre": "Chapitre III — Le rêve noir",
+        "extraits": [
+          {
+            "titre": "Le rêve",
+            "page": "38",
+            "lignes": [
+              "Elle sait que c’est un rêve, mais tout lui semble plus réel",
+              "que la veille encore.",
+              "Le coron est désert, figé, mais familier.",
+              "La lumière du ciel scintille comme une étoile trop proche",
+              "elle éblouit.",
+              "Le sol est poreux, instable. Je lutte pour marcher. Je",
+              "cherche, mais je ne trouve rien.",
+              "[…]",
+              "Mais j’entends.",
+              "Croa-Croa ! Croa-Croa !",
+              "Je revois. C’est une grenouille. Elle porte un képi.",
+              "Je suis ses coassements. Ils me mènent jusqu’à un jardin.",
+              "Des lettres pendent à une corde à linge. L’encre coule,",
+              "goutte à goutte.",
+              "[…]",
+              "Croa-Croa ! Croa-Croa !",
+              "Il se met à pleuvoir. Mais ce sont des plumes.",
+              "Aucune trace d’oiseaux.",
+              "C’est paradoxal : je suis heureuse… et triste."
+            ]
+          },
+          {
+            "titre": "La pièce",
+            "page": "39",
+            "lignes": [
+              "Sur la porte, des mots. Mais ils se mélangent. Sans cesse.",
+              "Je n’arrive pas à les reconnaître. Ça va trop vite.",
+              "[…]",
+              "Une poupée est posée dans le coin droit de la pièce.",
+              "L’un de ses yeux est fermé. L’autre, grand ouvert."
+            ]
+          },
+          {
+            "titre": "Le miroir",
+            "page": "40",
+            "lignes": [
+              "Je vois des yeux. Bleus. Aussi bleus que les miens.",
+              "Mais c’est flou. Je pense voir Léonide. Il m’appelle.",
+              "Rouvre les yeux.",
+              "Je veux lui répondre, mais il ne m’entend pas.",
+              "Il insiste. Encore. Plus fort.",
+              "Rouvre les yeux.",
+              "La foudre frappe le miroir. Il se brise en mille morceaux",
+              "comme mes illusions.",
+              "Tout s’arrête. Un battement suspendu.",
+              "La grenouille se remet à chanter mais les coassements",
+              "résonnent autrement à mes oreilles.",
+              "Crois ! Crois ! Crois ! Crois !",
+              "Il ne s’arrête plus. La porte s’est refermée."
+            ]
+          }
+        ]
+      },
+      "indice2": "Chapitre III, p. 38 du livre broché : « Elle sait que c’est un rêve… » — la grenouille parle deux fois, et pas de la même façon.",
+      "apres": "« Crois ! Crois ! » Léa se réveille sans comprendre. Vous non plus, pas encore.",
+      "etude": {
+        "questions": [
+          {
+            "domaine": "Grammaire",
+            "libelle": "Le récit commence par « elle », puis passe à « je ». Quel effet ce changement produit-il ?",
+            "format": "boutons",
+            "options": [
+              "On entre dans le rêve : Léa le raconte de l’intérieur",
+              "Un autre personnage prend la parole",
+              "C’est une erreur de mise en page"
+            ],
+            "reponse": "On entre dans le rêve : Léa le raconte de l’intérieur",
+            "aide": "Demandez-vous qui peut dire « je » dans un rêve.",
+            "explication": "Le narrateur extérieur s’efface et le présent remplace le passé : le lecteur rêve en même temps qu’elle, sans distance.",
+            "renvoi": [
+              "Elle sait que c’est un rêve, mais tout lui semble plus réel que la veille encore.",
+              "Je lutte pour marcher."
+            ]
+          },
+          {
+            "domaine": "Orthographe",
+            "libelle": "« Je suis ses coassements ». De quel verbe « suis » vient-il ici ?",
+            "format": "boutons",
+            "options": [
+              "Du verbe suivre",
+              "Du verbe être",
+              "Du verbe savoir"
+            ],
+            "reponse": "Du verbe suivre",
+            "aide": "Remplacez par « je suivais » puis par « j’étais ». Une seule des deux phrases a un sens.",
+            "explication": "« Je suis » est la même forme pour être et pour suivre : seul le sens tranche. Ici, Léa suit les cris de la grenouille."
+          },
+          {
+            "domaine": "Compréhension",
+            "libelle": "« Sur la porte, des mots. Mais ils se mélangent. Sans cesse. » Pourquoi Léa n’arrive-t-elle pas à les lire ?",
+            "format": "boutons",
+            "options": [
+              "Parce qu’ils se mélangent sans cesse, trop vite pour elle",
+              "Parce que la pièce est plongée dans le noir",
+              "Parce qu’ils sont écrits dans une langue qu’elle ignore"
+            ],
+            "reponse": "Parce qu’ils se mélangent sans cesse, trop vite pour elle",
+            "aide": "Le texte le dit en deux phrases, l’une après l’autre.",
+            "explication": "Des mots qui se mélangent sans cesse : le rêve montre à Léa quelque chose qu’elle ne sait pas encore lire. Retenez l’image, elle resservira.",
+            "renvoi": "Sur la porte, des mots. Mais ils se mélangent."
+          },
+          {
+            "domaine": "Figure de style",
+            "libelle": "« Il se brise en mille morceaux comme mes illusions ». De quelle figure de style s’agit-il ?",
+            "format": "boutons",
+            "options": [
+              "Une comparaison",
+              "Une métaphore",
+              "Une personnification"
+            ],
+            "reponse": "Une comparaison",
+            "aide": "Cherchez le petit mot qui relie les deux éléments rapprochés.",
+            "explication": "Le mot « comme » signale la comparaison. Sans lui — « le miroir de ses illusions » — ce serait une métaphore."
+          },
+          {
+            "domaine": "Champ lexical",
+            "libelle": "« Une poupée est posée dans le coin droit de la pièce. » Que dit le texte de ses deux yeux ?",
+            "format": "boutons",
+            "options": [
+              "L’un est fermé, l’autre grand ouvert",
+              "Les deux sont fermés",
+              "Les deux sont peints en bleu"
+            ],
+            "reponse": "L’un est fermé, l’autre grand ouvert",
+            "aide": "La phrase suivante décrit les yeux, l’un après l’autre.",
+            "explication": "Un œil fermé, un œil ouvert : la poupée regarde et ne regarde pas. Tout le rêve tient dans ces objets à moitié présents — un miroir qui ne reflète rien, un fauteuil vide qui grince.",
+            "renvoi": "L’un de ses yeux est fermé. L’autre, grand ouvert."
+          }
+        ]
+      }
+    },
+    {
+      "chapitre": "IV",
+      "titre": "Le nombre qui suit Léa",
+      "image": "lieu-04",
+      "salle": {
+        "touches": [
+          {
+            "cle": "texte",
+            "libelle": "Le bouquet",
+            "x": 0.465,
+            "y": 0.72
+          },
+          {
+            "cle": "enigme",
+            "libelle": "La porte",
+            "x": 0.575,
+            "y": 0.42
+          }
+        ],
+        "masques": [
+          {
+            "x": 0.575,
+            "y": 0.075,
+            "l": 0.1,
+            "h": 0.09
+          }
+        ]
+      },
+      "lettre": true,
+      "format": "champs",
+      "presentation": "code",
+      "enonce": "Un même nombre désigne : la maison de la rue de la Gambie devant laquelle Marc sonne le matin des noces ; le jour de juillet où Joseph s'éteint ; la dernière chambre de Léa. Entrez-le.",
+      "champs": [
+        {
+          "libelle": "Le nombre",
+          "solution": "27",
+          "reponseNumerique": true,
+          "variantes": [
+            "vingt-sept",
+            "vingt sept"
+          ],
+          "clavier": "nombre",
+          "longueur": 12
+        }
+      ],
+      "indice": "Il suffit d'en trouver un des trois : les deux autres confirment.",
+      "apres": "Ce jour-là, Léa Laprel devenait Morimée.",
+      "passage": {
+        "titre": "Chapitre IV — Le matin des noces",
+        "extraits": [
+          {
+            "titre": "Rue de la Gambie",
+            "page": "41, 42",
+            "lignes": [
+              "En ce printemps 1957, sur la terre battue de la rue de la",
+              "Gambie, Marc imposait une prestance magnétique. La France",
+              "des Trente Glorieuses célébrait l’amour. Un nœud papillon",
+              "s’étalait sur son cou et garnissait sa fierté.",
+              "[…]",
+              "Pendant que les festivités débutaient dans la pièce",
+              "principale, Léonide terminait sa préparation en rasant le peu",
+              "de barbe qui lui restait.",
+              "Il prit le blaireau qu’il rangeait minutieusement dans sa",
+              "trousse de toilette. Souffla sur les poils. Le badigeonna de",
+              "mousse à savon. Et l’étala avec soin sur sa joue gauche. Puis la",
+              "droite. Une manie héritée de son père. Pour conclure ce rituel,",
+              "il sortit de son petit coffret le coupe-chou — gravé du nom de",
+              "son père : Daniel.",
+              "Il se focalisa sur l’objet pour lui donner un caractère sacré.",
+              "Une dimension particulière l’enveloppait."
+            ]
+          },
+          {
+            "titre": "Le cortège",
+            "page": "43, 44",
+            "lignes": [
+              "Le futur marié descendit l’escalier pour rejoindre son",
+              "meilleur ami. Son coéquipier de l’équipe fanion — l’Union",
+              "sportive ouvrière de Bruay.",
+              "[…]",
+              "Léonide eut un sourire compatissant et lui cria :",
+              "Ch’a va aller, Marco ! C’est bientôt fini !",
+              "La foule se retourna vers le binôme. Se concentrant sur",
+              "l’accusé. Et un fou rire général éclata quand on constata la",
+              "mine défaite du témoin. Il faut dire que la chaleur aggravait le",
+              "sentiment d’ivresse. Chaque verre comptait double. La",
+              "logique implacable de l’alcool se jouait des invités. La",
+              "vingtaine de convives qui se massait dans les rues de Bruay",
+              "définissait la peine de Marc."
+            ]
+          }
+        ]
+      },
+      "indice2": "Chapitre IV, p. 41 du livre broché : « En ce printemps 1957… » — le même nombre revient deux fois ailleurs dans le roman.",
+      "etude": {
+        "questions": [
+          {
+            "domaine": "Grammaire",
+            "libelle": "« Souffla sur les poils. Le badigeonna de mousse à savon. » Qu’est-ce que l’auteur a supprimé au début de ces phrases ?",
+            "format": "boutons",
+            "options": [
+              "Le sujet, « il »",
+              "Le verbe",
+              "Le complément"
+            ],
+            "reponse": "Le sujet, « il »",
+            "aide": "Comparez avec la phrase complète qui précède : « Il prit le blaireau… ».",
+            "explication": "Le sujet disparaît et il ne reste que le geste : la phrase va aussi vite que la main. On parle d’ellipse.",
+            "renvoiAide": "Il prit le blaireau qu’il rangeait minutieusement dans sa trousse de toilette."
+          },
+          {
+            "domaine": "Orthographe",
+            "libelle": "« La vingtaine de convives qui se massait dans les rues ». Pourquoi « se massait » au singulier ?",
+            "format": "boutons",
+            "options": [
+              "Le sujet est « la vingtaine », nom singulier",
+              "Le sujet est « les rues »",
+              "C’est une faute d’accord"
+            ],
+            "reponse": "Le sujet est « la vingtaine », nom singulier",
+            "aide": "Le vrai sujet n’est pas « convives ». Cherchez le nom qui commande le groupe.",
+            "explication": "Avec un nom collectif — une vingtaine de, une foule de, la plupart de — l’accord se fait au choix, avec le collectif ou avec son complément. Ici, l’auteur choisit le singulier."
+          },
+          {
+            "domaine": "Champ lexical",
+            "libelle": "Relevez le nom qui désigne le rasoir gravé au nom de Daniel.",
+            "format": "saisie",
+            "reponse": "coupe-chou",
+            "variantes": [
+              "le coupe-chou",
+              "coupe chou",
+              "un coupe-chou"
+            ],
+            "aide": "Un nom composé, de deux mots reliés par un trait d’union.",
+            "explication": "Le coupe-chou est un rasoir droit, à lame pliante. Un objet de père, devenu rituel de fils.",
+            "renvoi": "Pour conclure ce rituel, il sortit de son petit coffret le coupe-chou — gravé du nom de son père : Daniel."
+          },
+          {
+            "domaine": "Histoire",
+            "libelle": "« La France des Trente Glorieuses célébrait l’amour ». Que désignent les Trente Glorieuses ?",
+            "format": "boutons",
+            "options": [
+              "Les trente années de croissance et de plein emploi après 1945",
+              "Les trente premières années de la République",
+              "Les trente jours qui suivirent la Libération"
+            ],
+            "reponse": "Les trente années de croissance et de plein emploi après 1945",
+            "aide": "Le mariage a lieu en 1957. Que vivait la France à cette date ?",
+            "explication": "1945-1975 : reconstruction, croissance forte, plein emploi. Dans le bassin minier, c’est l’époque où le charbon fait encore vivre des villes entières."
+          },
+          {
+            "domaine": "Langue",
+            "libelle": "« Ch’a va aller, Marco ! » Pourquoi l’auteur n’écrit-il pas « Ça va aller » ?",
+            "format": "boutons",
+            "options": [
+              "Pour faire entendre le patois du Nord",
+              "Pour montrer que le personnage fait une faute",
+              "Pour gagner de la place"
+            ],
+            "reponse": "Pour faire entendre le patois du Nord",
+            "aide": "Lisez la phrase à voix haute. Qu’est-ce qui change par rapport au français scolaire ?",
+            "explication": "Le ch’ti transforme le « ç » en « ch ». L’écrire ainsi fait entendre la voix — et rappelle que ces familles vivaient entre deux langues : celle de l’école et celle de la rue."
+          }
+        ]
+      }
+    },
+    {
+      "chapitre": "V",
+      "titre": "La lampisterie",
+      "image": "lieu-05",
+      "salle": {
+        "touches": [
+          {
+            "cle": "texte",
+            "libelle": "La loque sur le comptoir",
+            "x": 0.17,
+            "y": 0.76
+          },
+          {
+            "cle": "enigme",
+            "libelle": "Les jetons",
+            "x": 0.58,
+            "y": 0.8
+          }
+        ],
+        "masques": [
+          {
+            "x": 0.575,
+            "y": 0.8,
+            "l": 0.16,
+            "h": 0.09
+          }
+        ]
+      },
+      "lettre": true,
+      "format": "champs",
+      "presentation": "cadenas",
+      "enonce": "Août 1939. Pour descendre à la fosse 6, Joseph doit échanger son jeton contre sa lampe. Le cadenas de la lampisterie s'ouvre avec le numéro gravé sur ce jeton.",
+      "champs": [
+        {
+          "libelle": "Quatre chiffres",
+          "solution": "2754",
+          "clavier": "nombre",
+          "longueur": 4
+        }
+      ],
+      "indice": "Le jeton est carré : c'est le poste du matin. On le prend juste avant de chanter « M'lampiste ».",
+      "apres": "Attention au fond, grisou patiente !",
+      "passage": {
+        "titre": "Chapitre V — La lampisterie",
+        "extraits": [
+          {
+            "titre": "La salle des pendus",
+            "page": "55",
+            "lignes": [
+              "Une fois arrivé, Joseph se dirigea, comme ses camarades,",
+              "vers le lavabo — une salle qui servait de vestiaire et de salle de",
+              "bain pour les mineurs. C’était l’endroit où, selon leur",
+              "expression, ils quittaient le jour.",
+              "On l’appelait la salle des pendus : les tenues des mineurs y",
+              "étaient suspendues à des crochets, tout en haut du bâtiment.",
+              "[…]",
+              "Joseph laissait sur place ses effets personnels ainsi que son",
+              "identité pour endosser la tenue du mineur et devenir un autre",
+              "homme.",
+              "Une fois le costume revêtu, il se rendit vers la lampisterie",
+              "pour chercher sa taillette — un jeton carré synonyme d’un",
+              "poste du matin, celui de l’après-midi étant rond — afin de",
+              "pointer » sa présence.",
+              "Sur ce même jeton, on pouvait lire le numéro 2754, qui lui",
+              "permettait de récupérer sa lampe et de l’identifier en cas",
+              "d’accident. Devant la lampiste, préposée à l’entretien et au",
+              "rangement des lampes, il échangea son jeton contre une",
+              "lampe. Il vérifia par trois fois si l’outil fonctionnait.",
+              "L’instrument essentiel qui leur procurait la vue et leur",
+              "conférait un troisième œil."
+            ]
+          },
+          {
+            "titre": "La descente",
+            "page": "56",
+            "lignes": [
+              "Derrière lui, un groupe de mineurs se mirent à",
+              "chantonner :",
+              "M’lampiste,",
+              "Em’ tiot’ lampiste,",
+              "M’lamp’ all’va bien, mais mi’jsus triste",
+              "M’lampiste",
+              "Em’ tiot’ lampiste",
+              "[…]",
+              "Pierrot devenait le garant de leur sûreté ou le complice de",
+              "leurs tourments. Il avait cette phrase qu’il prononçait avant",
+              "chaque descente :",
+              "Attention au fond, grisou patiente !",
+              "C’était la hantise de tous les mineurs. Un message qui",
+              "retentissait comme une alerte.",
+              "L’alarme, d’un son strident, aigu et régulier, résonna dans",
+              "la salle et annonça la descente. Le bruit était si fort qu’on",
+              "pouvait entendre un bourdonnement dans les tympans",
+              "quelques secondes après son arrêt. Ils étaient prêts à retrouver",
+              "la nuit.",
+              "L’engin prit de la vitesse rapidement."
+            ]
+          }
+        ]
+      },
+      "indice2": "Chapitre V, p. 55 du livre broché : « Une fois arrivé, Joseph se dirigea… » — le numéro est écrit en toutes lettres dans la phrase sur le jeton.",
+      "etude": {
+        "questions": [
+          {
+            "domaine": "Grammaire",
+            "libelle": "« C’était l’endroit où, selon leur expression, ils quittaient le jour ». Quelle est la nature du mot « où » ?",
+            "format": "boutons",
+            "options": [
+              "Un pronom relatif",
+              "Un adverbe interrogatif",
+              "Une conjonction de coordination"
+            ],
+            "reponse": "Un pronom relatif",
+            "aide": "Cherchez le nom qu’il reprend, juste avant lui.",
+            "explication": "Il relie la proposition à son antécédent, « l’endroit ». Avec son accent, « où » marque toujours le lieu ou le temps — « ou » sans accent, lui, propose un choix."
+          },
+          {
+            "domaine": "Orthographe",
+            "libelle": "« un groupe de mineurs se mirent à chantonner ». Avec quel mot l’auteur a-t-il accordé le verbe ?",
+            "format": "boutons",
+            "options": [
+              "Avec « mineurs », au pluriel",
+              "Avec « groupe », au singulier",
+              "Avec « lui »"
+            ],
+            "reponse": "Avec « mineurs », au pluriel",
+            "aide": "Regardez la terminaison : « mirent » ou « mit » ?",
+            "explication": "Accord par le sens : ce sont les mineurs qui chantent. Avec un nom collectif, les deux accords sont admis — comparez avec « la vingtaine de convives qui se massait », au chapitre IV."
+          },
+          {
+            "domaine": "Champ lexical",
+            "libelle": "Relevez le nom du jeton que le mineur échange contre sa lampe.",
+            "format": "saisie",
+            "reponse": "taillette",
+            "variantes": [
+              "la taillette",
+              "une taillette",
+              "sa taillette"
+            ],
+            "aide": "Un nom féminin, entre deux tirets, juste après « lampisterie ».",
+            "explication": "La taillette : carrée pour le poste du matin, ronde pour celui de l’après-midi. Autour d’elle, tout le vocabulaire de la mine — lampisterie, moulineur, loques, grisou.",
+            "renvoi": "Une fois le costume revêtu, il se rendit vers la lampisterie pour chercher sa taillette — un jeton carré synonyme d’un poste du matin, celui de l’après-midi étant rond — afin de « pointer » sa présence."
+          },
+          {
+            "domaine": "Histoire",
+            "libelle": "« Attention au fond, grisou patiente ! » Qu’est-ce que le grisou ?",
+            "format": "boutons",
+            "options": [
+              "Un gaz inflammable qui s’accumule dans les galeries",
+              "Le surnom du chef de poste",
+              "Le wagonnet qui remonte le charbon"
+            ],
+            "reponse": "Un gaz inflammable qui s’accumule dans les galeries",
+            "aide": "C’est « la hantise de tous les mineurs » : cherchez un danger, pas une personne.",
+            "explication": "Un gaz naturel qui explose à la moindre étincelle. Le bassin en a payé le prix : à Courrières, en 1906, un coup de grisou a tué 1 099 mineurs, à trente kilomètres de Bruay."
+          },
+          {
+            "domaine": "Compréhension",
+            "libelle": "« ils quittaient le jour » et « Ils étaient prêts à retrouver la nuit ». Que désignent ici « le jour » et « la nuit » ?",
+            "format": "boutons",
+            "options": [
+              "La surface et le fond de la mine",
+              "Le matin et le soir",
+              "La vie et la mort"
+            ],
+            "reponse": "La surface et le fond de la mine",
+            "aide": "Joseph descend à huit heures du matin. Fait-il nuit dehors ?",
+            "explication": "Le vocabulaire des mineurs oppose « le jour » — la surface — et « le fond ». Descendre, c’est entrer dans une nuit qui dure huit heures.",
+            "renvoi": [
+              "ils quittaient le jour",
+              "Ils étaient prêts à retrouver la nuit"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "chapitre": "V bis",
+      "titre": "Au fond",
+      "image": "lieu-05b",
+      "salle": {
+        "touches": [
+          {
+            "cle": "texte",
+            "libelle": "La lampe du mineur",
+            "x": 0.402,
+            "y": 0.206,
+            "r": 0.04
+          },
+          {
+            "cle": "enigme",
+            "libelle": "Le briquet ouvert",
+            "x": 0.246,
+            "y": 0.77,
+            "r": 0.055
+          }
+        ]
+      },
+      "lettre": "",
+      "versions": [
+        "eleves"
+      ],
+      "format": "champs",
+      "enonce": "Août 1939, trois cent soixante mètres sous le carreau de la fosse 6. Remplissez le carnet de la journée de Joseph.",
+      "champs": [
+        {
+          "libelle": "Le casse-croûte du mineur",
+          "solution": "briquet",
+          "variantes": [
+            "le briquet",
+            "un briquet",
+            "son briquet"
+          ]
+        },
+        {
+          "libelle": "L’étage où la cage s’arrête, en mètres",
+          "solution": "360",
+          "reponseNumerique": true,
+          "variantes": [
+            "trois cent soixante",
+            "360 mètres"
+          ]
+        },
+        {
+          "libelle": "Le nom de la veine de Joseph",
+          "solution": "Ernestine",
+          "variantes": [
+            "la veine Ernestine"
+          ]
+        },
+        {
+          "libelle": "Le nombre de berlines qu’Alfred accepte de tirer",
+          "solution": "12",
+          "reponseNumerique": true,
+          "variantes": [
+            "douze"
+          ]
+        },
+        {
+          "libelle": "Ce qu’il garde dans un morceau de tissu blanc pour Léa",
+          "solution": "le pain d’alouette",
+          "variantes": [
+            "pain d’alouette",
+            "pain d'alouette",
+            "le pain d'alouette",
+            "du pain d’alouette",
+            "un pain d’alouette"
+          ]
+        }
+      ],
+      "indice": "Tout est dans l’extrait : l’étage se compte en mètres, et la veine porte un prénom de femme.",
+      "indice2": "Chapitre V bis, p. 57 du livre broché : « La sonnerie retentit une seconde fois… » — la descente, le cheval Alfred, puis la pause.",
+      "apres": "Tous les enfants du coron se battaient pour avoir un morceau du briquet.",
+      "passage": {
+        "titre": "Chapitre V bis — Au fond",
+        "extraits": [
+          {
+            "titre": "Les entrailles de la terre",
+            "page": "57, 58",
+            "lignes": [
+              "La sonnerie retentit une seconde fois. Ils arrivèrent à l’étage",
+              "trois cent soixante, correspondant aux mètres qui les",
+              "séparaient de la surface. Il faisait chaud, très chaud.",
+              "Joseph se trouvait dans les entrailles de la terre. L’humidité",
+              "le faisait transpirer à grosses gouttes.",
+              "[…]",
+              "Ces longs couloirs, ces veines de charbon, portaient tous un",
+              "nom. Celle de Joseph s’appelait Ernestine. Les veines",
+              "inférieures portaient le nom de femmes.",
+              "Ils marchèrent pour rallier la taille, lieu d’extraction du",
+              "charbon. Sur le chemin, Joseph aimait s’arrêter quelques",
+              "secondes pour caresser la joue d’Alfred, le plus vieux cheval",
+              "de la fosse.",
+              "Il gardait toujours dans son briquet deux ou trois bonbons",
+              "qu’il réservait à celui qui partageait leur quotidien. Il en",
+              "profitait pour saluer Jacques, le meneur de bidets.",
+              "Alfred portait une petite bande de cuir sur sa tête pour",
+              "éviter de se blesser contre le toit du tunnel. Son poil, marron",
+              "foncé à la lumière, devenait noir comme le charbon au fond.",
+              "Sa vue s’était habituée à la noirceur. Son regard cherchait la",
+              "compagnie et on y décelait de la compassion. Alfred pouvait",
+              "tirer jusqu’à douze berlines, et si on avait le malheur d’en",
+              "ajouter une treizième, il se braquait — à croire qu’il savait",
+              "compter."
+            ]
+          },
+          {
+            "titre": "Le briquet",
+            "page": "58",
+            "lignes": [
+              "Quelques minutes plus tard, devant son poste, Joseph",
+              "entama l’extraction du charbon à l’aide de son marteau-",
+              "piqueur. Chaque geste sous terre décuplait les efforts. C’était",
+              "physique, éreintant, exigeant !",
+              "Quelques heures à façonner la terre et à creuser des",
+              "souterrains fatiguèrent les corps. Les estomacs réclamèrent",
+              "leur droit.",
+              "Ils se rassemblèrent à quelques pas et sortirent leur briquet.",
+              "Joseph aimait cet instant de la journée car il",
+              "s’enorgueillissait de découvrir ce que lui avait préparé Maria.",
+              "[…]",
+              "C’est alors que Jeannot, qui habitait six maisons plus loin",
+              "dans la rue, lui demanda :",
+              "Qu’ech’ que t’as eu de bio din t’gamelle aujourd’hui ?",
+              "Avec plaisir, Joseph découvrit qu’aujourd’hui, il s’agissait",
+              "d’une double tartine beurrée avec un morceau de fromage et",
+              "du jambon. Il ouvrit son pain en deux pour le montrer à",
+              "Jeannot. Son sourire en coin laissait entrevoir sa satisfaction.",
+              "L’atmosphère particulière, mêlant humidité et chaleur,",
+              "donnait au pain une odeur incomparable, unique. Par",
+              "tradition, il en gardait un petit morceau qu’il enveloppait dans",
+              "un morceau de tissu blanc pour le ramener à la petite Léa.",
+              "Tous les enfants du coron se battaient pour avoir un morceau",
+              "du briquet : le fameux pain d’alouette."
+            ]
+          }
+        ]
+      },
+      "etude": {
+        "questions": [
+          {
+            "domaine": "Grammaire",
+            "libelle": "« Ils marchèrent pour rallier la taille, lieu d’extraction du charbon ». À quel temps « marchèrent » est-il conjugué ?",
+            "format": "boutons",
+            "options": [
+              "Au passé simple",
+              "À l’imparfait",
+              "Au passé composé"
+            ],
+            "reponse": "Au passé simple",
+            "aide": "Comparez avec « Joseph aimait s’arrêter » : l’un tranche, l’autre dure.",
+            "explication": "Le passé simple pose une action nette, achevée, qui fait avancer le récit. Autour de lui, les imparfaits — « il gardait », « il aimait » — installent l’habitude et le décor.",
+            "renvoiAide": "Sur le chemin, Joseph aimait s’arrêter quelques secondes pour caresser la joue d’Alfred, le plus vieux cheval de la fosse."
+          },
+          {
+            "domaine": "Orthographe",
+            "libelle": "« Ils se rassemblèrent à quelques pas et sortirent leur briquet ». Pourquoi « leur » ne prend-il pas de -s ?",
+            "format": "boutons",
+            "options": [
+              "Parce que chacun n’en a qu’un seul",
+              "Parce que « leur » est invariable",
+              "Parce qu’il est placé après le verbe"
+            ],
+            "reponse": "Parce que chacun n’en a qu’un seul",
+            "aide": "Combien de briquets un mineur emporte-t-il au fond ?",
+            "explication": "Déterminant possessif, « leur » s’accorde avec ce qui est possédé. Chacun n’emporte qu’une gamelle : le singulier suffit. Le pluriel ne serait pas fautif, mais il ferait entendre plusieurs briquets par homme."
+          },
+          {
+            "domaine": "Champ lexical",
+            "libelle": "Relevez le nom féminin qui désigne, au fond, le lieu d’extraction du charbon.",
+            "format": "saisie",
+            "reponse": "la taille",
+            "variantes": [
+              "taille",
+              "une taille"
+            ],
+            "aide": "Il est défini juste après lui, entre virgules.",
+            "explication": "La taille, la veine, la berline, le briquet : sous terre, les mots courants changent de sens. Une « taille » n’est plus une mesure, mais le front où l’on abat le charbon.",
+            "renvoi": "Ils marchèrent pour rallier la taille, lieu d’extraction du charbon."
+          },
+          {
+            "domaine": "Langue",
+            "libelle": "« Qu’ech’ que t’as eu de bio din t’gamelle aujourd’hui ? » Quelle langue Jeannot parle-t-il ?",
+            "format": "boutons",
+            "options": [
+              "Le picard du bassin minier, le ch’ti",
+              "Le flamand",
+              "Le wallon"
+            ],
+            "reponse": "Le picard du bassin minier, le ch’ti",
+            "aide": "C’est la langue du coron, celle que les mineurs parlent entre eux.",
+            "explication": "« Qu’ech’ que » pour « qu’est-ce que », « din t’gamelle » pour « dans ta gamelle ». Le roman garde le picard tel quel dans les dialogues, et le français autour : deux langues dans la même page."
+          },
+          {
+            "domaine": "Figure de style",
+            "libelle": "« Joseph se trouvait dans les entrailles de la terre ». Quelle figure de style ?",
+            "format": "boutons",
+            "options": [
+              "Une métaphore",
+              "Une comparaison",
+              "Une litote"
+            ],
+            "reponse": "Une métaphore",
+            "aide": "Cherchez le mot de comparaison. Il n’y en a pas.",
+            "explication": "La terre reçoit un corps : des entrailles. Sans « comme », l’image est donnée directement — c’est une métaphore. Quelques phrases plus loin, « noir comme le charbon » est, lui, une comparaison."
+          },
+          {
+            "domaine": "Compréhension",
+            "libelle": "Pourquoi Joseph garde-t-il un morceau de son pain au lieu de le manger ?",
+            "format": "boutons",
+            "options": [
+              "Pour le rapporter à Léa",
+              "Parce qu’il n’a plus faim",
+              "Pour le donner au cheval Alfred"
+            ],
+            "reponse": "Pour le rapporter à Léa",
+            "aide": "Regardez dans quoi il l’enveloppe, et pour qui.",
+            "explication": "C’est le pain d’alouette : le morceau que le mineur remonte du fond et que les enfants du coron s’arrachent. Il a passé la journée sous terre, et il en garde l’odeur.",
+            "renvoi": "Par tradition, il en gardait un petit morceau qu’il enveloppait dans un morceau de tissu blanc pour le ramener à la petite Léa."
+          }
+        ]
+      }
+    },
+    {
+      "chapitre": "VI",
+      "titre": "Les combattants du Nord",
+      "image": "lieu-06",
+      "salle": {
+        "touches": [
+          {
+            "cle": "texte",
+            "libelle": "Les paniers d’osier",
+            "x": 0.17,
+            "y": 0.74
+          },
+          {
+            "cle": "enigme",
+            "libelle": "Le parc",
+            "x": 0.52,
+            "y": 0.63
+          }
+        ]
+      },
+      "lettre": true,
+      "format": "questions",
+      "presentation": "menus",
+      "enonce": "Chocques, estaminet Delserre-Degan, 6 août 1972. Quatre coqs de Léonide entrent dans le parc. Qui suis-je ?",
+      "questions": [
+        {
+          "libelle": "Je porte le nom de l'idole de Léonide. Le matin, je suis gêné à l'aile droite.",
+          "options": [
+            "Lucky",
+            "Just",
+            "Fifi",
+            "Popeye",
+            "César"
+          ],
+          "reponse": "Just"
+        },
+        {
+          "libelle": "Je porte le nom de l'héroïne de Françoise. Pour mon premier combat, je gagne en trente secondes.",
+          "options": [
+            "Lucky",
+            "Just",
+            "Fifi",
+            "Popeye",
+            "César"
+          ],
+          "reponse": "Fifi"
+        },
+        {
+          "libelle": "Rapide et léger, je signe ce jour-là ma quatrième victoire.",
+          "options": [
+            "Lucky",
+            "Just",
+            "Fifi",
+            "Popeye",
+            "César"
+          ],
+          "reponse": "Lucky"
+        },
+        {
+          "libelle": "Cinq fois vainqueur, je tombe, puis je me relève en chantant. Le gong des six minutes me rend la liberté.",
+          "options": [
+            "Lucky",
+            "Just",
+            "Fifi",
+            "Popeye",
+            "César"
+          ],
+          "reponse": "Popeye"
+        }
+      ],
+      "indice": "Just Fontaine et Fifi Brindacier vous aideront pour les deux premiers. L'un des cinq noms proposés n'appartient pas à Léonide.",
+      "passage": {
+        "titre": "Chapitre VI — César contre Popeye",
+        "extraits": [
+          {
+            "titre": "Les deux champions",
+            "page": "84, 85",
+            "lignes": [
+              "C’était enfin le moment que tout le monde attendait, le clou",
+              "du spectacle, l’opposition la plus attendue : César contre",
+              "Popeye, tous deux vainqueurs à cinq reprises.",
+              "Le protégé de Léonide était puissant et possédait une force",
+              "dans le cou incomparable. Son regard était noir, imprégné",
+              "d’impulsivité et de caractère. Son plumage noir du cou à la",
+              "queue, seulement entrecoupé d’une bande dorée sur son dos",
+              "s’éparpillant sur ses ailes, se terminait sur de grandes pattes",
+              "jaunes. Ce coq dégageait une impression d’invincibilité.",
+              "César, quant à lui, appartenait à un coqueleux de Wallonie",
+              "spécialisé dans le croisement de plusieurs races, ce qui lui",
+              "conférait une allure unique. Il était grand et longiligne,",
+              "couronné par un cou long et fin. Son plumage était marron",
+              "avec une tête entièrement teintée de rouge et de longues",
+              "pattes grises. Il était fort, beau et élancé.",
+              "Les deux coqueleux n’étaient pas rassurés, animés par la",
+              "peur de perdre leur meilleur guerrier, partageant ce que le",
+              "laniste devait autrefois ressentir. Le public, au contraire,",
+              "bouillonnait. Ils n’étaient pas lassés par autant de duels — la",
+              "foule avait gardé de la place pour le dessert.",
+              "Les cloches retentirent pour la dernière fois — les",
+              "champions étaient prêts. Lancés dans l’arène, ils ne foncèrent",
+              "pas immédiatement, avançant avec délicatesse et intelligence.",
+              "Les spectateurs étaient silencieux, comme hypnotisés par les",
+              "deux volatiles.",
+              "[…]",
+              "Popeye était seul, ou presque."
+            ]
+          },
+          {
+            "titre": "Le gong des six minutes",
+            "page": "85, 86",
+            "lignes": [
+              "Il esquivait du mieux qu’il pouvait les assauts",
+              "répétés de César, qui semblait prendre confiance. C’était un",
+              "croisement de plusieurs races et il possédait la vitesse du",
+              "français, la résistance du japonais et l’agressivité du chinois,",
+              "ce qui le rendait presque intouchable.",
+              "Les minutes passèrent et les sauts devenaient de plus en",
+              "plus compliqués. On percevait l’usure dans les gestes du",
+              "volatile qui se retrouva à nouveau au sol sur une touche bien",
+              "placée du Belge. Les secondes se transformèrent en heures",
+              "dans l’esprit du champion. Ô temps ! Ô temps ! Pourquoi",
+              "ralentissais-tu, sinon pour son malheur ? Ainsi tu prenais un",
+              "malin plaisir à faire durer la souffrance.",
+              "[…]",
+              "Léonide se précipita dans le parc, au bord des larmes,",
+              "parcouru de frissons, pour récupérer son champion sous",
+              "l’ovation d’un public en délire. Tout le monde était debout ! Ils",
+              "applaudissaient l’exploit du guerrier. Popeye ne remportait",
+              "pas seulement le cœur du public et les éloges — il venait tout",
+              "simplement de gagner sa liberté. Quelle plus belle distinction",
+              "un être vivant pouvait-il espérer ? Le gladiateur offrit à la salle",
+              "ce qu’elle attendait : un combattant du Nord."
+            ]
+          }
+        ]
+      },
+      "indice2": "Chapitre VI, p. 84 du livre broché : « C’était enfin le moment que tout le monde attendait… » — les quatre noms sont p. 75.",
+      "etude": {
+        "questions": [
+          {
+            "domaine": "Grammaire",
+            "libelle": "« Lancés dans l’arène, ils ne foncèrent pas immédiatement ». À quoi se rapporte « Lancés » ?",
+            "format": "boutons",
+            "options": [
+              "À « ils », les deux coqs",
+              "À l’arène",
+              "Au public"
+            ],
+            "reponse": "À « ils », les deux coqs",
+            "aide": "Posez la question : qui est lancé dans l’arène ?",
+            "explication": "Participe passé employé comme adjectif, en tête de phrase : il s’accorde avec le sujet qui suit — d’où le « s » de « Lancés »."
+          },
+          {
+            "domaine": "Orthographe",
+            "libelle": "« César, quant à lui, appartenait à un coqueleux de Wallonie ». Pourquoi « quant » et non « quand » ?",
+            "format": "boutons",
+            "options": [
+              "Parce que « quant à » signifie « en ce qui concerne »",
+              "Parce que « quant » indique le moment",
+              "Parce que les deux graphies sont admises"
+            ],
+            "reponse": "Parce que « quant à » signifie « en ce qui concerne »",
+            "aide": "Remplacez par « en ce qui concerne César ». La phrase tient-elle debout ?",
+            "explication": "« Quand » marque le temps (quand il arriva) ; « quant à » change de sujet. Et il existe un troisième larron : « qu’en » — qu’en penses-tu ?"
+          },
+          {
+            "domaine": "Champ lexical",
+            "libelle": "Le combat est raconté comme un combat de gladiateurs. Relevez le nom qui désignait, à Rome, celui qui entraînait et louait les gladiateurs.",
+            "format": "saisie",
+            "reponse": "laniste",
+            "variantes": [
+              "le laniste",
+              "un laniste"
+            ],
+            "aide": "Un nom masculin, à la fin de la phrase.",
+            "explication": "Le laniste achetait, entraînait et louait les gladiateurs. Tout le passage file la métaphore : arène, champions, guerrier, gladiateur.",
+            "renvoi": "Les deux coqueleux n’étaient pas rassurés, animés par la peur de perdre leur meilleur guerrier, partageant ce que le laniste devait autrefois ressentir."
+          },
+          {
+            "domaine": "Figure de style",
+            "libelle": "« Ô temps ! Ô temps ! Pourquoi ralentissais-tu, sinon pour son malheur ? » À qui le narrateur s’adresse-t-il ?",
+            "format": "boutons",
+            "options": [
+              "Au temps lui-même, comme s’il pouvait entendre",
+              "À Popeye",
+              "Au public de la salle"
+            ],
+            "reponse": "Au temps lui-même, comme s’il pouvait entendre",
+            "aide": "Qui est désigné par « tu » dans « ralentissais-tu » ?",
+            "explication": "On interpelle une idée comme une personne : c’est une apostrophe doublée d’une personnification. Lamartine ouvrait de même — « Ô temps, suspends ton vol ! »."
+          },
+          {
+            "domaine": "Compréhension",
+            "libelle": "« il venait tout simplement de gagner sa liberté ». Comment comprenez-vous cette phrase ?",
+            "format": "boutons",
+            "options": [
+              "Popeye ne combattra plus : son exploit lui vaut la retraite",
+              "Popeye s’est échappé de l’arène pendant le combat",
+              "Popeye a été vendu à un autre coqueleux"
+            ],
+            "reponse": "Popeye ne combattra plus : son exploit lui vaut la retraite",
+            "aide": "Que se passe-t-il, d’ordinaire, pour un coq battu ? Relisez la fin du passage.",
+            "explication": "Un coq qui se relève et chante après une telle attaque ne se remet pas en jeu. Le roman en fait un gladiateur gracié — « un combattant du Nord »."
+          }
+        ]
+      }
+    },
+    {
+      "chapitre": "VII",
+      "titre": "La cour du café de la Paix",
+      "image": "lieu-07",
+      "salle": {
+        "touches": [
+          {
+            "cle": "texte",
+            "libelle": "Le journal sur la table",
+            "x": 0.11,
+            "y": 0.8
+          },
+          {
+            "cle": "enigme",
+            "libelle": "La cible",
+            "x": 0.83,
+            "y": 0.43
+          }
+        ],
+        "masques": [
+          {
+            "x": 0.655,
+            "y": 0.57,
+            "l": 0.13,
+            "h": 0.22
+          }
+        ]
+      },
+      "lettre": true,
+      "format": "champs",
+      "enonce": "Été 1950. Chacun lance deux fois. Complétez le tableau, puis dites où finit le dernier javelot.",
+      "champs": [
+        {
+          "libelle": "Points de la jeune fille",
+          "solution": "4",
+          "reponseNumerique": true,
+          "variantes": [
+            "quatre"
+          ],
+          "clavier": "nombre",
+          "longueur": 6
+        },
+        {
+          "libelle": "Points du garçon à la moustache naissante",
+          "solution": "2",
+          "reponseNumerique": true,
+          "variantes": [
+            "deux"
+          ],
+          "clavier": "nombre",
+          "longueur": 6
+        },
+        {
+          "libelle": "Où finit le dernier javelot ?",
+          "solution": "dans le pot de fleurs",
+          "variantes": [
+            "le pot de fleurs",
+            "pot de fleurs",
+            "un pot de fleurs",
+            "dans un pot de fleurs",
+            "dans le pot de fleurs derrière la cible",
+            "le pot de fleurs derrière la cible"
+          ]
+        }
+      ],
+      "indice": "Le second lancer de Léonide est raté à cause d'un rayon de soleil.",
+      "apres": "Il perdit la partie, mais remporta le match.",
+      "passage": {
+        "titre": "Chapitre VII — La cour du café de la Paix",
+        "extraits": [
+          {
+            "titre": "Un dimanche d’été 1950",
+            "page": "92",
+            "lignes": [
+              "Au centre de ce tableau, à la petite table la plus convoitée",
+              "du bar, Joseph et Maria trônaient avec fierté. L’Humanité entre",
+              "les mains, Joseph alternait de la main gauche entre son",
+              "galopin, sa gauloise sans filtre et son journal. Une",
+              "chorégraphie tranquille, empreinte de calme dominical. Quant",
+              "à sa femme, le repos s’incarnait dans un verre de côtes-du-",
+              "rhône et un œil errant sur la place. Les mots manquaient mais",
+              "ils savouraient le silence partagé. Leur fille, qui s’ennuyait de",
+              "[…]",
+              "incontrôlé, révélant une attirance coupable. Le mouvement de",
+              "sa main, venue recoiffer une mèche inexistante dans un vent",
+              "pourtant immobile, dissimulait mal un désir qui ne cessait de",
+              "croître."
+            ]
+          },
+          {
+            "titre": "Les lancers",
+            "page": "93, 94",
+            "lignes": [
+              "Son pied posé sur la planche, le javelot dans la main droite,",
+              "l’attention des spectateurs braquée sur elle — tout se",
+              "concentrait sur son lancer.",
+              "[…]",
+              "Son pied droit s’approcha du bord de la ligne de lancer",
+              "avec une légère inclinaison latérale. Le bras droit, tendu vers",
+              "l’arrière, faisait osciller la plume de dindon qui couronnait la",
+              "tige de fer. Elle effleura la moustache naissante de son jeune",
+              "rival, frôlement involontaire mais symbolique.",
+              "[…]",
+              "Le bras décrivit une courbe régulière. La plume s’arracha",
+              "de ses doigts, filant dans une trajectoire rectiligne, tendue,",
+              "nette — pour finir sa course dans le cercle blanc central : deux",
+              "points.",
+              "Chacun devait lancer deux fois. Il lui restait une cartouche.",
+              "Le fusil prêt à dégainer une seconde fois, elle reproduisit la",
+              "mécanique avec une précision chirurgicale. Même geste,",
+              "même destin : deux points.",
+              "[…]",
+              "L’arracheur abandonna son travail de collecte au profit du",
+              "jardinage, récupérant la pointe dans le pot de fleurs derrière la",
+              "cible. Ses espoirs de victoire s’enterraient, mais son cœur, lui,",
+              "récoltait les fruits d’une moisson fructueuse. Il perdit la partie,",
+              "mais remporta le match."
+            ]
+          }
+        ]
+      },
+      "indice2": "Chapitre VII, p. 93 du livre broché : « Son pied posé sur la planche… » — comptez les points de chacun, puis suivez le dernier javelot.",
+      "etude": {
+        "questions": [
+          {
+            "domaine": "Grammaire",
+            "libelle": "« la plume de dindon qui couronnait la tige de fer ». Quel est l’antécédent de « qui » ?",
+            "format": "boutons",
+            "options": [
+              "la plume",
+              "le dindon",
+              "la tige de fer"
+            ],
+            "reponse": "la plume",
+            "aide": "Posez la question : qu’est-ce qui couronnait la tige de fer ?",
+            "explication": "« Qui » reprend le noyau du groupe — « la plume » — et non son complément « de dindon ». C’est lui qui commande l’accord : couronnait, au singulier."
+          },
+          {
+            "domaine": "Orthographe",
+            "libelle": "« l’attention des spectateurs braquée sur elle ». Pourquoi « braquée » au féminin singulier ?",
+            "format": "boutons",
+            "options": [
+              "Il s’accorde avec « l’attention »",
+              "Il s’accorde avec « spectateurs »",
+              "Il ne s’accorde avec rien, c’est un infinitif"
+            ],
+            "reponse": "Il s’accorde avec « l’attention »",
+            "aide": "Qu’est-ce qui est braqué sur elle : l’attention, ou les spectateurs ?",
+            "explication": "Le participe employé comme adjectif s’accorde avec le nom qu’il qualifie, pas avec le complément le plus proche. Même piège qu’à la question précédente."
+          },
+          {
+            "domaine": "Champ lexical",
+            "libelle": "Relevez le nom qui désigne le petit verre de bière de Joseph.",
+            "format": "saisie",
+            "reponse": "galopin",
+            "variantes": [
+              "un galopin",
+              "le galopin",
+              "son galopin"
+            ],
+            "aide": "Un nom masculin, cité entre le journal et la cigarette.",
+            "explication": "Un galopin, c’est un demi-demi : douze centilitres et demi. Le mot vit encore dans les estaminets du Nord.",
+            "renvoi": "L’Humanité entre les mains, Joseph alternait de la main gauche entre son galopin, sa gauloise sans filtre et son journal."
+          },
+          {
+            "domaine": "Figure de style",
+            "libelle": "« Il lui restait une cartouche. Le fusil prêt à dégainer une seconde fois ». À quel domaine l’auteur emprunte-t-il son vocabulaire ?",
+            "format": "boutons",
+            "options": [
+              "Aux armes à feu",
+              "À la cuisine",
+              "À la musique"
+            ],
+            "reponse": "Aux armes à feu",
+            "aide": "Relevez les noms : cartouche, fusil. Où les trouve-t-on d’habitude ?",
+            "explication": "Métaphore filée : cartouche, fusil, dégainer. Un jeu de cour de café devient un duel — et la jeune fille, la plus redoutable des deux."
+          },
+          {
+            "domaine": "Compréhension",
+            "libelle": "« Il perdit la partie, mais remporta le match ». Que veut dire cette phrase ?",
+            "format": "boutons",
+            "options": [
+              "Il a raté son lancer, mais il a gagné le cœur de la jeune fille",
+              "Il a gagné aux points après un second tour",
+              "Il a triché pour la laisser gagner"
+            ],
+            "reponse": "Il a raté son lancer, mais il a gagné le cœur de la jeune fille",
+            "aide": "Qu’est-ce qui a dévié son bras au dernier moment ?",
+            "explication": "Toute la scène est une rencontre amoureuse déguisée en compétition. Le garçon à la moustache naissante, c’est Léonide."
+          }
+        ]
+      }
+    },
+    {
+      "chapitre": "VIII",
+      "titre": "La boucherie de la Fosse",
+      "image": "lieu-08",
+      "salle": {
+        "touches": [
+          {
+            "cle": "texte",
+            "libelle": "Le papier sur le comptoir",
+            "x": 0.42,
+            "y": 0.86
+          },
+          {
+            "cle": "enigme",
+            "libelle": "Le billot",
+            "x": 0.21,
+            "y": 0.72
+          }
+        ]
+      },
+      "lettre": true,
+      "format": "champs",
+      "presentation": "trous",
+      "enonce": "1968. Tous les samedis, un garçon timide entre sans un mot et tend le même papier. Complétez-le, puis dites son prénom.",
+      "phrase": "Un ______ de ______ grammes, de la ______ et de la ______.",
+      "champs": [
+        {
+          "libelle": "",
+          "solution": "rôti",
+          "variantes": [
+            "roti",
+            "un rôti"
+          ],
+          "longueur": 14
+        },
+        {
+          "libelle": "",
+          "solution": "500",
+          "reponseNumerique": true,
+          "variantes": [
+            "cinq cents",
+            "cinq cent"
+          ],
+          "longueur": 14
+        },
+        {
+          "libelle": "",
+          "solution": "ficelle",
+          "variantes": [
+            "de la ficelle"
+          ],
+          "longueur": 14
+        },
+        {
+          "libelle": "",
+          "solution": "barde",
+          "variantes": [
+            "de la barde"
+          ],
+          "longueur": 14
+        },
+        {
+          "libelle": "Au moment de partir, il dit enfin son prénom. Lequel ?",
+          "solution": "Laurent"
+        }
+      ],
+      "indice": "Ce garçon reviendra dans la vie de Françoise, et dans la chambre de Léa.",
+      "passage": {
+        "titre": "Chapitre VIII — La boucherie de la Fosse",
+        "extraits": [
+          {
+            "titre": "Dans cette boutique",
+            "page": "115",
+            "lignes": [
+              "Chaque client apportait son histoire.",
+              "Un vieil homme obstiné demandait toujours « la même",
+              "pièce que son père ». Comme si, en achetant ce morceau, il",
+              "prolongeait une lignée invisible.",
+              "[…]",
+              "Un jeune marié découvrait le pot-au-feu, maladroit mais",
+              "fier de nourrir sa femme.",
+              "Dans cette boutique, il n’y avait pas que de la viande. Il y",
+              "avait les confidences posées sur le billot avec la monnaie. Les",
+              "secrets laissés entre deux tranches de jambon. Les rancunes",
+              "étouffées, les colères crachées, les joies éclatées comme des",
+              "bulles de sang sur la scie.",
+              "Léonide n’était pas bavard. Ses gestes parlaient pour lui.",
+              "Son couteau, c’était sa voix. Le tranchant, sa réponse."
+            ]
+          },
+          {
+            "titre": "Le garçon du samedi",
+            "page": "116, 117",
+            "lignes": [
+              "C’était au tour du jeune garçon.",
+              "Léonide chercha du coin de l’œil sa femme, qui en",
+              "terminait avec un paiement.",
+              "L’œil se substitua au mot.",
+              "Il venait tous les samedis, à heure fixe. Son regard tourné",
+              "vers le sol dénotait une timidité maladive. Jamais ils n’avaient",
+              "entendu le son de sa voix.",
+              "Toujours un petit papier à la main, sur lequel on pouvait",
+              "lire :",
+              "Un rôti de cinq cents grammes, de la ficelle et de la",
+              "barde. »",
+              "Était-ce son écriture ? Avait-il des parents ? Pourquoi cette",
+              "commande ?",
+              "Des mystères qui restèrent longtemps entiers.",
+              "Léonide tenta d’appâter sa proie avec un petit bout de",
+              "saucisson de cheval.",
+              "Il le prit sans même relever la tête. Beaucoup auraient pu",
+              "s’en offusquer, pas Léonide, qui repartit à l’assaut, poussé par",
+              "une soif absurde de vérité.",
+              "J’ai plus de rôti, m’in tiot. Alors que le rayon en regorgeait.",
+              "Il jeta un coup d’œil à la marchandise et pointa du doigt les",
+              "filets. Le tout, animé par un léger haussement de lèvres qui",
+              "ressemblait à un début de sourire.",
+              "[…]",
+              "Ma mère est très malade. C’est le seul jour où elle peut",
+              "manger. Alors je veux lui préparer son repas préféré.",
+              "Les mots du garçon glacèrent une salle bruyamment",
+              "silencieuse. Un uppercut figea tous ceux que la curiosité avait",
+              "rendus trop pressants.",
+              "[…]",
+              "Ch’est quoi tin nom, tiot ?",
+              "Laurent, répondit-il d’une voix tremblotante.",
+              "Ce jour-là, sans le savoir, ils accueillirent leur futur beau-",
+              "fils."
+            ]
+          }
+        ]
+      },
+      "indice2": "Chapitre VIII, p. 116 du livre broché : « C’était au tour du jeune garçon… » — le papier p. 116, le prénom p. 117.",
+      "etude": {
+        "questions": [
+          {
+            "domaine": "Grammaire",
+            "libelle": "« Jamais ils n’avaient entendu le son de sa voix ». Où est passé le second mot de la négation ?",
+            "format": "boutons",
+            "options": [
+              "« Jamais » tient ce rôle : il suffit à nier",
+              "Il manque : c’est une faute",
+              "Il est sous-entendu après le verbe"
+            ],
+            "reponse": "« Jamais » tient ce rôle : il suffit à nier",
+            "aide": "La négation complète serait « ne… pas ». Qu’est-ce qui remplace « pas » ici ?",
+            "explication": "La négation se construit avec « ne » suivi d’un second élément : pas, jamais, plus, rien, personne. Placé en tête de phrase, « jamais » insiste encore davantage."
+          },
+          {
+            "domaine": "Orthographe",
+            "libelle": "« une salle bruyamment silencieuse ». Pourquoi deux « m » à « bruyamment » ?",
+            "format": "boutons",
+            "options": [
+              "Parce que l’adjectif se termine par « -ant »",
+              "Parce que l’adverbe porte sur un pluriel",
+              "Parce que le mot compte quatre syllabes"
+            ],
+            "reponse": "Parce que l’adjectif se termine par « -ant »",
+            "aide": "Formez l’adverbe sur « évident », puis sur « bruyant ». Comparez les terminaisons.",
+            "explication": "Les adjectifs en « -ant » donnent des adverbes en « -amment » (bruyant, bruyamment) ; ceux en « -ent » donnent « -emment » (évident, évidemment). On n’entend pas la différence : on l’écrit."
+          },
+          {
+            "domaine": "Champ lexical",
+            "libelle": "Relevez le nom du gros bloc de bois sur lequel travaille le boucher.",
+            "format": "saisie",
+            "reponse": "billot",
+            "variantes": [
+              "le billot",
+              "un billot"
+            ],
+            "aide": "Un nom masculin, placé juste avant « avec la monnaie ».",
+            "explication": "Billot, scie, tranchant, tranches, pièce : tout le passage tient par le vocabulaire du métier. Et c’est ce vocabulaire qui dit le personnage — « son couteau, c’était sa voix ».",
+            "renvoi": "Il y avait les confidences posées sur le billot avec la monnaie."
+          },
+          {
+            "domaine": "Figure de style",
+            "libelle": "« Son couteau, c’était sa voix. Le tranchant, sa réponse. » De quelle figure s’agit-il ?",
+            "format": "boutons",
+            "options": [
+              "Une métaphore",
+              "Une comparaison",
+              "Une hyperbole"
+            ],
+            "reponse": "Une métaphore",
+            "aide": "Y a-t-il un mot de liaison comme « comme » ou « tel » entre les deux éléments ?",
+            "explication": "Aucun outil de comparaison : le couteau est dit être la voix. C’est une métaphore. Et dans la seconde phrase, le verbe disparaît à son tour."
+          },
+          {
+            "domaine": "Compréhension",
+            "libelle": "Pourquoi Léonide dit-il « J’ai plus de rôti » alors que « le rayon en regorgeait » ?",
+            "format": "boutons",
+            "options": [
+              "Pour forcer le garçon à parler",
+              "Parce qu’il s’est trompé de rayon",
+              "Parce qu’il garde la viande pour sa famille"
+            ],
+            "reponse": "Pour forcer le garçon à parler",
+            "aide": "Que cherche Léonide depuis des semaines ? Relisez :",
+            "explication": "Personne n’a jamais entendu la voix de cet enfant. Le mensonge est une ruse de boucher : « appâter sa proie ».",
+            "renvoi": [
+              "J’ai plus de rôti",
+              "le rayon en regorgeait"
+            ],
+            "renvoiAide": "Léonide tenta d’appâter sa proie avec un petit bout de saucisson de cheval."
+          }
+        ]
+      },
+      "apres": "Le chapitre IX, « De Gaulle », ne cache aucune énigme : lisez-le, puis passez votre chemin. La salle suivante vous attend au chapitre X."
+    },
+    {
+      "chapitre": "X",
+      "titre": "Les trente-cinq marches",
+      "image": "lieu-09",
+      "salle": {
+        "touches": [
+          {
+            "cle": "texte",
+            "libelle": "La porte du palier",
+            "x": 0.73,
+            "y": 0.17
+          },
+          {
+            "cle": "enigme",
+            "libelle": "La canne",
+            "x": 0.63,
+            "y": 0.49
+          }
+        ],
+        "masques": [
+          {
+            "x": 0.63,
+            "y": 0.49,
+            "l": 0.24,
+            "h": 0.1
+          }
+        ]
+      },
+      "lettre": true,
+      "format": "questions",
+      "presentation": "vraifaux",
+      "enonce": "L'ascenseur est en panne. Vrai ou faux ? Les six affirmations doivent toutes être justes.",
+      "questions": [
+        {
+          "libelle": "Léa a compté trente-cinq marches entre le rez-de-chaussée et le deuxième étage.",
+          "reponse": "Vrai"
+        },
+        {
+          "libelle": "La canne se brise sur la première marche.",
+          "reponse": "Faux"
+        },
+        {
+          "libelle": "L'homme qui propose de la réparer était ébéniste.",
+          "reponse": "Vrai"
+        },
+        {
+          "libelle": "La veille de son arrestation, Joseph a saboté le treuil de la fosse 6.",
+          "reponse": "Vrai"
+        },
+        {
+          "libelle": "Pour sa communion, Léa porte le voile de mariage de Maria.",
+          "reponse": "Vrai"
+        },
+        {
+          "libelle": "Quand Joseph réapparaît dans l'église, il lui manque trois doigts.",
+          "reponse": "Faux"
+        }
+      ],
+      "indice": "Méfiez-vous des nombres : deux affirmations sont fausses.",
+      "passage": {
+        "titre": "Chapitre X — Les trente-cinq marches",
+        "extraits": [
+          {
+            "titre": "Clair de lune",
+            "page": "37, 131, 132",
+            "lignes": [
+              "Léa et sa canne doivent tout de même passer devant le",
+              "goûter commun pour accéder à l’ascenseur.",
+              "Elles avancent. Un son s’échappe au loin. Léa imagine.",
+              "Elles approchent. Il devient musique. Léa entend. Elles",
+              "arrivent. Il évolue en mélodie. Léa reconnaît. C’est « Clair de",
+              "lune » de Debussy, elle l’entendait parfois à la radio, autrefois,",
+              "en repassant. Léonide aimait ce morceau. Il disait que c’était",
+              "du silence mis en musique. Elles repartent. Il se transforme en",
+              "harmonie. Léa exulte.",
+              "À destination, Fabienne appelle l’ascenseur.",
+              "Il ne répond pas.",
+              "Elles se regardent. Le silence s’installe, mais ne s’éternise",
+              "pas.",
+              "Elles rigolent."
+            ]
+          },
+          {
+            "titre": "La montée",
+            "page": "132",
+            "lignes": [
+              "Le périple continue sa route au mépris de la",
+              "fatigue. Elles détournent leur trajet, à quelques mètres de là.",
+              "[…]",
+              "C’est dur. Même la porte résiste avec complaisance.",
+              "Fabienne, Léa et la canne s’arc-boutent, aidées par la",
+              "rampe.",
+              "Une marche. Une marche à la fois. Le supplice s’accélère,",
+              "mais la douleur aussi.",
+              "Trente-cinq marches séparent le rez-de-chaussée du",
+              "deuxième étage, Léa les a comptées.",
+              "[…]",
+              "Crac ! La canne se brise… C’était la dernière marche.",
+              "La chute est évitée. Mais le cœur est brisé."
+            ]
+          }
+        ]
+      },
+      "indice2": "Chapitre X, p. 131 du livre broché : « Léa et sa canne doivent tout de même passer… » — une page par affirmation : 132, 133, 136, 138 et 141.",
+      "etude": {
+        "questions": [
+          {
+            "domaine": "Grammaire",
+            "libelle": "« À destination, Fabienne appelle l’ascenseur. Il ne répond pas. » À quoi renvoie « Il » ?",
+            "format": "boutons",
+            "options": [
+              "À l’ascenseur",
+              "À Léonide",
+              "Au panneau de l’escalier"
+            ],
+            "reponse": "À l’ascenseur",
+            "aide": "Le pronom reprend un nom de la phrase précédente. Lequel ?",
+            "explication": "Le pronom reprend « l’ascenseur » — et lui prête un refus, comme à quelqu’un qui boude. C’est une personnification, procédé constant dans ce chapitre : la porte « résiste », le panneau « nargue »."
+          },
+          {
+            "domaine": "Orthographe",
+            "libelle": "« Fabienne, Léa et la canne s’arc-boutent, aidées par la rampe ». Pourquoi « aidées » au féminin pluriel ?",
+            "format": "boutons",
+            "options": [
+              "Il s’accorde avec les trois sujets : Fabienne, Léa et la canne",
+              "Il s’accorde avec « la rampe »",
+              "Il ne s’accorde avec rien"
+            ],
+            "reponse": "Il s’accorde avec les trois sujets : Fabienne, Léa et la canne",
+            "aide": "Qui est aidé par la rampe ? Comptez les sujets.",
+            "explication": "Trois sujets féminins, donc féminin pluriel. Et oui, la canne compte comme les deux autres : l’auteur la traite en personne depuis le début."
+          },
+          {
+            "domaine": "Champ lexical",
+            "libelle": "Relevez le nom qui transforme la montée de l’escalier en torture.",
+            "format": "saisie",
+            "reponse": "supplice",
+            "variantes": [
+              "le supplice"
+            ],
+            "aide": "Un nom masculin, sujet du verbe « s’accélère ».",
+            "explication": "Supplice, douleur, périple, Everest : pour une femme de quatre-vingt-douze ans, deux étages deviennent une expédition.",
+            "renvoi": "Le supplice s’accélère, mais la douleur aussi."
+          },
+          {
+            "domaine": "Figure de style",
+            "libelle": "« Un son… il devient musique… il évolue en mélodie… il se transforme en harmonie ». Comment appelle-t-on cette progression ?",
+            "format": "boutons",
+            "options": [
+              "Une gradation",
+              "Une répétition",
+              "Une antithèse"
+            ],
+            "reponse": "Une gradation",
+            "aide": "Chaque mot est-il plus faible ou plus fort que le précédent ?",
+            "explication": "Chaque reprise monte d’un degré, et les verbes de Léa suivent le même escalier : imagine, entend, reconnaît, exulte. Quatre marches avant les trente-cinq autres.",
+            "renvoi": {
+              "de": "Un son s’échappe au loin.",
+              "a": "Il se transforme en harmonie."
+            }
+          },
+          {
+            "domaine": "Compréhension",
+            "libelle": "« La chute est évitée. Mais le cœur est brisé. » Pourquoi la canne compte-t-elle plus que la chute ?",
+            "format": "boutons",
+            "options": [
+              "Son père l’a taillée pendant sa déportation : c’est tout ce qui reste de lui",
+              "Elle venait d’être achetée et coûtait cher",
+              "C’est la maison de retraite qui la lui avait prêtée"
+            ],
+            "reponse": "Son père l’a taillée pendant sa déportation : c’est tout ce qui reste de lui",
+            "aide": "Qui a fabriqué cette canne, et dans quelles circonstances ? C’est dit dans le livre, au chapitre I.",
+            "explication": "« Confectionnée par son père pendant sa déportation, elle la soutient au quotidien. » Casser la canne, c’est perdre une seconde fois la main qui l’a faite."
+          }
+        ]
+      }
+    },
+    {
+      "chapitre": "XI",
+      "titre": "La lettre de Maria",
+      "image": "lieu-10",
+      "salle": {
+        "touches": [
+          {
+            "cle": "texte",
+            "libelle": "Les lettres",
+            "x": 0.845,
+            "y": 0.6
+          },
+          {
+            "cle": "enigme",
+            "libelle": "La boîte ouverte",
+            "x": 0.7,
+            "y": 0.28
+          }
+        ]
+      },
+      "lettre": true,
+      "format": "champs",
+      "presentation": "citations",
+      "enonce": "Le papier est jauni. Deux mots manquent.",
+      "champs": [
+        {
+          "libelle": "« Ta naissance fut le plus beau jour de notre vie… Et le pire. Je vous portais tous les deux. La sage-femme avait entendu deux cœurs. Tu es venue ______. »",
+          "solution": "seule",
+          "longueur": 20
+        },
+        {
+          "libelle": "« Et la montre à gousset de ton père, qu'il refusait de porter car, pour lui, le ______ s'était arrêté ce jour-là. »",
+          "solution": "temps",
+          "longueur": 20
+        }
+      ],
+      "indice": "Léa n'avait pas de frère ni de sœur… du moins, c'est ce qu'elle croyait.",
+      "apres": "« Tu avais un frère… » La révélation commence.",
+      "passage": {
+        "titre": "Chapitre XI — La lettre de Maria",
+        "extraits": [
+          {
+            "titre": "La lettre",
+            "page": "147, 148",
+            "lignes": [
+              "Pour ma chère fille, Léa, mon amour,",
+              "Je ne sais pas vraiment quand tu liras cette lettre, ou si tu la liras",
+              "un jour.",
+              "Mais j’ai besoin de t’écrire. Il m’est impossible d’en parler.",
+              "Je ne m’exprime pas souvent. À tort. Peut-être. Sûrement.",
+              "Tu as dû souffrir de nos silences. Mais nous t’aimons.",
+              "N’en doute jamais.",
+              "Si tu as pu ressentir une tristesse dans nos yeux, parfois.",
+              "Nous sommes désolés.",
+              "Ta naissance fut le plus beau jour de notre vie… Et le pire. Je",
+              "vous portais tous les deux. La sage-femme avait entendu deux cœurs.",
+              "Tu es venue seule.",
+              "Tu avais un frère… Du moins, ton père disait que c’était un",
+              "garçon.",
+              "[…]",
+              "Et la montre à gousset de ton père, qu’il refusait de porter car,",
+              "pour lui, le temps s’était arrêté ce jour-là.",
+              "J’espère qu’en lisant cette lettre tu nous pardonneras nos",
+              "faiblesses.",
+              "Je t’aime, ma fille… Et je t’aimerai au-delà du silence, au-delà du",
+              "temps."
+            ]
+          },
+          {
+            "titre": "Après la lecture",
+            "page": "148",
+            "lignes": [
+              "Elle se fige. Tétanisée. Perdue. Incrédule. Mille questions",
+              "l’assaillent. Comment ont-ils pu lui cacher cela toute sa vie ?",
+              "Est-ce ce que son père voulait lui dire avant de mourir ? Le",
+              "manque qu’elle a toujours ressenti, le miroir, le psaume… Tout",
+              "s’embrouille. Tout vacille.",
+              "Maman, Papa, pourquoi ? Pourquoi m’avoir caché ce secret si"
+            ]
+          }
+        ]
+      },
+      "indice2": "Chapitre XI, p. 147 du livre broché : « Pour ma chère fille, Léa, mon amour… » — les deux mots sont dans la lettre elle-même.",
+      "etude": {
+        "questions": [
+          {
+            "domaine": "Grammaire",
+            "libelle": "« Je vous portais tous les deux. La sage-femme avait entendu deux cœurs. Tu es venue seule. » À qui renvoie « vous » ?",
+            "format": "boutons",
+            "options": [
+              "À Léa et à son frère",
+              "À Léa et à son père",
+              "À Léa seule, par politesse"
+            ],
+            "reponse": "À Léa et à son frère",
+            "aide": "Comptez : « tous les deux ». Qui est le second ?",
+            "explication": "Le « vous » de la première phrase devient « tu » dans la dernière. Toute la révélation du roman tient dans ce changement de pronom : en trois phrases, l’un des deux a disparu."
+          },
+          {
+            "domaine": "Orthographe",
+            "libelle": "« Et je t’aimerai au-delà du silence ». Pourquoi « aimerai » et non « aimerais » ?",
+            "format": "boutons",
+            "options": [
+              "C’est un futur : elle l’aimera, c’est une promesse",
+              "C’est un conditionnel : elle l’aimerait si…",
+              "Les deux formes s’écrivent indifféremment"
+            ],
+            "reponse": "C’est un futur : elle l’aimera, c’est une promesse",
+            "aide": "Essayez « demain, je t’aimerai » puis « si je pouvais, je t’aimerais ». Laquelle correspond à la lettre ?",
+            "explication": "Futur : « -ai », une promesse. Conditionnel : « -ais », une hypothèse. Un seul « s » changerait une mère qui promet en une mère qui doute."
+          },
+          {
+            "domaine": "Champ lexical",
+            "libelle": "Relevez le nom qui désigne ce dont Léa a souffert toute sa vie.",
+            "format": "saisie",
+            "reponse": "silences",
+            "variantes": [
+              "silence",
+              "nos silences",
+              "les silences",
+              "le silence"
+            ],
+            "aide": "Un nom au pluriel, complément du verbe « souffrir ».",
+            "explication": "Le mot revient trois fois : « nos silences », « pleurer en silence », « au-delà du silence ». C’est le mot-clé de la famille Laprel.",
+            "renvoi": "Tu as dû souffrir de nos silences."
+          },
+          {
+            "domaine": "Compréhension",
+            "libelle": "« le temps s’était arrêté ce jour-là ». Pourquoi Joseph refusait-il de porter sa montre ?",
+            "format": "boutons",
+            "options": [
+              "Parce que son fils est mort le jour de la naissance de Léa",
+              "Parce que la montre ne fonctionnait plus",
+              "Parce qu’elle avait appartenu à un autre"
+            ],
+            "reponse": "Parce que son fils est mort le jour de la naissance de Léa",
+            "aide": "De quel « jour-là » parle la lettre ? Relisez :",
+            "explication": "Une montre qu’on ne porte plus, pour un temps qui ne compte plus. L’objet dit ce que le père n’a jamais pu formuler.",
+            "renvoiAide": {
+              "de": "Ta naissance fut le plus beau jour de notre vie…",
+              "a": "Tu es venue seule."
+            }
+          },
+          {
+            "domaine": "Figure de style",
+            "libelle": "« Elle se fige. Tétanisée. Perdue. Incrédule. » Qu’ont en commun les trois derniers mots ?",
+            "format": "boutons",
+            "options": [
+              "Ce sont des adjectifs employés seuls, sans verbe",
+              "Ce sont des verbes à l’infinitif",
+              "Ce sont des noms communs"
+            ],
+            "reponse": "Ce sont des adjectifs employés seuls, sans verbe",
+            "aide": "Cherchez le verbe conjugué dans « Tétanisée. » Y en a-t-il un ?",
+            "explication": "Trois adjectifs posés comme des phrases entières : la syntaxe se casse en même temps que le personnage. On parle de phrases non verbales, ou nominales."
+          }
+        ]
+      }
+    },
+    {
+      "chapitre": "XII",
+      "titre": "L'entre-deux",
+      "image": "lieu-11",
+      "salle": {
+        "touches": [
+          {
+            "cle": "texte",
+            "libelle": "Le cadre et la lampe",
+            "x": 0.555,
+            "y": 0.41
+          },
+          {
+            "cle": "enigme",
+            "libelle": "Le fauteuil vide",
+            "x": 0.27,
+            "y": 0.52
+          }
+        ]
+      },
+      "lettre": true,
+      "format": "selection",
+      "enonce": "« Par trois fois, tu aurais dû… Mais je t'ai retenue. » Retournez les trois moments où il l'a retenue.",
+      "elements": [
+        "Le canon de Frank sur son front d'enfant",
+        "La nuit de la drache",
+        "La Renault encastrée dans un pylône",
+        "La canne brisée sur la dernière marche",
+        "La bagarre au bal de la salle Marmottan",
+        "Le jour où Champion n'est pas revenu"
+      ],
+      "aSelectionner": [
+        "Le canon de Frank sur son front d'enfant",
+        "La nuit de la drache",
+        "La Renault encastrée dans un pylône"
+      ],
+      "aide": "Touchez trois cartes. Touchez-les de nouveau pour annuler.",
+      "indice": "Ce sont trois moments où Léa aurait pu mourir. Dans l'escalier, la chute est évitée.",
+      "passage": {
+        "titre": "Chapitre XII — L’entre-deux",
+        "extraits": [
+          {
+            "titre": "Le réveil",
+            "page": "149, 151, 152",
+            "lignes": [
+              "Léa rouvre les yeux",
+              "La chambre est silencieuse. Calme.",
+              "Paisible. La fatigue s’en est allée. La vue s’est retrouvée. Les",
+              "douleurs, elles, se sont envolées.",
+              "Elle sent une présence qui l’observe. L’écran du téléviseur",
+              "est éteint. L’odeur de la chambre s’est dissipée. Le radiateur ne",
+              "chauffe plus. La fenêtre scintille d’une lumière rassurante. La",
+              "boîte a disparu. La bible aussi.",
+              "[…]",
+              "Léonide ?",
+              "Tu ne me connais pas. Et pourtant… Je suis une part de toi.",
+              "Dans ton monde, je n’ai jamais vraiment existé."
+            ]
+          },
+          {
+            "titre": "Les mêmes lettres",
+            "page": "39, 86, 152, 153",
+            "lignes": [
+              "La mort n’est pas ce que tu crois. Comme le temps… elle n’est",
+              "qu’illusion.",
+              "Léa semble perplexe. Mais rien ne la perturbe. Elle se",
+              "souvient des émotions, mais ne peut plus les ressentir. C’est",
+              "paisible.",
+              "Je ne comprends pas…",
+              "La mort, ici, n’est qu’une étape vers un autre monde. La vie se",
+              "poursuit comme elle aurait dû se vivre. Tu retrouves tout le monde.",
+              "La mort est pour ceux qui restent. Chaque mort amène la prochaine",
+              "vie, sans que l’on s’en rende compte.",
+              "[…]",
+              "Un frisson traverse sa mémoire. Léa Laprel… parallèle… les",
+              "démons… les mondes… Morimée… mémoire…",
+              "Les sons s’entrechoquent, se déplacent. Les lettres se",
+              "recomposent.",
+              "Soudain, elle voit.",
+              "Tout est là — le même alphabet, mais dans un ordre",
+              "différent.",
+              "C’est une évidence désormais ! Mon tourment et ma vérité…",
+              "[…]",
+              "Une douce indiscrétion l’attire.",
+              "Tu aurais dû… Par trois fois, tu aurais dû… Il serre sa main",
+              "tendrement. Affectueusement. Mais je t’ai retenue. Il l’aime. Il",
+              "l’a aimée. Il l’aimera. Leurs destins étaient liés. Sans même se",
+              "connaître.",
+              "[…]",
+              "Est-ce bien important maintenant ?",
+              "Elle place son autre main au-dessus de la sienne. Le canon",
+              "de Frank sur son front d’enfant. La nuit de la drache. La",
+              "Renault encastrée dans un pylône."
+            ]
+          }
+        ]
+      },
+      "indice2": "Chapitre XII, p. 152 du livre broché : « La mort n’est pas ce que tu crois… » — les trois moments sont nommés à la suite, en une seule phrase.",
+      "etude": {
+        "questions": [
+          {
+            "domaine": "Grammaire",
+            "libelle": "« Tu aurais dû… Par trois fois, tu aurais dû… » À quel mode et à quel temps est « aurais dû » ?",
+            "format": "boutons",
+            "options": [
+              "Au conditionnel passé",
+              "Au futur antérieur",
+              "Au subjonctif présent"
+            ],
+            "reponse": "Au conditionnel passé",
+            "aide": "Repérez la terminaison de l’auxiliaire : « aurais » ou « aurai » ? Puis demandez-vous si l’action a eu lieu.",
+            "explication": "Le conditionnel passé dit ce qui ne s’est pas produit : tu aurais dû mourir — et tu es vivante. Même piège qu’au chapitre XI : « -ais », pas « -ai »."
+          },
+          {
+            "domaine": "Orthographe",
+            "libelle": "« Les douleurs, elles, se sont envolées ». Pourquoi « envolées » prend-il « -ées » ?",
+            "format": "boutons",
+            "options": [
+              "Verbe pronominal avec « être » : le participe s’accorde avec le sujet",
+              "Parce que le verbe est au présent",
+              "Parce que la phrase contient deux sujets"
+            ],
+            "reponse": "Verbe pronominal avec « être » : le participe s’accorde avec le sujet",
+            "aide": "Quel est l’auxiliaire ? Et quel est le sujet, masculin ou féminin, singulier ou pluriel ?",
+            "explication": "« Les douleurs se sont envolées », comme « elles se sont levées ». Avec l’auxiliaire être, le participe suit le sujet — ici féminin pluriel."
+          },
+          {
+            "domaine": "Champ lexical",
+            "libelle": "Relevez le nom que le vieil homme répète trois fois pour le définir autrement chaque fois.",
+            "format": "saisie",
+            "reponse": "mort",
+            "variantes": [
+              "la mort"
+            ],
+            "aide": "Un nom féminin, en début de trois phrases successives.",
+            "explication": "« La mort n’est pas ce que tu crois », « la mort n’est qu’une étape », « la mort est pour ceux qui restent ». Trois définitions pour un seul mot : le chapitre entier est une leçon de vocabulaire.",
+            "renvoi": {
+              "de": "— La mort n’est pas ce que tu crois. Comme le temps… elle n’est qu’illusion.",
+              "a": "La mort est pour ceux qui restent."
+            }
+          },
+          {
+            "domaine": "Langue",
+            "libelle": "« le même alphabet, mais dans un ordre différent ». Comment appelle-t-on un mot formé avec les lettres d’un autre ?",
+            "format": "boutons",
+            "options": [
+              "Une anagramme",
+              "Un synonyme",
+              "Un palindrome"
+            ],
+            "reponse": "Une anagramme",
+            "aide": "Essayez de relire « démons » en déplaçant les lettres. Que lisez-vous ?",
+            "explication": "« Démons » et « mondes », « Léa Laprel » et « parallèle », « Morimée » et « mémoire » : mêmes lettres, autre ordre. Le palindrome, lui, se lit dans les deux sens (« ressasser »)."
+          },
+          {
+            "domaine": "Compréhension",
+            "libelle": "Qui est l’homme aux yeux bleus assis dans le fauteuil ?",
+            "format": "boutons",
+            "options": [
+              "Le frère jumeau de Léa, qui n’a jamais vécu",
+              "Léonide, son mari",
+              "Joseph, son père"
+            ],
+            "reponse": "Le frère jumeau de Léa, qui n’a jamais vécu",
+            "aide": "Que dit le vieil homme de son existence ? Relisez :",
+            "explication": "« Je suis une part de toi. Dans ton monde, je n’ai jamais vraiment existé. » C’est le jumeau annoncé par la lettre de Maria : il a existé, mais jamais au monde.",
+            "renvoiAide": {
+              "de": "— Tu ne me connais pas. Et pourtant… Je suis une part de toi.",
+              "a": "Dans ton monde, je n’ai jamais vraiment existé."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "chapitre": "XIII",
+      "titre": "Les voix de la nuit",
+      "image": "lieu-12",
+      "salle": {
+        "touches": [
+          {
+            "cle": "texte",
+            "libelle": "La lettre dépliée",
+            "x": 0.42,
+            "y": 0.68
+          },
+          {
+            "cle": "enigme",
+            "libelle": "La boîte",
+            "x": 0.26,
+            "y": 0.54
+          }
+        ]
+      },
+      "lettre": true,
+      "format": "association",
+      "enonce": "La nuit de la mort de Léa. Reliez chaque réplique à la personne qui la prononce. Attention : un nom de trop.",
+      "titreGauche": "La réplique",
+      "titreDroite": "Qui la prononce",
+      "paires": [
+        {
+          "gauche": "« Vous avez ses yeux. »",
+          "droite": "le médecin de l'établissement"
+        },
+        {
+          "gauche": "« Momie ! »",
+          "droite": "Léontine"
+        },
+        {
+          "gauche": "« On boit un coup en terrasse. Dans Pigalle. »",
+          "droite": "Céleste"
+        },
+        {
+          "gauche": "« Mamie chou est partie. »",
+          "droite": "Françoise"
+        }
+      ],
+      "leurres": [
+        "Laurent"
+      ],
+      "indice": "L'une ne sait pas encore très bien dire « mamie ». Et l'un des cinq noms ne dit rien cette nuit-là.",
+      "passage": {
+        "titre": "Chapitre XIII — Les voix de la nuit",
+        "extraits": [
+          {
+            "titre": "Le médecin",
+            "page": "156",
+            "lignes": [
+              "Déposant son sac sur la",
+              "petite table de chevet, il sort un stéthoscope. Sa main défait les",
+              "trois premiers boutons de la chemise de la patiente. Une",
+              "chaîne en or, avec une alliance enroulée autour, le gêne dans",
+              "sa progression. D’un revers de main, il fait glisser la bague",
+              "derrière sa nuque. Sous le regard inerte de Françoise. Les",
+              "larmes s’écoulent de nouveau. Il saisit le stéthoscope, glisse",
+              "les écouteurs dans ses oreilles, puis dépose la membrane sur",
+              "la poitrine immobile. Ça ne fonctionne pas.",
+              "Quatre endroits différents, pour un résultat",
+              "similaire. Rien.",
+              "[…]",
+              "Son pouce relève la paupière gauche. Rien. Puis la paupière",
+              "droite. Toujours rien.",
+              "Vous avez ses yeux, déclare-t-il en relevant la main et sans",
+              "même regarder.",
+              "Il note",
+              "l’heure du décès."
+            ]
+          },
+          {
+            "titre": "Les voix",
+            "page": "157, 158",
+            "lignes": [
+              "Le temps s’abat sur ses épaules comme une douce",
+              "infortune. Les minutes s’égrènent avec cruauté. La porte",
+              "s’ouvre. Ce sont Laurent et les filles. Olympe transporte un",
+              "sachet en plastique. Léontine court vers Françoise en criant :",
+              "Momie ! » Elle ne sait pas très bien dire mamie, déclenchant",
+              "le premier sourire de cette fin de journée.",
+              "[…]",
+              "Ça va aller, mon amour.",
+              "Laurent est déjà passé par là. Ces mots veulent rassurer. Son",
+              "cœur, lui, saigne. Les souvenirs s’amassent dans son esprit",
+              "comme la marée recouvre le sable.",
+              "Dans la cuisine, Françoise, le portable dans la main,",
+              "rechigne à composer le numéro.",
+              "Oui. Je t’entends… Mais on boit un coup en terrasse. Dans",
+              "Pigalle. On va sûrement aller danser après. T’aimerais pas, toi !",
+              "lance-t-elle avec un sourire complice. Qu’est-ce qu’il y a ? Un",
+              "problème avec les filles ? Un appel si tard, c’est rare :",
+              "l’inquiétude la gagne. Françoise ne sait pas comment faire.",
+              "Comment dire. L’hésitation mène à l’efficacité.",
+              "Mamie chou est partie.",
+              "J’ai pas entendu… Quoi ?"
+            ]
+          }
+        ]
+      },
+      "indice2": "Chapitre XIII, p. 156 du livre broché : « Déposant son sac sur la petite table de chevet… » — Laurent, lui, ne dit rien cette nuit-là.",
+      "etude": {
+        "questions": [
+          {
+            "domaine": "Grammaire",
+            "libelle": "« Vous avez ses yeux ». À qui le médecin parle-t-il, et de qui parle « ses » ?",
+            "format": "boutons",
+            "options": [
+              "Il parle à Françoise ; « ses » désigne Léa",
+              "Il parle à Léa ; « ses » désigne Françoise",
+              "Il se parle à lui-même"
+            ],
+            "reponse": "Il parle à Françoise ; « ses » désigne Léa",
+            "aide": "Qui est encore vivant dans la pièce ? Et à qui appartiennent les yeux qu’il vient d’examiner ?",
+            "explication": "Le médecin voit la fille et reconnaît la mère. « Ses » renvoie à Léa, absente de la phrase : ces yeux bleus traversent tout le roman."
+          },
+          {
+            "domaine": "Orthographe",
+            "libelle": "« Laurent est déjà passé par là ». Pourquoi « passé » ne prend-il pas de « e » ?",
+            "format": "boutons",
+            "options": [
+              "Le sujet « Laurent » est masculin singulier",
+              "Parce que le verbe est au présent",
+              "Parce qu’il n’y a pas d’auxiliaire"
+            ],
+            "reponse": "Le sujet « Laurent » est masculin singulier",
+            "aide": "Réécrivez la phrase avec Céleste comme sujet. Qu’est-ce qui change ?",
+            "explication": "Avec l’auxiliaire être, le participe passé s’accorde avec le sujet : « Céleste est déjà passée par là »."
+          },
+          {
+            "domaine": "Champ lexical",
+            "libelle": "Relevez le nom de l’instrument avec lequel le médecin écoute la poitrine.",
+            "format": "saisie",
+            "reponse": "stéthoscope",
+            "variantes": [
+              "le stéthoscope",
+              "un stéthoscope"
+            ],
+            "aide": "Un nom masculin, cité deux fois dans l’extrait.",
+            "explication": "Stéthoscope, membrane, paupière, heure du décès : le vocabulaire médical dit la mort sans jamais prononcer le mot.",
+            "renvoi": "Il saisit le stéthoscope, glisse les écouteurs dans ses oreilles, puis dépose la membrane sur la poitrine immobile."
+          },
+          {
+            "domaine": "Figure de style",
+            "libelle": "« Le temps s’abat sur ses épaules comme une douce infortune ». Comment appelle-t-on l’alliance de « douce » et d’« infortune » ?",
+            "format": "boutons",
+            "options": [
+              "Un oxymore",
+              "Un pléonasme",
+              "Une litote"
+            ],
+            "reponse": "Un oxymore",
+            "aide": "Les deux mots vont-ils ensemble, ou se contredisent-ils ?",
+            "explication": "Deux mots contraires collés l’un à l’autre : c’est un oxymore, comme « cette obscure clarté » de Corneille."
+          },
+          {
+            "domaine": "Compréhension",
+            "libelle": "Pourquoi Léontine crie-t-elle « Momie ! » ?",
+            "format": "boutons",
+            "options": [
+              "Elle est trop petite pour prononcer « mamie »",
+              "Elle vient de voir un film de momies",
+              "C’est le surnom que lui donnait Léa"
+            ],
+            "reponse": "Elle est trop petite pour prononcer « mamie »",
+            "aide": "La phrase qui suit donne l’explication.",
+            "explication": "« Elle ne sait pas très bien dire mamie. » Le mot d’enfant arrache le premier sourire de la soirée — et dit, sans le savoir, ce qui vient d’arriver."
+          }
+        ]
+      }
+    },
+    {
+      "chapitre": "XIV",
+      "titre": "La chasse aux secrets",
+      "image": "lieu-13",
+      "salle": {
+        "touches": [
+          {
+            "cle": "texte",
+            "libelle": "Les plaques de rue",
+            "x": 0.855,
+            "y": 0.25
+          },
+          {
+            "cle": "enigme",
+            "libelle": "L’interphone",
+            "x": 0.715,
+            "y": 0.46
+          }
+        ]
+      },
+      "lettre": true,
+      "format": "ordre",
+      "enonce": "Françoise n'a pas dormi. Remettez sa matinée dans l'ordre.",
+      "etapesOrdre": [
+        "Elle se gare rue du Mississippi, dans la cité aux noms américains",
+        "Elle voit le tag « Max R.I.P. » sur la brique",
+        "Elle sonne trois fois à l'interphone",
+        "Hugo, le kiné, l'arrête dans le couloir",
+        "Elle demande une autopsie au docteur Martin",
+        "Six jours plus tard, la spatule tombe dans la sauce tomate"
+      ],
+      "indice": "Elle parle au kiné avant de parler au médecin.",
+      "apres": {
+        "texte": "Le compte rendu tombe six jours plus tard : une masse encapsulée de douze centimètres, des fragments osseux, une ébauche de colonne vertébrale, des poils, une dent. Il porte un nom.",
+        "trou": {
+          "avant": "Fœtus in ",
+          "apres": ".",
+          "solution": "fœtu",
+          "variantes": [
+            "foetu",
+            "fœtu",
+            "fetu"
+          ]
+        }
+      },
+      "passage": {
+        "titre": "Chapitre XIV — La chasse aux secrets",
+        "extraits": [
+          {
+            "titre": "Les rues mentent",
+            "page": "160, 161",
+            "lignes": [
+              "Ce",
+              "périple nocturne s’abat dans les méandres de sa pensée — les",
+              "paysages se transforment en questions, les piétons deviennent",
+              "énigmes, les signalisations regorgent d’indices. Bref. Le",
+              "monde regorge de secrets.",
+              "[…]",
+              "Enfin. Le tunnel trouve sa lumière. Une grande bâtisse aux",
+              "briques rouges au coin de la rue Abraham-Lincoln et de la rue",
+              "Washington. Les places pour se garer se font rares aux",
+              "aurores. Ça y est. Non loin de l’établissement — rue du",
+              "Mississippi. Françoise n’avait jamais remarqué. En ce jour, sa",
+              "concentration sur les détails l’éclaire. En observant les",
+              "panneaux, elle comprend. Les rues mentent. Washington.",
+              "Mississippi. Chicago. Texas. Canada. Californie. Le rêve",
+              "américain semble bien loin de la fosse 3. Aucune plage. Pas de",
+              "sable. Ni de rêve. Encore moins de soleil. Simplement un ciel",
+              "grisâtre. Un mirage composé de charbon, de sciure et de",
+              "cambouis."
+            ]
+          },
+          {
+            "titre": "L’autopsie",
+            "page": "162, 163, 165",
+            "lignes": [
+              "On pourrait demander une autopsie ? s’interroge-t-elle. Les",
+              "peurs d’une maladie héréditaire l’inquiètent.",
+              "[…]",
+              "Monsieur. J’ai besoin de savoir. Ce n’est pas dans mes",
+              "habitudes de réclamer, mais j’ai l’intime conviction que cette",
+              "autopsie doit être faite. Je vous en supplie.",
+              "Madame, votre mère avait quatre-vingt-douze ans. J’ai",
+              "constaté une mort naturelle. Une autopsie, c’est un corps qu’on",
+              "emmène à l’hôpital, des jours d’attente, des obsèques repoussées.",
+              "[…]",
+              "Masse encapsulée mesurant douze centimètres de",
+              "diamètre, localisée en position rétropéritonéale gauche. Tissus",
+              "organisés de type embryonnaire. Fragments osseux",
+              "identifiables. Ébauche de colonne vertébrale. Ébauches de",
+              "membres. Des poils. Une dent. Sexe non déterminable.",
+              "Le rapport est sans appel. Fœtus in fœtu. Un jumeau",
+              "parasite. La spatule tombe dans la sauce tomate. Françoise",
+              "s’effondre."
+            ]
+          }
+        ]
+      },
+      "indice2": "Chapitre XIV, p. 160 du livre broché : « Ce périple nocturne s’abat dans les méandres… » — la matinée est racontée dans l’ordre, du parking à la cuisine.",
+      "etude": {
+        "questions": [
+          {
+            "domaine": "Grammaire",
+            "libelle": "« j’ai l’intime conviction que cette autopsie doit être faite ». À quelle voix le verbe est-il employé ?",
+            "format": "boutons",
+            "options": [
+              "À la voix passive",
+              "À la voix active",
+              "À la forme pronominale"
+            ],
+            "reponse": "À la voix passive",
+            "aide": "Qui ferait l’autopsie ? Le dit-on dans la phrase ?",
+            "explication": "La voix passive efface celui qui agit. Françoise réclame l’acte, pas la personne — et c’est bien ce qui agace le docteur Martin."
+          },
+          {
+            "domaine": "Orthographe",
+            "libelle": "« Les places pour se garer se font rares aux aurores ». Pourquoi « rares » prend-il un « s » ?",
+            "format": "boutons",
+            "options": [
+              "C’est un attribut du sujet « les places », féminin pluriel",
+              "Parce qu’il suit un verbe à l’infinitif",
+              "Parce qu’il se termine déjà par un « e »"
+            ],
+            "reponse": "C’est un attribut du sujet « les places », féminin pluriel",
+            "aide": "Remplacez « se font » par « sont ». Que devient la phrase ?",
+            "explication": "Attribut du sujet, il s’accorde comme un adjectif : « les places sont rares »."
+          },
+          {
+            "domaine": "Champ lexical",
+            "libelle": "Relevez l’adjectif qui qualifie les tissus décrits dans le rapport d’autopsie.",
+            "format": "saisie",
+            "reponse": "embryonnaire",
+            "variantes": [
+              "de type embryonnaire",
+              "embryonnaires"
+            ],
+            "aide": "Un adjectif de cinq syllabes, juste après « de type ».",
+            "explication": "Embryonnaire, encapsulée, rétropéritonéale : la langue médicale, froide et exacte, dit en six phrases ce que la famille a tu pendant toute une vie.",
+            "renvoi": "Tissus organisés de type embryonnaire. Fragments osseux identifiables. Ébauche de colonne vertébrale. Ébauches de membres. Des poils. Une dent."
+          },
+          {
+            "domaine": "Figure de style",
+            "libelle": "« Les rues mentent ». De quelle figure de style s’agit-il ?",
+            "format": "boutons",
+            "options": [
+              "Une personnification",
+              "Une comparaison",
+              "Un oxymore"
+            ],
+            "reponse": "Une personnification",
+            "aide": "Mentir, est-ce quelque chose qu’une rue peut faire ?",
+            "explication": "Mentir est un acte humain, prêté ici aux panneaux de rue. Même chapitre : « la mort s’invite partout », « le tunnel trouve sa lumière »."
+          },
+          {
+            "domaine": "Compréhension",
+            "libelle": "« Fœtus in fœtu. Un jumeau parasite. » Que vient de comprendre Françoise ?",
+            "format": "boutons",
+            "options": [
+              "Que le frère de Léa a passé toute sa vie dans le corps de sa sœur",
+              "Que Léa avait une tumeur bénigne sans rapport avec sa mort",
+              "Que Léa avait été opérée dans son enfance"
+            ],
+            "reponse": "Que le frère de Léa a passé toute sa vie dans le corps de sa sœur",
+            "aide": "Reliez cette conclusion à la lettre de Maria, au chapitre XI.",
+            "explication": "La grosseur qu’elle avait « toujours eue ». La lettre disait vrai : « Il me disait qu’il sentait sa présence. Qu’il était là. »"
+          }
+        ]
+      }
+    },
+    {
+      "chapitre": "XV",
+      "titre": "Le dernier adieu",
+      "image": "lieu-14",
+      "salle": {
+        "touches": [
+          {
+            "cle": "texte",
+            "libelle": "L’enveloppe",
+            "x": 0.675,
+            "y": 0.84
+          },
+          {
+            "cle": "enigme",
+            "libelle": "La tombe",
+            "x": 0.27,
+            "y": 0.42
+          }
+        ],
+        "masques": [
+          {
+            "x": 0.33,
+            "y": 0.13,
+            "l": 0.18,
+            "h": 0.15
+          }
+        ]
+      },
+      "lettre": true,
+      "format": "questions",
+      "presentation": "boutons",
+      "enonce": "Au cimetière, sous la pluie fine.",
+      "questions": [
+        {
+          "libelle": "Qu'apportent Fabienne et Didier, en retard ?",
+          "options": [
+            "une rose blanche",
+            "la canne réparée",
+            "la boîte"
+          ],
+          "reponse": "la canne réparée"
+        },
+        {
+          "libelle": "Quel mot est écrit au dos de l'enveloppe de Nadine ?",
+          "options": [
+            "« Adieu. »",
+            "« Souviens-toi. »",
+            "« Pardon. »"
+          ],
+          "reponse": "« Pardon. »"
+        },
+        {
+          "libelle": "Qui se pose sur la tombe à la fin ?",
+          "options": [
+            "une tourterelle",
+            "deux pigeons",
+            "un coq"
+          ],
+          "reponse": "deux pigeons"
+        }
+      ],
+      "indice": "Tout est dans les deux dernières pages : ce que Fabienne tend à Françoise, ce que Nadine laisse tomber sur le cercueil, et ce qui s'envole avant le retour du soleil.",
+      "apres": "La dernière lettre s'ajoute. La phrase est complète.",
+      "passage": {
+        "titre": "Chapitre XV — Le dernier adieu",
+        "extraits": [
+          {
+            "titre": "Au cimetière",
+            "page": "166, 167",
+            "lignes": [
+              "Les nuages grisonnants cachent le soleil sous une pluie",
+              "fine. Un cadeau des cieux pour camoufler des larmes",
+              "contagieuses. La terre boueuse du cimetière alourdit chaque",
+              "pas. Les traces de chaussures sur le sol gravent l’assemblée",
+              "silencieuse dans le marbre. Tous sont là. Ou presque. Seule",
+              "[…]",
+              "Un cortège désarticulé s’amasse devant le tombeau.",
+              "Léonide s’impatiente de retrouver sa promise. L’attente a été",
+              "longue. Une pierre de granit surplombe deux dates — 1932-",
+              "1972. Voilà ce qu’il reste de lui. À croire que seul le temps",
+              "persiste quand la terre nous rappelle. D’une excavation, ses",
+              "bras s’ouvrent pour accueillir ses plus beaux souvenirs. Dans",
+              "cette sombre journée, seule la pierre sourit.",
+              "Tous se placent en cercle autour de Léa. La famille en",
+              "première ligne. Le maître de cérémonie s’apprête à prendre la",
+              "parole. Mais, au loin, un parapluie noir détourne les",
+              "attentions. Les visages se retournent comme tombent les",
+              "dominos. Cette ombre devient silhouette. Puis visage. C’est",
+              "Fabienne. Didier marche à ses côtés. Ils sont accompagnés. De",
+              "la canne. Les gouttes de pluie étreignent un morceau de bois",
+              "réparé."
+            ]
+          },
+          {
+            "titre": "Les adieux",
+            "page": "167, 168, 169",
+            "lignes": [
+              "Arrivée face à Françoise, elle",
+              "ouvre les mains. Elle transmet. Sans un mot.",
+              "Tu possédais la",
+              "plus belle des qualités à mes yeux. La bonté silencieuse. Tout ce que",
+              "tu faisais était tourné vers les autres. Une qualité rare de nos jours.",
+              "Tu me disais souvent que tant que les gens pensent à toi, tu ne",
+              "disparais pas. Rassure-toi. Mes pensées seront tiennes. Olympe et",
+              "Léontine te connaîtront à travers mes souvenirs.",
+              "[…]",
+              "Sa démarche est chancelante. Ses pas s’alourdissent. Les",
+              "jambes finissent par céder. Françoise se précipite pour la",
+              "relever. Son bras autour de l’épaule accompagne les derniers",
+              "pas. Une fois devant, Nadine lance deux roses. Elle sait,",
+              "désormais. Françoise s’apprête à faire demi-tour. Mais Nadine",
+              "sort quelque chose de sa poche. Une lettre. Sur laquelle",
+              "Françoise aperçoit le nom de Léa. C’est écrit à la main.",
+              "L’écriture d’un homme. Louis Lemoine. Au dos de",
+              "l’enveloppe, un seul mot, d’une main tremblante : « Pardon. »",
+              "Françoise lit le nom. Il ne lui dit rien. Mais le regard de",
+              "Nadine suffit. Elle hésite, puis laisse la lettre partir avec sa",
+              "mère. La lettre atterrit sur le cercueil. Elle se coince entre deux",
+              "roses. Deux pigeons se posent sur la tombe. Françoise sourit.",
+              "Nadine aussi."
+            ]
+          }
+        ]
+      },
+      "indice2": "Chapitre XV, p. 166 du livre broché : « Les nuages grisonnants cachent le soleil… » — les deux dernières pages du roman.",
+      "etude": {
+        "questions": [
+          {
+            "domaine": "Grammaire",
+            "libelle": "« tant que les gens pensent à toi, tu ne disparais pas ». Quel rapport logique « tant que » exprime-t-il ?",
+            "format": "boutons",
+            "options": [
+              "Le temps, la durée",
+              "La cause",
+              "La conséquence"
+            ],
+            "reponse": "Le temps, la durée",
+            "aide": "Remplacez « tant que » par « aussi longtemps que ». La phrase garde-t-elle son sens ?",
+            "explication": "« Tant que » introduit une subordonnée de temps. C’est la morale du livre — et la raison d’être de ce jeu."
+          },
+          {
+            "domaine": "Orthographe",
+            "libelle": "« Les gouttes de pluie étreignent un morceau de bois réparé ». Pourquoi « étreignent » et non « étreint » ?",
+            "format": "boutons",
+            "options": [
+              "Le sujet est « les gouttes », au pluriel",
+              "Le sujet est « la pluie »",
+              "Le sujet est « un morceau de bois »"
+            ],
+            "reponse": "Le sujet est « les gouttes », au pluriel",
+            "aide": "Qu’est-ce qui étreint le bois ? Le noyau du groupe sujet, pas son complément.",
+            "explication": "Le verbe s’accorde avec le noyau du groupe — « les gouttes » — et non avec « de pluie », qui n’est qu’un complément. Même piège qu’au chapitre VII."
+          },
+          {
+            "domaine": "Champ lexical",
+            "libelle": "Relevez les deux mots par lesquels Céleste résume la qualité de sa grand-mère.",
+            "format": "saisie",
+            "reponse": "bonté silencieuse",
+            "variantes": [
+              "la bonté silencieuse"
+            ],
+            "aide": "Un nom et son adjectif, à la fin de la phrase.",
+            "explication": "Deux mots qui répondent à tout le roman : chez les Laprel, on ne parle pas, on fait. Le silence y est d’abord une blessure, puis une forme d’amour.",
+            "renvoi": "Tu possédais la plus belle des qualités à mes yeux. La bonté silencieuse."
+          },
+          {
+            "domaine": "Histoire",
+            "libelle": "« Une pierre de granit surplombe deux dates — 1932-1972 ». De qui s’agit-il ?",
+            "format": "boutons",
+            "options": [
+              "De Léonide, le mari de Léa",
+              "De Joseph, le père de Léa",
+              "Du frère jumeau de Léa"
+            ],
+            "reponse": "De Léonide, le mari de Léa",
+            "aide": "Qui, dans ce cimetière, « s’impatiente de retrouver sa promise » ?",
+            "explication": "Quarante ans de vie, et une attente bien plus longue encore. Léa rejoint la tombe ouverte en 1972."
+          },
+          {
+            "domaine": "Compréhension",
+            "libelle": "Pourquoi Nadine apporte-t-elle une lettre signée Louis Lemoine ?",
+            "format": "boutons",
+            "options": [
+              "Son grand-père demande pardon à Léa, trop tard",
+              "Elle a trouvé cette lettre en rangeant la chambre",
+              "C’est une lettre de condoléances de l’établissement"
+            ],
+            "reponse": "Son grand-père demande pardon à Léa, trop tard",
+            "aide": "Que sait Nadine, désormais ? Relisez :",
+            "explication": "« Elle sait, désormais. » Nadine a appris ce que son grand-père avait fait. Le mot « Pardon » part avec Léa — personne ne l’aura lu à voix haute.",
+            "renvoi": {
+              "de": "Sur laquelle Françoise aperçoit le nom de Léa. C’est écrit à la main. L’écriture d’un homme. Louis Lemoine.",
+              "a": "Au dos de l’enveloppe, un seul mot, d’une main tremblante : « Pardon. »"
+            },
+            "renvoiAide": "Elle sait, désormais."
+          },
+          {
+            "domaine": "Figure de style",
+            "libelle": "« Les visages se retournent comme tombent les dominos ». Que fait voir cette comparaison ?",
+            "format": "boutons",
+            "options": [
+              "Les têtes qui se tournent l’une après l’autre, en chaîne",
+              "Des gens qui tombent sur le sol boueux",
+              "Une partie de dominos au cimetière"
+            ],
+            "reponse": "Les têtes qui se tournent l’une après l’autre, en chaîne",
+            "aide": "Qu’est-ce qui caractérise une rangée de dominos qu’on fait tomber ?",
+            "explication": "La comparaison ne dit pas la chute mais la propagation : un mouvement en gagne un autre, de proche en proche, jusqu’au bout de l’assemblée."
+          }
+        ]
+      }
+    },
+    {
+      "chapitre": "III",
+      "titre": "Ce que le rêve annonçait",
+      "image": "lieu-03",
+      "salle": {
+        "touches": [
+          {
+            "cle": "texte",
+            "libelle": "Les lettres sur la corde",
+            "x": 0.26,
+            "y": 0.34
+          },
+          {
+            "cle": "enigme",
+            "libelle": "La grenouille au képi",
+            "x": 0.875,
+            "y": 0.675
+          }
+        ]
+      },
+      "lettre": "",
+      "versions": [
+        "eleves"
+      ],
+      "bonus": true,
+      "format": "association",
+      "enonce": "Le roman est fini. Revenez au rêve du chapitre III : vous savez, maintenant, ce que Léa ne savait pas. Reliez chaque image à ce qu’elle annonçait.",
+      "titreGauche": "Dans le rêve",
+      "titreDroite": "Ce que cela annonçait",
+      "paires": [
+        {
+          "gauche": "Un javelot planté seul dans la pelouse",
+          "droite": "La rencontre avec Léonide au café de la Paix"
+        },
+        {
+          "gauche": "Des lettres pendues à une corde à linge, l'encre qui coule",
+          "droite": "Les lettres ficelées de la boîte"
+        },
+        {
+          "gauche": "Des yeux bleus dans le miroir, une voix : « Rouvre les yeux »",
+          "droite": "Son frère, et non Léonide"
+        },
+        {
+          "gauche": "Une porte qui se rouvre : « l'autre monde me regarde »",
+          "droite": "L'entre-deux, le passage entre les mondes"
+        }
+      ],
+      "indice": "Dans le rêve, Léa croit reconnaître Léonide. Au chapitre XII, quand elle prononce son nom, on lui répond : « Non… »",
+      "indice2": "Chapitre III, p. 38 du livre broché : « Elle sait que c’est un rêve… » — et p. 151 pour ce que le rêve annonçait.",
+      "apres": "Le rêve avait tout dit, dès le chapitre III. Il ne manquait que les yeux pour le lire."
+    }
+  ],
+  "finale": {
+    "ecrans": [
+      {
+        "format": "tuiles",
+        "titre": "La boîte s’ouvre",
+        "enonce": "Vos lettres étaient en vrac. Elles finissent une phrase, dont le début est déjà posé. Remettez-les dans l’ordre.",
+        "fixe": "J’ÉTAIS",
+        "forme": ".... .... .’.....",
+        "empreinte": "62f80bb4ab6dc5c228abf20f6c69f8a867ffb9d48d7c254ba4de904463c6d094",
+        "indices": [
+          "Quatre mots en tout — celui qui est déjà posé compris.",
+          "Qui parle ? Quelqu’un qui n’a jamais vécu dans ce monde-ci, et qui a pourtant accompagné Léa pendant quatre-vingt-douze ans.",
+          "Les quatre mots commencent par J, T, D et L.",
+          "Voici la forme de la phrase : les tuiles se rangent par mot, et l’apostrophe reprend sa place."
+        ],
+        "apres": "La phrase est entière. Reste à savoir qui la prononce.",
+        "refus": "Pas encore. Les lettres sont les bonnes — c’est l’ordre qui ne l’est pas."
+      },
+      {
+        "titre": "Qui parle ?",
+        "format": "champs",
+        "enonce": "Qui prononce la phrase que vous venez de reconstituer ?",
+        "champs": [
+          {
+            "libelle": "Votre réponse",
+            "solution": "son frère jumeau",
+            "variantes": [
+              "le frère",
+              "son frère",
+              "le jumeau",
+              "son jumeau",
+              "le frère de Léa",
+              "son frère de Léa",
+              "frère jumeau",
+              "le frère jumeau",
+              "le jumeau de Léa",
+              "son frère, le jumeau"
+            ]
+          }
+        ],
+        "indice": "Ce n'est ni Léonide, ni son père. C'est quelqu'un qui n'a jamais vécu dans son monde.",
+        "apres": "« Mon âme était rattachée à la tienne. J'ai vécu… à travers toi ! »"
+      },
+      {
+        "titre": "Les mêmes lettres, un autre ordre",
+        "format": "anagramme",
+        "enonce": "« Le même alphabet, mais dans un ordre différent. » Cliquez les lettres pour recomposer le monde caché derrière chaque nom.",
+        "mots": [
+          {
+            "source": "DÉMONS",
+            "cible": "MONDES",
+            "piste": "six lettres"
+          },
+          {
+            "source": "LÉA LAPREL",
+            "cible": "PARALLÈLE",
+            "piste": "neuf lettres"
+          },
+          {
+            "source": "MORIMÉE",
+            "cible": "MÉMOIRE",
+            "piste": "sept lettres"
+          }
+        ],
+        "indice": "Commencez par les démons : six lettres seulement, et le mot est au pluriel.",
+        "apres": "« C'est une évidence désormais ! Mon tourment et ma vérité… les mêmes mots ! »"
+      }
+    ],
+    "revelationPublic": {
+      "type": "revelation",
+      "titre": "Il était là depuis le début",
+      "image": "lieu-15",
+      "paragraphes": [
+        "Léa n'a jamais été seule. Son frère a vécu à travers elle, et l'a retenue trois fois.",
+        "Il était là depuis la première page : dans le titre."
+      ],
+      "libelleCode": "Votre code pour le jeu concours :",
+      "code": "PARALLELE-HIVER27",
+      "consigneCode": "Envoyez ce code par e-mail ou en message privé avant la date limite. Un tirage au sort désignera le gagnant parmi les bonnes réponses.",
+      "lots": {
+        "titre": "Trois lots, tirés au sort",
+        "liste": [
+          {
+            "rang": "1ᵉʳ tiré",
+            "texte": "Votre prénom donné à un personnage du prochain roman, et un exemplaire dédicacé."
+          },
+          {
+            "rang": "2ᵉ tiré",
+            "texte": "Une visite du musée de la Mine de Bruay-la-Buissière avec l’auteur, pour deux, et un exemplaire dédicacé."
+          },
+          {
+            "rang": "3ᵉ tiré",
+            "texte": "Un tirage d’art signé, au format A3, d’une illustration du jeu, et un exemplaire dédicacé à offrir."
+          }
+        ]
+      },
+      "libelleLien": "Envoyer mon code par e-mail",
+      "concours": {
+        "courriel": "lesdemonsdelealaprel@gmail.com",
+        "objet": "Concours escape game – code secret",
+        "corps": "Bonjour, j’ai terminé l’escape game des Démons de Léa Laprel.\n\nMon code : {code}.\nMon prénom : …\nMa ville : …"
+      },
+      "clinDoeil": "Le saviez-vous ? L'indice était là dès le chapitre I : dans le coron, les jumeaux Stefan et Stanislas Kowalski avaient l'âge de Léa.",
+      "rappel": "Tirage au sort le 27 février 2027",
+      "lienReglement": "reglement.html",
+      "libelleReglement": "Règlement complet"
+    },
+    "revelationEleves": {
+      "type": "revelation",
+      "titre": "Du roman à la mémoire",
+      "image": "lieu-15",
+      "paragraphes": [
+        "Léa n’a jamais été seule. Son frère a vécu à travers elle, et l’a retenue trois fois. Il était là depuis la première page : dans le titre.",
+        "Derrière l’histoire d’une famille, c’est un pays qui se raconte. Le bassin minier et ses corons de briques rouges, l’immigration polonaise des années 1920, la fosse 6 et la salle des pendus, la silicose qui emporte Joseph dix ans après la déportation, les coulonneux qui guettent le ciel le dimanche matin.",
+        "Et le présent du livre : un EHPAD, une chambre, une canne, et des soignants qui tiennent la journée d’une femme de quatre-vingt-douze ans. Nadine, Fabienne, Marine, Hugo, Sandrine. C’est un kinésithérapeute qui, en manipulant une hanche, découvre ce que personne n’avait vu en quatre-vingt-douze ans.",
+        "Une question pour finir, à débattre en classe : qu’est-ce qu’on transmet, et qu’est-ce qu’on tait ? Joseph et Maria ont gardé le silence toute leur vie. Avaient-ils raison ?"
+      ],
+      "clinDoeil": "Le saviez-vous ? L’indice était là dès le chapitre I : dans le coron, les jumeaux Stefan et Stanislas Kowalski avaient l’âge de Léa."
+    }
+  },
+  "versions": {
+    "public": {
+      "nom": "J’ai lu le livre",
+      "description": "Seul, à votre rythme. Le jeu ne montre aucun extrait : il vérifie que vous avez lu le roman jusqu’à sa dernière ligne.",
+      "entree": {
+        "titre": "La dernière page",
+        "question": "Avant d’entrer, prouvez que vous êtes allé jusqu’au bout. Quel est le dernier mot du roman ?",
+        "libelle": "Le dernier mot du roman",
+        "bouton": "Ouvrir",
+        "solution": "revient",
+        "variantes": [
+          "le soleil revient",
+          "soleil revient",
+          "il revient"
+        ],
+        "refus": "Ce n’est pas le dernier mot du roman.",
+        "indice": "Chapitre XV, p. 169 du livre broché : c’est la toute dernière phrase du roman. Elle ne compte que trois mots.",
+        "apres": "« Le soleil revient… » Vous êtes allé jusqu’à la dernière ligne. Bienvenue dans la boîte."
+      }
+    },
+    "eleves": {
+      "nom": "Code classe",
+      "description": "En classe, par équipes de trois ou quatre. Les passages du roman sont affichés, et le minuteur tourne.",
+      "dureeMinutes": 55,
+      "chapitres": [],
+      "entree": {
+        "titre": "Le code de la classe",
+        "question": "Entrez le code de la classe : il vous est donné par votre professeur, ou figure à la dernière page du livre.",
+        "libelle": "Le code de la classe",
+        "bouton": "Entrer",
+        "refus": "Ce n’est pas le code de la classe.",
+        "indice": "Regardez la dernière page du livre, sous le QR code.",
+        "apres": "Bienvenue. Vous avez cinquante-cinq minutes. Le livre reste ouvert à côté de vous.",
+        "empreinte": "306d085867762f4ce9107a4a82b428c496c46f9480bfd1f081b85e1d1011f853"
+      },
+      "consigneEtude": "Lisez l’extrait, puis répondez. Touchez une pastille « phrase… » pour retrouver le passage visé. Chaque réponse est corrigée séparément : ce qui est juste reste acquis.",
+      "etudeObligatoire": true,
+      "minutesParEtape": 10,
+      "parcours": true
+    }
+  }
+}

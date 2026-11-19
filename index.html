@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Les Démons de Léa Laprel — le jeu du lecteur</title>
+<meta name="description" content="Quatorze étapes à travers les quinze chapitres des Démons de Léa Laprel, roman de Paul Cardon, pour qui vient de le refermer.">
+<meta name="robots" content="noindex">
+
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1e1a17">
+<link rel="icon" href="icone-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="icone-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Léa Laprel">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="lecteur">
+
+<div id="fond" class="fond" aria-hidden="true"></div>
+
+<div id="avertissements" class="bandeau" role="status" hidden></div>
+
+<header class="entete" id="entete">
+  <div class="entete-haut">
+    <p class="marque" id="titre-jeu">&nbsp;</p>
+    <div class="compteurs">
+      <span class="compteur" id="chrono" role="timer" aria-live="off" aria-label="Temps restant" hidden>55:00</span>
+      <span class="compteur" id="compte-lettres">0 / 14</span>
+      <button type="button" class="bouton bouton-discret" id="btn-recommencer" hidden>Changer de version</button>
+    </div>
+  </div>
+  <p class="phrase-bandeau" id="phrase" aria-label="La phrase à reconstituer" hidden></p>
+</header>
+
+<main id="scene" class="scene">
+  <section class="ecran">
+    <h2 tabindex="-1">Chargement…</h2>
+    <p>Le jeu récupère son contenu.</p>
+  </section>
+</main>
+
+<footer class="pied">
+  <p>D’après <em>Les Démons de Léa Laprel</em>, roman de Paul Cardon.</p>
+</footer>
+
+<p id="annonces" class="lecteur-seul" aria-live="polite"></p>
+
+<noscript>
+  <p class="bandeau">Ce jeu a besoin de JavaScript. Activez-le, puis rechargez la page.</p>
+</noscript>
+
+<script src="jeu.js"></script>
+<script>
+if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js').catch(function () {});
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "Les Démons de Léa Laprel — le jeu du lecteur",
+  "short_name": "Léa Laprel",
+  "description": "Quatorze étapes à travers les quinze chapitres du roman de Paul Cardon, pour qui vient de le refermer.",
+  "lang": "fr",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f5f0e7",
+  "theme_color": "#1e1a17",
+  "categories": ["books", "games", "entertainment"],
+  "icons": [
+    { "src": "icone-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icone-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icone-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

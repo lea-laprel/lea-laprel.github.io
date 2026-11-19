@@ -1,0 +1,1200 @@
+/* =========================================================================
+   Escape game pédagogique — feuille de style unique.
+   Ambiance du roman : papier, encre, bordeaux, dorure — et, derrière
+   chaque écran, l'illustration du lieu (voir la section « Illustrations »).
+   Aucune police téléchargée.
+   ========================================================================= */
+
+:root {
+  --mono: Consolas, Menlo, "DejaVu Sans Mono", monospace;
+  --papier:      #f5f0e7;
+  --papier-fonce:#e9e1d3;
+  --carte:       #fffdf8;
+  --encre:       #1e1a17;
+  --encre-douce: #4a423b;
+  --bordeaux:    #7a1f2b;
+  --bordeaux-clair:#9c3341;
+  --or:          #9a7c2a;
+  --vert:        #2f5d3a;
+  --trait:       #cdbfa6;
+  --ombre:       0 1px 2px rgba(30,26,23,.10), 0 4px 14px rgba(30,26,23,.06);
+
+  --serif: Georgia, "Iowan Old Style", "Times New Roman", "Liberation Serif", serif;
+  --sans: "Segoe UI", Roboto, "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--papier);
+  color: var(--encre);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+h1, h2, h3, .marque, .chiffre-revele, .code-sortie, .mot-de-passe {
+  font-family: var(--serif);
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+
+h2 { font-size: 1.6rem; margin: 0 0 .2em; }
+/* Le titre d'un écran reçoit la mise au point pour que les lecteurs
+   d'écran annoncent le changement de page. Il ne se tabule pas
+   (tabindex="-1") : lui dessiner un cadre rouge n'aide personne et
+   saute aux yeux sur chaque écran. On laisse le cadre aux titres que
+   l'on peut vraiment atteindre au clavier. */
+h2:focus-visible { outline: 3px solid var(--bordeaux); outline-offset: 4px; }
+h2[tabindex="-1"]:focus, h2[tabindex="-1"]:focus-visible,
+h3[tabindex="-1"]:focus, h3[tabindex="-1"]:focus-visible { outline: none; }
+h3 { font-size: 1.15rem; margin: 0 0 .4em; }
+
+p { margin: 0 0 .8em; }
+
+.lecteur-seul {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------- Bandeau */
+
+.bandeau {
+  margin: 0;
+  padding: .7rem 1rem;
+  background: #fbf1cf;
+  border-bottom: 2px solid var(--or);
+  color: #4a3a06;
+  font-size: .95rem;
+}
+.bandeau ul { margin: .4em 0 0; padding-left: 1.2em; }
+.bandeau li { margin-bottom: .2em; }
+.bandeau strong { font-family: var(--serif); }
+
+/* ----------------------------------------------------------------- Entête */
+
+.entete {
+  background: var(--encre);
+  color: var(--papier);
+  border-bottom: 3px solid var(--or);
+  padding: .6rem clamp(.8rem, 3vw, 2rem);
+}
+.entete-haut {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem;
+  justify-content: space-between;
+  max-width: 62rem; margin: 0 auto;
+}
+.marque {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #f0e2bd;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+}
+.compteurs { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+.compteur {
+  font-variant-numeric: tabular-nums;
+  background: rgba(255,255,255,.09);
+  border: 1px solid rgba(240,226,189,.3);
+  border-radius: 3px;
+  padding: .2rem .6rem;
+  font-size: 1rem;
+}
+#chrono { font-family: var(--serif); font-size: 1.25rem; min-width: 5.2rem; text-align: center; font-variant-numeric: lining-nums; }
+
+/* Carnet des chiffres trouvés */
+.carnet {
+  display: flex; gap: .4rem; justify-content: center;
+  list-style: none; margin: .5rem auto 0; padding: 0;
+  max-width: 62rem;
+}
+.carnet li {
+  width: 2rem; height: 2.3rem;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(240,226,189,.35);
+  border-radius: 3px;
+  font-family: var(--serif); font-size: 1.2rem;
+  color: rgba(240,226,189,.35);
+}
+.carnet li.trouve { color: #1e1a17; background: #e3c86a; border-color: #e3c86a; }
+
+/* ------------------------------------------------------------------ Scène */
+
+.scene {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: clamp(1rem, 3vw, 2rem) clamp(.8rem, 3vw, 2rem) 3rem;
+}
+.ecran > h2 { color: var(--bordeaux); }
+.sur-titre {
+  margin: 0 0 .1em;
+  text-transform: uppercase; letter-spacing: .12em;
+  font-size: .78rem; color: var(--encre-douce);
+}
+
+.narration {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  border-left: 3px solid var(--bordeaux);
+  padding: .1rem 0 .1rem 1rem;
+  margin: 1rem 0 1.2rem;
+}
+.consigne-lecture {
+  background: var(--papier-fonce);
+  border: 1px solid var(--trait);
+  border-radius: 4px;
+  padding: .8rem 1rem;
+  margin-bottom: 1.4rem;
+}
+.consigne-lecture strong { display: block; font-family: var(--serif); color: var(--bordeaux); }
+
+/* ---------------------------------------------------------------- Énigmes */
+
+.enigme {
+  background: var(--carte);
+  border: 1px solid var(--trait);
+  border-radius: 5px;
+  box-shadow: var(--ombre);
+  padding: 1rem clamp(.8rem, 2.5vw, 1.4rem);
+  margin-bottom: 1.2rem;
+}
+.enigme.resolue { border-color: var(--vert); background: #f4f8f3; }
+.enigme-entete { display: flex; align-items: baseline; gap: .6rem; margin-bottom: .5rem; }
+.enigme-numero {
+  font-family: var(--serif); font-size: .8rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--encre-douce);
+}
+.enigme-etat { margin-left: auto; font-size: .9rem; color: var(--vert); font-weight: 700; }
+.consigne { margin-bottom: .9rem; }
+
+/* Boutons */
+.bouton {
+  font: inherit;
+  font-family: var(--sans);
+  background: var(--bordeaux);
+  color: #fff;
+  border: 1px solid var(--bordeaux);
+  border-radius: 3px;
+  padding: .55rem 1.1rem;
+  cursor: pointer;
+  min-height: 2.6rem;
+}
+.bouton:hover { background: var(--bordeaux-clair); }
+.bouton:disabled { background: #a79b8c; border-color: #a79b8c; cursor: default; }
+.bouton-secondaire { background: transparent; color: var(--bordeaux); }
+.bouton-secondaire:hover { background: #f1e4e4; }
+.bouton-discret {
+  background: transparent; color: #f0e2bd;
+  border-color: rgba(240,226,189,.45);
+  padding: .3rem .7rem; min-height: 0; font-size: .9rem;
+}
+.bouton-discret:hover { background: rgba(255,255,255,.12); }
+.bouton-large { font-size: 1.05rem; padding: .7rem 1.6rem; }
+:focus-visible { outline: 3px solid var(--or); outline-offset: 2px; }
+.entete :focus-visible { outline-color: #e3c86a; }
+
+.ligne-actions { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin-top: .8rem; }
+
+/* Retour après vérification */
+.retour { margin: .8rem 0 0; padding: .6rem .8rem; border-radius: 3px; font-size: .97rem; }
+.retour[data-ton="echec"] { background: #fbeeee; border: 1px solid #e0bcbc; color: #6c2029; }
+.retour[data-ton="succes"] { background: #eef5ee; border: 1px solid #b9d3bd; color: var(--vert); }
+
+/* --- Type « ordre » --- */
+.tuiles { list-style: none; margin: 0; padding: 0; }
+.tuile {
+  display: flex; align-items: center; gap: .7rem;
+  background: var(--papier);
+  border: 1px solid var(--trait);
+  border-left: 4px solid var(--or);
+  border-radius: 3px;
+  padding: .55rem .7rem;
+  margin-bottom: .45rem;
+}
+.tuile.survol { border-color: var(--bordeaux); background: #f6ecec; }
+.tuile.deplacee { border-left-color: var(--bordeaux); }
+.tuile-rang {
+  font-family: var(--serif); font-size: 1.1rem; color: var(--encre-douce);
+  min-width: 1.4rem; text-align: center;
+}
+.tuile-texte { flex: 1; }
+.tuile-texte.vide { color: #9a8f80; font-style: italic; }
+.tuile-fleches { display: flex; gap: .25rem; }
+.tuile-fleches .bouton {
+  padding: .25rem .6rem; min-height: 2.2rem;
+  background: transparent; color: var(--encre); border-color: var(--trait);
+  font-size: 1rem; line-height: 1;
+}
+.tuile-fleches .bouton:hover:not(:disabled) { background: var(--papier-fonce); }
+.tuile-fleches .bouton:disabled { opacity: .35; background: transparent; border-color: var(--trait); color: var(--encre); }
+.aide-clavier { font-size: .88rem; color: var(--encre-douce); margin: .6rem 0 0; }
+
+/* Révélation du mot de passe : uniquement après réussite */
+.mot-de-passe {
+  margin: .9rem 0 0; text-align: center;
+  font-size: clamp(1.6rem, 6vw, 2.4rem); letter-spacing: .28em;
+  color: var(--bordeaux); text-indent: .28em;
+}
+.mot-de-passe .lettre {
+  display: inline-block;
+  opacity: 0;
+  animation: apparait .45s ease-out forwards;
+}
+@keyframes apparait {
+  from { opacity: 0; transform: translateY(-.25em); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* --- Type « saisie » --- */
+.champ-saisie {
+  font: inherit; font-size: 1.05rem;
+  padding: .5rem .7rem;
+  border: 1px solid var(--trait); border-radius: 3px;
+  background: #fff; color: var(--encre);
+  min-width: 12rem; max-width: 100%;
+}
+
+/* --- Type « association » --- */
+.assoc { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem 1rem; }
+.colonne { list-style: none; margin: 0; padding: 0; }
+.colonne-titre {
+  font-family: var(--serif); font-size: .8rem; text-transform: uppercase;
+  letter-spacing: .1em; color: var(--encre-douce); margin: 0 0 .3rem;
+}
+.jeton {
+  width: 100%; text-align: left; font: inherit; color: var(--encre);
+  background: var(--papier); border: 1px solid var(--trait); border-radius: 3px;
+  padding: .55rem .7rem; margin-bottom: .45rem; cursor: pointer;
+  display: flex; align-items: center; gap: .5rem; min-height: 2.6rem;
+}
+.jeton:hover { background: var(--papier-fonce); }
+.jeton[aria-pressed="true"] { border-color: var(--bordeaux); background: #f6ecec; box-shadow: inset 0 0 0 1px var(--bordeaux); }
+.jeton.lie { border-left: 4px solid var(--or); }
+.puce {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 1.5rem; height: 1.5rem; flex: none;
+  border-radius: 50%; background: var(--or); color: #fff;
+  font-size: .85rem; font-weight: 700;
+}
+.puce.creuse { background: transparent; border: 1px dashed var(--trait); color: transparent; }
+
+/* --- Type « erreurs » --- */
+.resume {
+  font-family: var(--serif); font-size: 1.08rem; line-height: 2;
+  background: var(--papier); border: 1px solid var(--trait);
+  border-radius: 3px; padding: .8rem 1rem;
+}
+.mot {
+  font: inherit; background: none; border: none;
+  border-bottom: 1px dotted #b7a68a;
+  padding: 0 .1em; margin: 0; cursor: pointer; color: inherit;
+  border-radius: 2px;
+}
+.mot:hover { background: #efe6d4; }
+.mot[aria-pressed="true"] {
+  background: var(--bordeaux); color: #fff; border-bottom-color: var(--bordeaux);
+  text-decoration: line-through;
+}
+
+/* ---------------------------------------------------------------- Indices */
+
+.indices {
+  background: var(--papier-fonce);
+  border: 1px solid var(--trait); border-radius: 5px;
+  padding: .9rem 1rem; margin-top: 1.6rem;
+}
+.indices h3 { color: var(--bordeaux); }
+.indices p.avertissement { font-size: .9rem; color: var(--encre-douce); }
+.indice {
+  background: var(--carte); border: 1px solid var(--trait); border-left: 4px solid var(--or);
+  border-radius: 3px; padding: .6rem .8rem; margin-bottom: .5rem;
+}
+.indice-titre { font-family: var(--serif); font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--encre-douce); }
+
+/* ---------------------------------------------------------------- Coffret */
+
+.coffret {
+  margin-top: 1.6rem;
+  background: var(--encre); color: var(--papier);
+  border: 2px solid var(--or); border-radius: 5px;
+  padding: 1.2rem clamp(.9rem, 3vw, 1.6rem);
+}
+.coffret h3 { color: #e3c86a; }
+.chiffre-revele {
+  font-size: clamp(3rem, 14vw, 5rem); line-height: 1;
+  color: #e3c86a; text-align: center; margin: .3rem 0 .6rem;
+}
+.pont-pro {
+  background: rgba(255,255,255,.06);
+  border-left: 3px solid #e3c86a;
+  padding: .8rem 1rem; margin: 1rem 0 0;
+}
+.pont-pro .etiquette {
+  display: block; font-family: var(--serif); font-size: .78rem;
+  text-transform: uppercase; letter-spacing: .12em; color: #e3c86a; margin-bottom: .3rem;
+}
+.coffret .bouton { background: #e3c86a; color: var(--encre); border-color: #e3c86a; }
+.coffret .bouton:hover { background: #f0d986; }
+
+/* ------------------------------------------------------------ Écran final */
+
+.coffre-final {
+  background: var(--carte); border: 1px solid var(--trait); border-radius: 5px;
+  box-shadow: var(--ombre); padding: 1.4rem; text-align: center;
+}
+.champ-code {
+  font-family: var(--mono); font-size: 2rem; letter-spacing: .5em;
+  text-align: center; text-indent: .5em;
+  width: 100%; max-width: 16rem;
+  padding: .4rem; border: 2px solid var(--trait); border-radius: 4px;
+  background: #fff; color: var(--encre);
+}
+.code-sortie {
+  font-family: var(--mono);
+  font-size: clamp(1.5rem, 6vw, 2.3rem);
+  letter-spacing: .04em;
+  color: var(--bordeaux); text-align: center;
+  background: var(--papier-fonce); border: 2px dashed var(--bordeaux);
+  border-radius: 5px; padding: 1rem; margin: 1rem 0;
+  word-break: break-word;
+}
+.recap { list-style: none; padding: 0; margin: 1rem 0; }
+.recap li {
+  display: flex; justify-content: space-between; gap: 1rem;
+  border-bottom: 1px dotted var(--trait); padding: .35rem 0;
+}
+.recap .valeur { font-family: var(--serif); font-weight: 700; }
+
+/* --------------------------------------------------------- Repli / erreur */
+
+.repli {
+  background: var(--carte); border: 1px solid var(--trait);
+  border-left: 4px solid var(--bordeaux);
+  border-radius: 5px; padding: 1.2rem;
+}
+.repli code {
+  background: var(--papier-fonce); padding: .1em .35em; border-radius: 2px;
+  font-size: .95em;
+}
+
+/* ------------------------------------------------------------------- Pied */
+
+.pied {
+  border-top: 1px solid var(--trait);
+  padding: 1rem; text-align: center;
+  font-size: .85rem; color: var(--encre-douce);
+}
+.pied p { margin: 0; }
+
+/* -------------------------------------------------------- Petits écrans */
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .assoc { grid-template-columns: 1fr; }
+  .tuiles .tuile { flex-wrap: wrap; }      /* la liste du type « ordre », pas les lettres de la finale */
+  .tuile-texte { flex-basis: 100%; order: 3; }
+  .compteurs { width: 100%; justify-content: space-between; }
+}
+
+/* Écrans de salle informatique souvent en 1024×768 : on garde de grosses cibles */
+@media (pointer: coarse) {
+  .bouton, .jeton, .mot { min-height: 2.9rem; }
+  .mot { min-height: 0; padding: .15em .25em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mot-de-passe .lettre { animation: none; opacity: 1; }
+  * { transition: none !important; }
+}
+
+@media print {
+  .entete, .pied, .indices, .ligne-actions { display: none; }
+}
+
+/* Écran de repli : le sélecteur de fichier natif reste le seul contrôle. */
+.etiquette-fichier { display: block; font-weight: 700; margin-bottom: .3rem; }
+.repli input[type="file"] { font: inherit; max-width: 100%; }
+
+/* ------------------------------------------------- Écran de révélation
+   Densité calculée pour tenir sans défilement sur un poste 1024x768. */
+
+body.sans-pied .pied { display: none; }
+body.sans-pied .carnet { display: none; }
+body.sans-pied .entete { padding-top: .4rem; padding-bottom: .4rem; }
+body.sans-pied .scene { padding-top: .6rem; padding-bottom: .8rem; }
+body.sans-pied .marque { font-size: .92rem; }
+body.sans-pied .compteur { font-size: .88rem; padding: .15rem .5rem; }
+body.sans-pied #chrono { font-size: 1.05rem; }
+
+.revelation .sur-titre { margin-bottom: 0; }
+.revelation h2 { font-size: 1.22rem; margin: 0 0 .4rem; }
+.revelation-grille {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .55rem .9rem;
+  align-items: start;
+}
+.revelation .bloc {
+  background: var(--carte);
+  border: 1px solid var(--trait);
+  border-radius: 5px;
+  padding: .55rem .8rem;
+}
+.revelation .bloc-large { grid-column: 1 / -1; }
+.revelation .bloc h3 {
+  display: flex; align-items: baseline; gap: .45rem;
+  color: var(--bordeaux); font-size: .98rem; margin: 0 0 .35rem;
+}
+.revelation .bloc-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 1.3rem; height: 1.3rem; flex: none;
+  border-radius: 50%; background: var(--bordeaux); color: #fff;
+  font-family: var(--sans); font-size: .78rem; font-weight: 700;
+}
+.revelation .bloc > p { margin: 0; font-size: .9rem; line-height: 1.45; }
+
+.equivalences { list-style: none; margin: 0; padding: 0; }
+.equivalences li {
+  display: flex; justify-content: space-between; align-items: baseline; gap: .9rem;
+  padding: .08rem 0;
+  border-bottom: 1px dotted var(--trait);
+  font-size: .85rem; line-height: 1.38;
+}
+.equivalences li:last-child { border-bottom: none; }
+.equivalences .somme { flex: 1 1 auto; }
+.equivalences .equiv {
+  flex: 0 1 auto; text-align: right;
+  font-weight: 700; color: var(--bordeaux);
+}
+
+.revelation .encadre {
+  margin: .45rem 0 0; padding: .4rem .6rem;
+  background: var(--encre); color: #f0e2bd;
+  border-left: 3px solid #e3c86a; border-radius: 3px;
+  font-family: var(--serif); font-size: .86rem; line-height: 1.36;
+}
+.revelation .note {
+  margin: .5rem 0 0;
+  font-size: .7rem; line-height: 1.36; color: var(--encre-douce);
+}
+.revelation .ligne-actions { margin-top: .5rem; }
+.revelation .bouton-large { font-size: 1rem; padding: .5rem 1.4rem; min-height: 2.3rem; }
+
+/* En dessous de 860 px (tablette), une seule colonne : les deux colonnes
+   obligeraient chaque ligne à se couper en deux. */
+@media (max-width: 860px) {
+  .revelation-grille { grid-template-columns: 1fr; }
+  .equivalences li { flex-wrap: wrap; gap: 0 .6rem; }
+  .equivalences .equiv { text-align: left; }
+  body.sans-pied .scene { padding-bottom: 2rem; }
+}
+
+/* ------------------------------------- Le passage du roman dans l'app */
+
+.passage {
+  background: var(--carte);
+  border: 1px solid var(--trait);
+  border-left: 4px solid var(--bordeaux);
+  border-radius: 5px;
+  padding: .7rem clamp(.7rem, 2vw, 1.1rem);
+  margin-bottom: 1.4rem;
+}
+.passage-entete {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: .8rem; flex-wrap: wrap; margin-bottom: .5rem;
+}
+.passage-entete h3 { margin: 0; color: var(--bordeaux); font-size: 1.02rem; }
+.bouton-petit { padding: .3rem .8rem; min-height: 2.1rem; font-size: .88rem; }
+
+/* Un seul ascenseur pour tout l'extrait, sous-titres compris : avec deux
+   listes, deux zones de défilement séparées rendaient la lecture pénible. */
+.passage-corps { max-height: 52vh; overflow-y: auto; padding-right: .4rem; }
+
+/* Le texte garde la forme qu'il a dans le livre : des paragraphes, un
+   alinéa, les répliques détachées. Le numéro de ligne se lit en exposant
+   au début de chaque phrase, comme dans une édition scolaire — il sert
+   aux renvois « l. 19 » sans découper la page en bandes. */
+.passage-texte {
+  font-family: var(--serif); font-size: 1.04rem; line-height: 1.8;
+  text-align: left; hyphens: none;
+}
+
+.passage-compte {
+  font-size: .82rem; color: var(--encre-douce);
+  letter-spacing: .04em; text-transform: lowercase;
+  margin-left: auto; margin-right: .2rem;
+}
+.passage-situation {
+  margin: .9rem 0 .3rem; font-size: .86rem; letter-spacing: .05em;
+  text-transform: uppercase; color: var(--bordeaux);
+}
+.passage-situation:first-child { margin-top: 0; }
+
+@media (max-width: 640px) {
+  .passage-texte { font-size: 1rem; line-height: 1.75; }
+  .passage-corps { max-height: 46vh; }
+}
+
+/* ----------------------------------- L'étude du texte (version élèves) */
+
+.etude {
+  background: var(--papier-fonce);
+  border: 1px solid var(--trait);
+  border-radius: 5px;
+  padding: .85rem clamp(.7rem, 2vw, 1.1rem) 1rem;
+  margin-bottom: 1.4rem;
+}
+.etude-entete {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: .8rem; flex-wrap: wrap; margin-bottom: .35rem;
+}
+.etude-entete h3 { margin: 0; color: var(--encre); font-size: 1.05rem; }
+.etude-compte { font-size: .82rem; color: var(--encre-douce); }
+.etude-consigne { margin: 0 0 .9rem; font-size: .95rem; color: var(--encre-douce); }
+
+.etude-questions { margin: 0; padding: 0 0 0 1.5rem; display: grid; gap: 1.1rem; }
+.etude-question {
+  padding: .1rem 0 .1rem .55rem;
+  border-left: 3px solid transparent;
+}
+.etude-question[data-etat="juste"] { border-left-color: var(--vert); }
+.etude-question[data-etat="faux"]  { border-left-color: var(--bordeaux-clair); }
+.etude-question .question-libelle { font-family: var(--serif); font-size: 1.02rem; }
+.etude-question .champ-saisie { max-width: 22rem; }
+
+.etiquette-domaine {
+  display: inline-block; margin-bottom: .3rem;
+  padding: .08rem .5rem;
+  background: var(--carte); border: 1px solid var(--trait); border-radius: 999px;
+  font-size: .74rem; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--bordeaux);
+}
+.retour-question { margin-top: .5rem; font-size: .93rem; }
+
+/* La pastille de renvoi : « phrase 19 ». Le numéro est calculé par le
+   moteur à partir du texte visé — il n'est écrit nulle part. On la touche
+   pour surligner la phrase dans l'extrait. */
+.renvoi {
+  display: inline-block;
+  font-family: var(--sans); font-size: .76rem; font-weight: 600;
+  letter-spacing: .02em; line-height: 1.3;
+  padding: .26rem .62rem; margin: 0;
+  color: var(--bordeaux); background: var(--papier);
+  border: 1px solid var(--trait); border-radius: 999px;
+  cursor: pointer; white-space: nowrap;
+  vertical-align: .08em; position: relative;
+}
+/* La pastille reste petite dans la phrase, mais la zone touchée fait la
+   taille d'un doigt : indispensable sur téléphone. */
+.renvoi::after { content: ''; position: absolute; top: -9px; right: -4px; bottom: -9px; left: -4px; }
+.renvoi:hover { background: #fbf1cf; border-color: var(--bordeaux); }
+.renvoi:focus-visible { outline: 2px solid var(--bordeaux); outline-offset: 2px; }
+.retour-renvois .renvoi { background: var(--carte); }
+
+/* La phrase visée, une fois la pastille touchée. Elle le reste jusqu'à
+   la pastille suivante : deux renvois se comparent ainsi à l'œil. */
+
+.titre-enigme {
+  margin: 0 0 .2rem; color: var(--bordeaux);
+  font-size: 1.05rem; letter-spacing: .02em;
+}
+.titre-enigme::after {
+  content: ""; display: block; width: 2.2rem; height: 2px;
+  margin-top: .3rem; background: var(--or);
+}
+
+@media (max-width: 640px) {
+  .etude-questions { padding-left: 1.2rem; gap: 1.3rem; }
+}
+
+/* =========================================================================
+   Version lecteur — composants propres aux quatorze étapes.
+   ========================================================================= */
+
+/* --- La phrase à reconstituer, dans l'en-tête --- */
+.phrase-bandeau {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+  gap: .18rem; margin: .55rem auto 0; padding: 0; max-width: 62rem;
+  font-family: var(--serif);
+}
+.phrase-bandeau .case {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 1.5rem; height: 1.9rem; padding: 0 .15rem;
+  border-bottom: 2px solid rgba(240,226,189,.35);
+  color: rgba(240,226,189,.3); font-size: 1.05rem;
+}
+.phrase-bandeau .case.trouvee { color: #e3c86a; border-bottom-color: #e3c86a; }
+.phrase-bandeau .liaison { width: .7rem; }
+
+/* --- Les tuiles de la finale -------------------------------------
+   « J’ÉTAIS » est posé, le reste se déplace. Une tuile doit se viser au
+   pouce : jamais moins de 44 px, et l'ensemble doit tenir sur la
+   largeur d'un iPhone sans déborder. */
+.tuiles-finale {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: .3rem .5rem; margin: .4rem 0 .6rem;
+}
+.tuiles-fixe, .tuiles-mot { display: flex; flex-wrap: wrap; gap: .25rem; align-items: center; }
+.tuiles-plateau {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: .25rem .5rem;
+}
+.tuiles-espace { width: .5rem; }
+.tuiles-liaison { color: var(--encre-douce); font-size: 1.1rem; padding: 0 .05rem; }
+.tuiles-finale .tuile {
+  font-family: var(--serif); font-size: 1.15rem; font-weight: 700;
+  min-width: 2.5rem; min-height: 2.75rem; padding: 0 .2rem;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--carte); color: var(--encre);
+  border: 1px solid var(--trait); border-radius: 4px;
+  box-shadow: var(--ombre); cursor: pointer;
+  touch-action: manipulation;          /* pas de zoom au double-toucher */
+}
+.tuiles-finale .tuile:hover { background: var(--papier-fonce); }
+.tuiles-finale .tuile.choisie {
+  background: var(--bordeaux); color: #fff; border-color: var(--bordeaux);
+  transform: translateY(-2px);
+}
+.tuiles-finale .tuile-posee {
+  background: transparent; color: var(--encre-douce);
+  border-style: dashed; box-shadow: none; cursor: default;
+}
+.tuiles-indices { margin-top: .4rem; }
+.tuiles-indices .indice { margin: .25rem 0; }
+.ligne-actions-gauche { justify-content: flex-start; }
+
+/* La boîte : les lettres gagnées, en vrac. Plus de cases vides en forme
+   de phrase — elles disaient le nombre de mots et leurs longueurs. */
+.boite-nom {
+  font-family: var(--sans); font-size: .72rem; letter-spacing: .09em;
+  text-transform: uppercase; color: rgba(240,226,189,.55);
+  margin-right: .35rem; white-space: nowrap;
+}
+.phrase-bandeau .case {
+  border: 1px solid rgba(240,226,189,.28); border-radius: 3px;
+  background: rgba(240,226,189,.07);
+}
+.phrase-bandeau .case.trouvee {
+  border-color: rgba(227,200,106,.55); background: rgba(227,200,106,.12);
+}
+
+.avertissement-fort {
+  background: #fbf1cf; border: 1px solid var(--or); border-left: 4px solid var(--bordeaux);
+  border-radius: 4px; padding: .65rem .9rem; margin: 0 0 1.2rem;
+  color: #4a3a06; font-weight: 700;
+}
+
+.jeu-corps { margin: 1rem 0 0; }
+
+/* --- Sélection : intrus, cartes à retourner --- */
+.cartes { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+@media (min-width: 620px) { .cartes { grid-template-columns: 1fr 1fr; } }
+/* La couleur du texte est écrite noir sur blanc : sans elle, Safari sur
+   iPhone habille les <button> de son bleu système, et les choix du jeu
+   se mettaient à ressembler à des liens. */
+.carte {
+  width: 100%; text-align: left; font: inherit; color: var(--encre);
+  background: var(--carte); border: 1px solid var(--trait); border-left: 4px solid var(--trait);
+  border-radius: 4px; padding: .7rem .85rem; cursor: pointer; min-height: 3rem;
+}
+.carte:hover { background: var(--papier-fonce); }
+.carte[aria-pressed="true"] {
+  background: var(--encre); color: #f0e2bd; border-color: var(--encre);
+  border-left-color: #e3c86a;
+}
+.carte[aria-pressed="true"]::before { content: "✓ "; color: #e3c86a; font-weight: 700; }
+
+/* --- Questions : menus, boutons, vrai/faux --- */
+.questions { margin: 0; padding: 0 0 0 1.4rem; display: grid; gap: .9rem; }
+.questions li { padding-left: .2rem; }
+.question-libelle { margin: 0 0 .4rem; }
+.choix { display: flex; flex-wrap: wrap; gap: .4rem; }
+.choix-vf .choix-bouton { min-width: 5.5rem; }
+.choix-bouton {
+  font: inherit; background: var(--papier); color: var(--encre);
+  border: 1px solid var(--trait); border-radius: 3px;
+  padding: .5rem .9rem; cursor: pointer; min-height: 2.7rem;
+}
+.choix-bouton:hover { background: var(--papier-fonce); }
+.choix-bouton[aria-pressed="true"] {
+  background: var(--bordeaux); color: #fff; border-color: var(--bordeaux);
+}
+.menu {
+  font: inherit; font-size: 1rem; width: 100%; max-width: 26rem;
+  padding: .5rem .6rem; min-height: 2.7rem;
+  background: #fff; color: var(--encre);
+  border: 1px solid var(--trait); border-radius: 3px;
+}
+
+/* --- Champs : code, cadenas, devinettes, scores, trous, citations --- */
+.champs { display: grid; gap: .8rem; }
+.champ-ligne { display: grid; gap: .25rem; }
+.champ-libelle { font-size: .97rem; }
+.champs-citations .champ-libelle { font-family: var(--serif); font-size: 1.05rem; line-height: 1.6; }
+.champs-code .champ-saisie, .champs-cadenas .champ-saisie { max-width: 12rem; }
+.champ-cadenas {
+  font-family: var(--mono); font-size: 2rem; letter-spacing: .5em;
+  text-align: center; text-indent: .5em;
+  min-width: 0; width: 9.5rem; max-width: 100%;
+}
+.phrase-trous {
+  font-family: var(--serif); font-size: 1.1rem; line-height: 2.4;
+  background: var(--papier); border: 1px solid var(--trait);
+  border-radius: 4px; padding: .8rem 1rem; margin: 0;
+}
+.phrase-trous-seule { background: transparent; border: none; text-align: center; }
+.champ-trou {
+  display: inline-block; width: 8rem; min-width: 0;
+  font-family: var(--serif); text-align: center;
+  padding: .15rem .3rem; margin: 0 .2rem;
+  border: 0; border-bottom: 2px solid var(--bordeaux); border-radius: 0;
+  background: transparent;
+}
+.champ-trou:focus { outline: none; background: #fbf1cf; }
+
+/* --- Anagrammes --- */
+.anagramme {
+  background: var(--carte); border: 1px solid var(--trait);
+  border-radius: 5px; padding: .8rem 1rem; margin-bottom: .9rem;
+}
+.anagramme-source { margin: 0 0 .4rem; }
+.anagramme-mot { font-family: var(--serif); font-size: 1.15rem; color: var(--bordeaux); font-weight: 700; letter-spacing: .08em; }
+.anagramme-fleche { color: var(--encre-douce); }
+.anagramme-indice { color: var(--encre-douce); font-size: .9rem; }
+.anagramme-resultat {
+  font-family: var(--mono); font-size: 1.5rem; letter-spacing: .22em;
+  text-align: center; margin: .4rem 0 .6rem; min-height: 2rem;
+  color: var(--encre); background: var(--papier-fonce);
+  border-radius: 3px; padding: .35rem;
+}
+.anagramme-banque { display: flex; flex-wrap: wrap; gap: .35rem; justify-content: center; }
+.lettre-jeton {
+  font-family: var(--serif); font-size: 1.15rem; font-weight: 700;
+  width: 2.6rem; height: 2.9rem;
+  background: var(--papier); color: var(--encre);
+  border: 1px solid var(--trait); border-radius: 3px; cursor: pointer;
+}
+.lettre-jeton:hover:not(:disabled) { background: #e3c86a; border-color: var(--or); }
+.lettre-jeton.utilisee { opacity: .25; cursor: default; }
+
+/* --- Passerelle : la lettre gagnée --- */
+.passerelle { text-align: center; }
+.lettre-gagnee {
+  font-family: var(--serif); font-weight: 700;
+  font-size: clamp(4rem, 18vw, 7rem); line-height: 1;
+  color: var(--bordeaux); margin: .4rem 0 .6rem;
+  animation: apparait .45s ease-out both;
+}
+.citation {
+  font-family: var(--serif); font-size: 1.1rem; font-style: italic;
+  color: var(--encre-douce); max-width: 34rem; margin: 0 auto .4rem;
+}
+
+/* --- Révélation finale --- */
+.revelation-lecteur .narration { border-left-color: var(--or); }
+.revelation-lecteur .code-sortie { letter-spacing: .12em; }
+.revelation-lecteur .note { font-size: .82rem; color: var(--encre-douce); margin-top: 1rem; }
+
+@media (max-width: 640px) {
+  .phrase-bandeau { gap: .12rem; }
+  .phrase-bandeau .case { min-width: 1.05rem; height: 1.6rem; font-size: .9rem; padding: 0 .05rem; }
+  .phrase-bandeau .liaison { width: .45rem; }
+  .questions { padding-left: 1.1rem; }
+  .champ-trou { width: 6rem; }
+}
+
+/* --- Les deux portes de l'accueil --- */
+.consigne-portes { margin: 1rem 0 .6rem; color: var(--encre-douce); }
+.portes { display: grid; gap: .7rem; margin-bottom: 1.2rem; }
+@media (min-width: 640px) { .portes { grid-template-columns: 1fr 1fr; } }
+.porte-carte {
+  display: block; width: 100%; text-align: left; font: inherit; cursor: pointer;
+  color: var(--encre);
+  background: var(--carte); border: 1px solid var(--trait);
+  border-left: 4px solid var(--bordeaux); border-radius: 5px;
+  padding: .9rem 1rem; box-shadow: var(--ombre);
+}
+.porte-carte:hover { background: var(--papier-fonce); border-left-color: var(--or); }
+.porte-titre {
+  display: block; font-family: var(--serif); font-weight: 700;
+  font-size: 1.15rem; color: var(--bordeaux); margin-bottom: .25rem;
+}
+.porte-sous { display: block; font-size: .93rem; color: var(--encre-douce); line-height: 1.5; }
+
+.lien-discret {
+  font: inherit; font-size: .88rem; background: none; border: 0;
+  color: var(--encre-douce); text-decoration: underline; cursor: pointer; padding: .2rem 0;
+}
+.lien-discret:hover { color: var(--bordeaux); }
+
+/* --- Minuteur de la séance (version élèves) --- */
+#chrono {
+  font-family: var(--serif); font-size: 1.2rem; min-width: 5rem;
+  text-align: center; font-variant-numeric: lining-nums;
+}
+#chrono.bientot { color: #f0c27a; border-color: #f0c27a; }
+#chrono.ecoule { color: #e59a9a; border-color: #e59a9a; font-size: .95rem; }
+
+/* --- Lettre offerte : chapitre retiré de la séance par le professeur --- */
+.phrase-bandeau .case.offerte {
+  color: rgba(227,200,106,.45);
+  border-bottom-color: rgba(227,200,106,.3);
+  border-bottom-style: dotted;
+}
+
+/* ------------------------------------------------------------ Les salles
+   Une étape est une salle : l'illustration en grand, et sur elle des
+   touches posées sur les objets. On presse, un volet s'ouvre — le texte
+   d'un côté, l'énigme de l'autre. Les masques couvrent, dans l'image, le
+   détail qui donnerait la réponse ; ils se lèvent quand la salle s'ouvre.
+   L'image jouable est toujours l'horizontale, jamais rognée : aucun
+   repère ne doit sortir du cadre. La verticale remplit le fond.        */
+
+.fond {
+  position: fixed; inset: 0; z-index: 0;
+  overflow: hidden; background: #0d0b09;
+}
+body:not(.avec-image) .fond { display: none; }
+.fond picture, .fond img { display: block; width: 100%; height: 100%; }
+.fond img { object-fit: cover; }
+
+/* Derrière une salle : un remplissage, flou et sombre. */
+body.fond-remplissage .fond img {
+  filter: blur(26px) brightness(.40) saturate(.8);
+  transform: scale(1.12);
+}
+/* Accueil, récompense, révélation : l'image en grand et nette. */
+body.fond-net .fond img { filter: none; transform: none; }
+
+.bandeau, .entete, .scene, .pied { position: relative; z-index: 1; }
+
+/* Les écrans de lecture gardent leur cadre opaque ; la salle, non :
+   c'est l'image qui doit occuper l'écran. */
+body.avec-image .ecran:not(.salle) {
+  background: rgba(246, 241, 232, .95);
+  border: 1px solid rgba(120, 104, 78, .45);
+  border-radius: 10px;
+  padding: clamp(1rem, 3vw, 1.9rem);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .55);
+  margin-top: clamp(84px, 19vh, 220px);
+}
+body.avec-image .pied { color: var(--papier); border-top-color: rgba(255,255,255,.25); }
+body.avec-image .pied em { color: #e3c86a; }
+
+/* --- l'écran d'une salle --- */
+
+.ecran.salle { color: var(--papier); text-align: center; }
+.ecran.salle > h2 { color: #e3c86a; margin-bottom: .5rem; }
+.ecran.salle > .sur-titre { color: #cbbfab; }
+.salle-consigne { margin: .7rem 0 .4rem; font-size: .9rem; color: #cbbfab; }
+.salle-liste {
+  list-style: none; margin: 0 0 .4rem; padding: 0;
+  display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center;
+}
+.bouton-repere { background: rgba(255,255,255,.07); color: #f5f0e7; border-color: rgba(227,200,106,.55); }
+.bouton-repere:hover { background: rgba(227,200,106,.22); color: #fff; }
+.salle-message {
+  position: absolute; left: 1rem; right: 1rem; bottom: 1rem;
+  margin: 0 auto; max-width: 42rem; text-align: center;
+  background: rgba(18,15,12,.82); color: #f5f0e7;
+  border: 1px solid rgba(227,200,106,.45); border-radius: 4px;
+  padding: .55rem .9rem;
+}
+.salle-message[data-ton="succes"] { border-color: #9ccfa4; color: #e8f4ea; }
+
+/* --- le plateau : l'image entière, et rien de rogné --- */
+
+.plateau {
+  position: relative;
+  width: min(100%, calc((100vh - 17rem) * 1.5));
+  margin: 0 auto;
+  aspect-ratio: 3 / 2;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #0d0b09;
+  box-shadow: 0 18px 50px rgba(0,0,0,.6), 0 0 0 1px rgba(227,200,106,.35);
+}
+.plateau-image { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* --- les touches --- */
+
+.touche {
+  position: absolute; transform: translate(-50%, -50%);
+  width: max(46px, calc(var(--rayon, 4.5%) * 2));
+  height: max(46px, calc(var(--rayon, 4.5%) * 2));
+  padding: 0; border: 0; background: none; border-radius: 50%; cursor: pointer;
+}
+.touche-pastille {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.9);
+  background: radial-gradient(circle, rgba(227,200,106,.42), rgba(227,200,106,.10) 58%, transparent 72%);
+  box-shadow: 0 0 0 2px rgba(0,0,0,.35), 0 2px 12px rgba(0,0,0,.55);
+  animation: touche-bat 2.8s ease-in-out infinite;
+}
+.touche-texte .touche-pastille {
+  border-color: #a8d8ff;
+  background: radial-gradient(circle, rgba(73,176,255,.42), rgba(73,176,255,.10) 58%, transparent 72%);
+}
+@keyframes touche-bat {
+  0%, 100% { transform: scale(1); opacity: .88; }
+  50% { transform: scale(1.14); opacity: 1; }
+}
+.touche:hover .touche-pastille,
+.touche:focus-visible .touche-pastille { animation: none; transform: scale(1.16); border-color: #fff; }
+.touche:focus-visible { outline: 3px solid #e3c86a; outline-offset: 4px; }
+.touche-nom {
+  position: absolute; left: 50%; top: 100%; transform: translate(-50%, .3rem);
+  white-space: nowrap; font-family: var(--sans); font-size: .78rem;
+  background: rgba(18,15,12,.88); color: #f5f0e7;
+  padding: .16rem .5rem; border-radius: 3px;
+  opacity: 0; pointer-events: none; transition: opacity .15s;
+}
+.touche:hover .touche-nom, .touche:focus-visible .touche-nom { opacity: 1; }
+.touche.ouverte .touche-pastille {
+  animation: none; border-color: #9ccfa4;
+  background: radial-gradient(circle, rgba(156,207,164,.5), transparent 70%);
+}
+.touche.ouverte::after {
+  content: "\2713"; position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: #e6f4e9; font-weight: 700; font-size: 1.1rem;
+  text-shadow: 0 1px 3px rgba(0,0,0,.7);
+}
+
+/* --- les masques : ce que l'image ne doit pas encore dire --- */
+
+.masque {
+  position: absolute; border-radius: 6px;
+  background: rgba(238, 233, 223, .30);
+  backdrop-filter: blur(11px) brightness(.85);
+  -webkit-backdrop-filter: blur(11px) brightness(.85);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.4);
+  transition: opacity 1.2s ease;
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .masque { background: rgba(28, 24, 20, .94); }
+}
+.plateau.ouverte .masque { opacity: 0; }
+.plateau.ouverte { box-shadow: 0 18px 50px rgba(0,0,0,.6), 0 0 0 2px #9ccfa4; }
+
+/* --- les volets --- */
+
+.volet {
+  position: fixed; inset: 0; z-index: 5;
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: clamp(.4rem, 2vw, 1.5rem);
+  padding-bottom: calc(clamp(.4rem, 2vw, 1.5rem) + env(safe-area-inset-bottom, 0px));
+  background: rgba(10, 8, 6, .76);
+  /* Un volet plus haut que l'écran doit pouvoir défiler EN ENTIER. Avec
+     align-items: center, le débordement se partage en haut et en bas, et
+     le haut devient inatteignable : sur iPhone, l'en-tête et la première
+     ligne de l'énoncé passaient au-dessus du bord. */
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
+}
+.volet[hidden] { display: none; }
+.volet-cadre {
+  background: var(--papier); color: var(--encre);
+  border: 1px solid var(--trait); border-radius: 8px;
+  width: min(62rem, 100%);
+  /* vh ignore la barre d'adresse de Safari : la fenêtre se croyait plus
+     courte que l'écran et ses boutons tombaient sous le bord visible.
+     dvh suit la barre, et vh reste pour les navigateurs qui l'ignorent. */
+  max-height: 93vh;
+  max-height: 93dvh;
+  margin: auto;                       /* centré quand il y a la place */
+  display: flex; flex-direction: column; text-align: left;
+  box-shadow: 0 24px 70px rgba(0,0,0,.65);
+}
+.volet-entete {
+  display: flex; align-items: center; gap: 1rem;
+  padding: .7rem 1rem .5rem; border-bottom: 1px solid var(--trait);
+}
+.volet-entete h3 { margin: 0; flex: 1; color: var(--bordeaux); }
+.volet-entete h3:focus-visible { outline: 3px solid var(--bordeaux); outline-offset: 3px; }
+.volet-fermer {
+  font: inherit; line-height: 1; width: 2.2rem; height: 2.2rem;
+  background: none; color: var(--encre-douce);
+  border: 1px solid var(--trait); border-radius: 4px; cursor: pointer;
+}
+.volet-fermer:hover { background: var(--papier-fonce); color: var(--encre); }
+.volet-corps {
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding: 1rem;
+  padding-bottom: 1.7rem;             /* la dernière ligne ne colle pas aux boutons */
+  /* Ombres de défilement : deux dégradés « local » suivent le contenu et
+     masquent deux dégradés « scroll » fixés aux bords. On ne voit donc
+     l'ombre que s'il reste quelque chose à faire défiler de ce côté-là,
+     sans une ligne de JavaScript. */
+  background:
+    linear-gradient(var(--papier) 30%, rgba(245,240,231,0)) top    / 100% 1.5rem no-repeat local,
+    linear-gradient(rgba(245,240,231,0), var(--papier) 70%) bottom / 100% 1.5rem no-repeat local,
+    linear-gradient(rgba(30,26,23,.18), rgba(30,26,23,0))   top    / 100% .8rem  no-repeat scroll,
+    linear-gradient(rgba(30,26,23,0), rgba(30,26,23,.18))   bottom / 100% .8rem  no-repeat scroll;
+  background-color: var(--papier);
+}
+.volet-corps > :last-child { margin-bottom: 0; }
+.volet-actions {
+  padding: .7rem 1rem calc(1rem + env(safe-area-inset-bottom, 0px));
+  background: var(--papier);
+  border-top: 1px solid var(--trait);
+  border-radius: 0 0 8px 8px;
+}
+/* le volet défile déjà : l'extrait n'a plus besoin de sa propre fenêtre */
+.volet .passage-corps { max-height: none; }
+body.volet-ouvert { overflow: hidden; }
+
+/* Le volet vit à l'intérieur de .scene, qui porte z-index: 1 : son
+   propre z-index: 5 ne vaut donc qu'à l'intérieur de cette couche. Le
+   pied de page, couche voisine de même rang mais plus bas dans la page,
+   passait par-dessus — « D'après Les Démons de Léa Laprel » s'affichait
+   sur les boutons Valider et Un indice. On fait monter la couche entière
+   le temps que le volet est ouvert. */
+body.volet-ouvert .scene { z-index: 6; }
+
+@media (max-width: 640px) {
+  .plateau { width: min(100%, calc((100vh - 19rem) * 1.5)); }
+  .plateau { width: min(100%, calc((100dvh - 19rem) * 1.5)); }
+  .volet-cadre { width: 100%; max-height: 95vh; }
+  .volet-cadre { max-height: 95dvh; }
+  .volet-corps { padding: .8rem; padding-bottom: 1.5rem; }
+  .salle-consigne { font-size: .84rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .touche-pastille { animation: none; }
+  .masque { transition: none; }
+}
+
+@media print {
+  .fond, .plateau, .salle-liste, .salle-consigne { display: none; }
+  .volet { position: static; background: none; padding: 0; }
+  .volet[hidden] { display: none; }
+  .volet-cadre { box-shadow: none; max-height: none; width: 100%; }
+  body.avec-image .ecran:not(.salle) { background: none; border: 0; box-shadow: none; padding: 0; margin-top: 0; }
+  body.avec-image .pied { color: var(--encre-douce); }
+}
+
+/* Une salle dont l'illustration n'est pas encore faite : une plaque
+   sombre, et le jeu continue. */
+.plateau.sans-image { background: linear-gradient(160deg, #241f1a, #12100e 60%, #1b1713); }
+.plateau.sans-image .plateau-image { visibility: hidden; }
+.plateau.sans-image::before {
+  content: "Illustration à venir";
+  position: absolute; inset: auto 0 1.2rem 0; text-align: center;
+  font-family: var(--serif); font-style: italic; font-size: .95rem;
+  color: rgba(227, 200, 106, .75);
+}
+
+/* --- Le parcours : le code d'équipe, à recopier sur la fiche ------
+   Il doit se lire d'un coup d'œil depuis le fond de la classe, et se
+   recopier sans erreur : chasse fixe, lettres espacées, bien détaché. */
+.code-equipe {
+  margin: 1.1rem auto .2rem; max-width: 30rem;
+  padding: .6rem .8rem;
+  background: var(--papier-fonce); border: 1px dashed var(--trait); border-radius: 4px;
+  font-size: .95rem; color: var(--encre-douce); text-align: center;
+}
+.code-equipe strong {
+  display: inline-block; margin-left: .3rem;
+  font-family: var(--mono); font-size: 1.5rem; letter-spacing: .22em;
+  color: var(--bordeaux); text-transform: uppercase;
+}
+body.avec-image .code-equipe { background: rgba(245,240,231,.92); }
+
+.ligne-saisie { display: flex; justify-content: center; margin: 1rem 0 .6rem; }
+.ligne-saisie .champ-saisie {
+  font-family: var(--mono); font-size: 1.4rem; letter-spacing: .2em;
+  text-align: center; text-transform: uppercase; max-width: 11rem; min-width: 0;
+}
+
+/* La ligne sous le bouton du concours : la date du tirage et le règlement. */
+.mention-concours {
+  margin: .6rem 0 0;
+  font-size: .85rem;
+  color: var(--encre-douce);
+}
+.mention-concours a { color: var(--bordeaux); }
+/* le bouton du concours ne colle pas à la consigne qui le précède */
+.coffre-final .aide-clavier + p { margin-top: .7rem; }
+
+/* Ce qu'il y a à gagner, dans le coffret de la fin. */
+.lots {
+  margin: .9rem auto 0;
+  max-width: 34rem;
+  text-align: left;
+  border-top: 1px solid var(--trait);
+  border-bottom: 1px solid var(--trait);
+  padding: .7rem 0 .6rem;
+}
+.lots-titre {
+  margin: 0 0 .4rem;
+  font-family: var(--serif);
+  font-size: .82rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--encre-douce);
+  text-align: center;
+}
+.lots-liste { list-style: none; margin: 0; padding: 0; font-size: .92rem; }
+.lots-liste li {
+  display: flex; gap: .6rem; align-items: baseline;
+  margin: .3rem 0;
+}
+.lots-rang {
+  flex: 0 0 4.6rem;
+  font-family: var(--serif); font-weight: 700;
+  color: var(--bordeaux);
+}
+@media (max-width: 640px) {
+  .lots-liste li { display: block; }
+  .lots-rang { display: block; }
+}
+
+/* --- L'extrait, ligne à ligne comme le livre l'imprime --------------- */
+.passage-texte {
+  font-family: var(--serif);
+  font-size: 1.04rem;
+  line-height: 1.8;
+  text-align: left;
+  hyphens: none;
+}
+.passage-ligne {
+  display: flex;
+  gap: .9rem;
+  margin: 0;
+}
+.passage-num {
+  flex: 0 0 1.9rem;
+  text-align: right;
+  font-family: var(--sans);
+  font-size: .68rem;
+  color: #a79b8c;
+  line-height: 2.75;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.passage-mots { flex: 1; }
+.passage-coupure {
+  margin: .2rem 0 .2rem 2.8rem;
+  font-family: var(--serif);
+  color: var(--encre-douce);
+  letter-spacing: .25em;
+}
+.ligne-visee .passage-mots {
+  background: #f8e5a6;
+  border-radius: 3px;
+  box-shadow: 0 0 0 .18em #f8e5a6;
+}
+.ligne-visee .passage-num { color: var(--bordeaux); font-weight: 700; }
+
+@media (max-width: 640px) {
+  .passage-texte { font-size: 1rem; line-height: 1.75; }
+  .passage-ligne { gap: .6rem; }
+  .passage-num { flex-basis: 1.5rem; line-height: 2.7; }
+}
