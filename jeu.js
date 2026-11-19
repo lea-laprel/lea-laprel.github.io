@@ -15,10 +15,6 @@
 
   var FICHIER = 'etapes.json';
   var CLE = 'lea-laprel-lecteur.v1';
-  /* Le questionnaire du lecteur est une autre page, derrière la même
-     porte. Cette clé lui dit qu'on l'a franchie — elle ne contient que
-     l'empreinte publique du code, jamais le code. */
-  var CLE_PORTE = 'lea-laprel-porte-classe.v1';
 
   var ENCOURAGEMENTS = [
     'Pas encore. Rouvrez le chapitre : la réponse y est.',
@@ -818,27 +814,40 @@
       return;
     }
 
-    section.appendChild(el('p', { class: 'consigne-portes', texte: 'Deux entrées. Choisissez la vôtre.' }));
+    /* Trois entrées, dans cet ordre : le jeu du lecteur, le
+       questionnaire, la classe. Le questionnaire n'est plus derrière le
+       code du livre — il s'ouvre à qui veut, et prévient lui-même qu'il
+       suit l'intrigue chapitre par chapitre. */
+    var q = jeu.questionnaire || {};
+    var avecQuestionnaire = questionnaireDisponible();
+    section.appendChild(el('p', { class: 'consigne-portes',
+      texte: (avecQuestionnaire ? 'Trois' : 'Deux') + ' entrées. Choisissez la vôtre.' }));
     var portes = el('div', { class: 'portes' });
-    ['public', 'eleves'].forEach(function (mode) {
+
+    function porteVersion(mode) {
       var v = versions[mode];
       if (!v) return;
-      var carte = el('button', {
+      portes.appendChild(el('button', {
         type: 'button', class: 'porte-carte',
         onclick: function () { etat.mode = mode; etat.commence = true; sauver(); ecranCourant(); }
       }, [
         el('span', { class: 'porte-titre', texte: v.nom || mode }),
         el('span', { class: 'porte-sous', texte: v.description || '' })
-      ]);
-      portes.appendChild(carte);
-    });
-    section.appendChild(portes);
-    /* Une ligne discrète, sous les deux portes : le questionnaire n'est
-       pas une troisième entrée, c'est ce que le code du livre ouvre
-       aussi. La porte publique, elle, n'y conduit pas. */
-    if (questionnaireDisponible() && (jeu.questionnaire || {}).annonceAccueil) {
-      section.appendChild(el('p', { class: 'annonce-questionnaire', texte: jeu.questionnaire.annonceAccueil }));
+      ]));
     }
+
+    porteVersion('public');
+    if (avecQuestionnaire) {
+      portes.appendChild(el('button', {
+        type: 'button', class: 'porte-carte',
+        onclick: function () { window.location.href = q.adresse; }
+      }, [
+        el('span', { class: 'porte-titre', texte: q.titre || 'Le questionnaire du lecteur' }),
+        el('span', { class: 'porte-sous', texte: q.resumeAccueil || q.resume || '' })
+      ]));
+    }
+    porteVersion('eleves');
+    section.appendChild(portes);
     if (jeu.avertissement) {
       section.appendChild(el('p', { class: 'avertissement-fort', texte: jeu.avertissement }));
     }
@@ -1123,13 +1132,6 @@
         /* Nouvelle séance : on reprend là où la classe s'était arrêtée,
            pas au premier chapitre. */
         if (enParcours()) etat.etape = premiereNonFaite();
-        /* Le questionnaire du lecteur vit sur une autre page, derrière la
-           même porte. On lui laisse ici la preuve qu'elle a été franchie :
-           il compare cette empreinte à celle qu'il lit dans etapes.json,
-           et n'a donc pas à redemander le code. */
-        if (estEleves() && porte.empreinte) {
-          try { window.localStorage.setItem(CLE_PORTE, String(porte.empreinte)); } catch (e) {}
-        }
         sauver();
         /* Le code SEUL ouvre deux portes : le jeu, ou le questionnaire.
            Le code suivi d'un numéro, lui, est l'ordre du professeur pour

@@ -29,14 +29,10 @@
   'use strict';
 
   var CLE = 'lea-laprel-questionnaire.v1';
-  /* La porte du jeu dépose ici l'empreinte du code quand elle s'ouvre :
-     celui qui arrive par l'écran de choix n'a pas à retaper le code. */
-  var CLE_PORTE = 'lea-laprel-porte-classe.v1';
-  var SEL_PORTE = 'lea-laprel·porte·2027';
   var ALPHABET32 = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
   var COURRIEL = 'lesdemonsdelealaprel@gmail.com';
 
-  var jeu = null, qcm = null, etat = null;
+  var qcm = null, etat = null;
   var scene = document.getElementById('scene');
 
   /* ------------------------------------------------------- petit DOM --- */
@@ -282,82 +278,6 @@
     return n;
   }
 
-  /* -------------------------------------------------------- la porte --- */
-
-  function normaliserMot(v) {
-    var s = String(v === null || v === undefined ? '' : v).toLowerCase();
-    s = s.replace(/œ/g, 'oe').replace(/æ/g, 'ae');
-    s = s.normalize ? s.normalize('NFD').replace(/[̀-ͯ]/g, '') : s;
-    return s.replace(/[^a-z0-9]+/g, ' ').replace(/^ | $/g, '');
-  }
-  function empreinteAttendue() {
-    var v = (jeu.versions || {}).eleves || {};
-    return String((v.entree || {}).empreinte || '').toLowerCase();
-  }
-  function porteDejaFranchie() {
-    try {
-      return window.localStorage.getItem(CLE_PORTE) === empreinteAttendue() && !!empreinteAttendue();
-    } catch (e) { return false; }
-  }
-  /* Le code n'est écrit nulle part : on compare des empreintes. Ici, la
-     page est servie en https, donc l'API de chiffrement du navigateur
-     existe — pas besoin de réécrire SHA-256 comme le fait le jeu, qui
-     doit, lui, fonctionner depuis une clé USB. */
-  function verifierCode(saisi) {
-    var attendue = empreinteAttendue();
-    if (!attendue) return Promise.resolve(false);
-    var mot = normaliserMot(saisi);
-    if (!mot) return Promise.resolve(false);
-    try {
-      var octets = new TextEncoder().encode(mot + SEL_PORTE);
-      return window.crypto.subtle.digest('SHA-256', octets).then(function (brut) {
-        var hex = Array.prototype.map.call(new Uint8Array(brut), function (o) {
-          return ('0' + o.toString(16)).slice(-2);
-        }).join('');
-        return hex === attendue;
-      });
-    } catch (e) { return Promise.resolve(false); }
-  }
-
-  function montrerPorte() {
-    var champ = el('input', { type: 'text', class: 'champ-saisie champ-porte', autocomplete: 'off',
-      autocapitalize: 'characters', spellcheck: 'false', 'aria-label': 'Le code imprimé dans le livre' });
-    var retour = el('p', { class: 'retour', hidden: true });
-
-    function tenter() {
-      verifierCode(champ.value).then(function (ok) {
-        if (!ok) {
-          retour.hidden = false;
-          retour.setAttribute('data-ton', 'echec');
-          retour.textContent = 'Ce n’est pas le code du livre. Il est imprimé à la dernière page, sous le QR code.';
-          annoncer(retour.textContent);
-          champ.focus(); champ.select();
-          return;
-        }
-        try { window.localStorage.setItem(CLE_PORTE, empreinteAttendue()); } catch (e) {}
-        montrerSommaire();
-      });
-    }
-    champ.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter') { e.preventDefault(); tenter(); }
-    });
-
-    montrer(el('section', { class: 'ecran' }, [
-      el('p', { class: 'sur-titre', texte: 'Le questionnaire du lecteur' }),
-      el('h2', { tabindex: '-1', texte: 'Le code du livre, s’il vous plaît' }),
-      el('p', { class: 'narration', texte: 'Soixante questions sur le roman, quatre par chapitre. Le code est imprimé à la dernière page, sous le QR code — le même que pour le jeu.' }),
-      el('p', {}, [champ]),
-      retour,
-      el('div', { class: 'ligne-actions' }, [
-        el('button', { class: 'bouton bouton-large', type: 'button', texte: 'Entrer', onclick: tenter })
-      ]),
-      el('p', { class: 'aide-clavier' }, [
-        el('a', { class: 'lien-discret', href: 'index.html', texte: '← Revenir au jeu' })
-      ])
-    ]));
-    champ.focus();
-  }
-
   /* ------------------------------------------------------ le sommaire --- */
 
   function montrerSommaire() {
@@ -396,6 +316,13 @@
       el('p', { class: 'narration', texte: faits
         ? faits + ' chapitre(s) sur ' + l.length + ' — ' + totalBons() + ' bonne(s) réponse(s) sur ' + totalQuestions() + '.'
         : 'Quatre questions par chapitre. Répondez au fil de votre lecture : un chapitre ne s’ouvre qu’une fois le précédent terminé.' }),
+      /* Le questionnaire est ouvert à tous, y compris à qui n'a pas
+         encore lu le roman : il doit donc dire lui-même, d'entrée, ce
+         qu'il risque de dévoiler. L'avertissement reste à chaque visite
+         — on peut revenir des semaines plus tard, et avoir oublié. */
+      qcm.avertissement ? el('div', { class: 'consigne-lecture' }, [
+        el('strong', { texte: qcm.avertissement })
+      ]) : null,
       liste
     ]);
 
@@ -1055,11 +982,13 @@
     });
   }
 
-  Promise.all([lire('etapes.json'), lire('questionnaire.json')]).then(function (deux) {
-    jeu = deux[0]; qcm = deux[1];
+  /* Le questionnaire est en accès libre : il ne lit plus etapes.json,
+     il n'a plus de porte à garder. Il s'ouvre, il prévient, et il
+     commence. */
+  lire('questionnaire.json').then(function (contenu) {
+    qcm = contenu;
     etat = charger() || etatNeuf();
     sauver();
-    if (!porteDejaFranchie()) return montrerPorte();
     if (toutFini()) return montrerResultat();
     montrerSommaire();
   }).catch(function (e) {

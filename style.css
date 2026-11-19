@@ -683,13 +683,6 @@ body.sans-pied #chrono { font-size: 1.05rem; }
   border-color: rgba(227,200,106,.55); background: rgba(227,200,106,.12);
 }
 
-/* Une ligne sous les deux portes de l'accueil : elle annonce le
-   questionnaire sans se donner des airs de troisième entrée. */
-.annonce-questionnaire {
-  margin: .9rem 0 0; font-size: .92rem; color: var(--encre-douce);
-  text-align: center; font-style: italic;
-}
-
 .avertissement-fort {
   background: #fbf1cf; border: 1px solid var(--or); border-left: 4px solid var(--bordeaux);
   border-radius: 4px; padding: .65rem .9rem; margin: 0 0 1.2rem;
