@@ -15,6 +15,10 @@
 
   var FICHIER = 'etapes.json';
   var CLE = 'lea-laprel-lecteur.v1';
+  /* Le questionnaire du lecteur est une autre page, derrière la même
+     porte. Cette clé lui dit qu'on l'a franchie — elle ne contient que
+     l'empreinte publique du code, jamais le code. */
+  var CLE_PORTE = 'lea-laprel-porte-classe.v1';
 
   var ENCOURAGEMENTS = [
     'Pas encore. Rouvrez le chapitre : la réponse y est.',
@@ -829,6 +833,12 @@
       portes.appendChild(carte);
     });
     section.appendChild(portes);
+    /* Une ligne discrète, sous les deux portes : le questionnaire n'est
+       pas une troisième entrée, c'est ce que le code du livre ouvre
+       aussi. La porte publique, elle, n'y conduit pas. */
+    if (questionnaireDisponible() && (jeu.questionnaire || {}).annonceAccueil) {
+      section.appendChild(el('p', { class: 'annonce-questionnaire', texte: jeu.questionnaire.annonceAccueil }));
+    }
     if (jeu.avertissement) {
       section.appendChild(el('p', { class: 'avertissement-fort', texte: jeu.avertissement }));
     }
@@ -1028,6 +1038,45 @@
     return 'Commencer les ' + direNombre(n) + ' étapes';
   }
 
+  /* --- Le questionnaire du lecteur ---------------------------------
+     Il ne vit pas dans ce fichier : c'est une autre page, qui a son
+     propre moteur. Ici, on sait seulement l'annoncer et y conduire.
+     Il demande une messagerie et des liens vers l'extérieur : dans le
+     fichier autonome de l'ENT, ouvert depuis une clé USB, il n'aurait
+     aucun sens. On ne le propose donc pas hors ligne. */
+  function questionnaireDisponible() {
+    if (!jeu.questionnaire || !jeu.questionnaire.adresse) return false;
+    try { if (window.location.protocol === 'file:') return false; } catch (e) { return false; }
+    return true;
+  }
+
+  /* Le code seul ouvre deux choses. On explique chacune en une phrase,
+     et on ne décide pas à la place du lecteur. */
+  function montrerChoixClasse() {
+    var q = jeu.questionnaire || {};
+    var duJeu = q.jeu || {};
+    function carte(titre, resume, action) {
+      return el('button', { type: 'button', class: 'porte-carte', onclick: action }, [
+        el('span', { class: 'porte-titre', texte: titre }),
+        el('span', { class: 'porte-sous', texte: resume })
+      ]);
+    }
+    var section = el('section', { class: 'ecran accueil', 'data-fond': 'net' }, [
+      el('p', { class: 'sur-titre', texte: 'Le code du livre' }),
+      el('h2', { tabindex: '-1', texte: 'Deux chemins s’ouvrent' }),
+      el('p', { class: 'consigne-portes', texte: 'Choisissez le vôtre. Vous pourrez revenir à l’autre plus tard.' }),
+      el('div', { class: 'portes' }, [
+        carte(duJeu.titre || 'L’escape game', duJeu.resume || '', function () {
+          montrerPasserelle(((reglages().entree || {}).apres) || '', libelleEntree(), function () { ecranCourant(); });
+        }),
+        carte(q.titre || 'Le questionnaire du lecteur', q.resume || '', function () {
+          window.location.href = q.adresse;
+        })
+      ])
+    ]);
+    montrer(section);
+  }
+
   function montrerPorte() {
     var porte = reglages().entree || jeu.porte || {};
     var champ = el('input', { type: 'text', class: 'champ-saisie champ-porte', autocomplete: 'off', autocapitalize: 'none', spellcheck: 'false', 'aria-label': porte.libelle || 'Le mot d’entrée' });
@@ -1041,7 +1090,7 @@
     function ouvrirPorte(saisi) {
       var m = /^\s*(.*?)[\s–—.\-]+(\d{1,2})\s*$/.exec(String(saisi || ''));
       if (enParcours() && m && repondJuste(m[1], porte)) {
-        return { ok: true, ouvertes: Math.max(1, Math.min(99, parseInt(m[2], 10))) };
+        return { ok: true, ouvertes: Math.max(1, Math.min(99, parseInt(m[2], 10))), avecNumero: true };
       }
       /* Le code SEUL — celui qui est imprimé à la dernière page du livre —
          ouvre tout le jeu : un lecteur qui n'a pas de professeur ne doit
@@ -1067,7 +1116,21 @@
         /* Nouvelle séance : on reprend là où la classe s'était arrêtée,
            pas au premier chapitre. */
         if (enParcours()) etat.etape = premiereNonFaite();
+        /* Le questionnaire du lecteur vit sur une autre page, derrière la
+           même porte. On lui laisse ici la preuve qu'elle a été franchie :
+           il compare cette empreinte à celle qu'il lit dans etapes.json,
+           et n'a donc pas à redemander le code. */
+        if (estEleves() && porte.empreinte) {
+          try { window.localStorage.setItem(CLE_PORTE, String(porte.empreinte)); } catch (e) {}
+        }
         sauver();
+        /* Le code SEUL ouvre deux portes : le jeu, ou le questionnaire.
+           Le code suivi d'un numéro, lui, est l'ordre du professeur pour
+           la séance du jour — on n'interrompt pas la classe avec un
+           choix. */
+        if (estEleves() && !essai.avecNumero && questionnaireDisponible()) {
+          return montrerChoixClasse();
+        }
         montrerPasserelle(porte.apres || '', libelleEntree(), function () { ecranCourant(); });
       } else {
         essais.porte = (essais.porte || 0) + 1;

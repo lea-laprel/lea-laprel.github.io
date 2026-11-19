@@ -13,6 +13,16 @@
     ]
   },
   "avertissement": "Ce jeu révèle la fin du roman. À faire après la lecture.",
+  "questionnaire": {
+    "adresse": "questionnaire.html",
+    "titre": "Le questionnaire du lecteur",
+    "resume": "Soixante questions sur le roman, chapitre par chapitre, à votre rythme : une note sur 20, une mention, et un diplôme à télécharger.",
+    "annonceAccueil": "Vous avez le livre ? Le code imprimé à la fin ouvre aussi le questionnaire du lecteur.",
+    "jeu": {
+      "titre": "L’escape game (mode Classe)",
+      "resume": "Quinze salles, une par chapitre lu : la classe joue par équipes, et chaque salle gagnée donne une lettre."
+    }
+  },
   "lettres": "AABDEILMNOPRST",
   "etapes": [
     {

@@ -1,0 +1,129 @@
+/* Le questionnaire du lecteur — ce que la feuille du jeu ne couvre pas.
+ *
+ * On ne redéfinit rien de ce qui existe déjà : les couleurs, les
+ * boutons, les champs et les écrans viennent de style.css, chargée
+ * avant celle-ci. Ici, seulement les formes propres au questionnaire —
+ * la jauge, le sommaire, la correction, le diplôme, l'encart des avis.
+ * Les noms sont préfixés ou distincts à dessein : deux écrans ne
+ * doivent jamais se partager un nom de classe.
+ */
+
+/* --- la jauge d'avancement, sous l'en-tête --- */
+.jauge {
+  height: 4px; background: rgba(255, 255, 255, .14);
+  border-radius: 2px; overflow: hidden; margin-top: .5rem;
+}
+.jauge-barre {
+  height: 100%; width: 0; background: var(--or);
+  transition: width .35s ease;
+}
+
+/* --- le sommaire des quinze chapitres --- */
+.sommaire { list-style: none; margin: 1rem 0 0; padding: 0; }
+.sommaire-ligne { margin: 0 0 .45rem; }
+.sommaire-bouton {
+  font: inherit; width: 100%; text-align: left; cursor: pointer;
+  background: var(--papier); color: var(--encre);
+  border: 1px solid var(--trait); border-left: 4px solid var(--trait);
+  border-radius: 3px; padding: .6rem .8rem; min-height: 3rem;
+}
+.sommaire-bouton:hover { background: var(--papier-fonce); }
+.sommaire-ligne.fait .sommaire-bouton { border-left-color: var(--vert); }
+.sommaire-ligne.ferme .sommaire-bouton { opacity: .55; }
+.sommaire-inerte { cursor: default; background: transparent; }
+.sommaire-corps { display: flex; align-items: baseline; gap: .6rem; }
+.sommaire-rang {
+  font-family: var(--serif); color: var(--or); font-weight: 700;
+  min-width: 2.4rem; flex: none;
+}
+.sommaire-titre { flex: 1; }
+.sommaire-etat { color: var(--encre-douce); font-size: .88rem; white-space: nowrap; }
+.sommaire-note { display: block; margin: .15rem 0 0 .4rem; font-size: .82rem; color: var(--encre-douce); font-style: italic; }
+
+/* --- les quatre propositions d'une question --- */
+.choix { display: flex; flex-direction: column; gap: .5rem; margin: 1rem 0 .4rem; }
+.choix .choix-bouton { width: 100%; text-align: left; }
+.choix .choix-bouton:disabled { opacity: .6; cursor: default; }
+.choix .choix-bouton.choisi { opacity: 1; }
+
+/* --- la correction d'un chapitre --- */
+.correction { list-style: none; margin: 1rem 0 0; padding: 0; }
+.correction-ligne {
+  border-left: 4px solid var(--trait); padding: .5rem 0 .5rem .8rem;
+  margin: 0 0 .9rem;
+}
+.correction-ligne.juste { border-left-color: var(--vert); }
+.correction-ligne.faux { border-left-color: var(--bordeaux); }
+.correction-question { margin: 0 0 .25rem; font-weight: 700; }
+.correction-reponse { margin: 0 0 .2rem; display: flex; gap: .45rem; align-items: baseline; }
+.correction-marque { font-weight: 700; }
+.correction-ligne.juste .correction-marque { color: var(--vert); }
+.correction-ligne.faux .correction-marque { color: var(--bordeaux); }
+.correction-donnee { margin: 0 0 .2rem; color: var(--encre-douce); font-size: .9rem; }
+.correction-explication { margin: 0; color: var(--encre-douce); font-size: .92rem; }
+.correction-page { color: var(--or); font-weight: 700; white-space: nowrap; }
+
+/* --- le résultat --- */
+.mention-nom {
+  font-family: var(--serif); font-size: 1.5rem; font-weight: 700;
+  color: var(--or); margin: .2rem 0 .4rem;
+}
+.detail-chapitres { list-style: none; margin: 1rem 0 0; padding: 0; }
+.detail-chapitres li {
+  display: flex; gap: .6rem; align-items: baseline;
+  padding: .25rem 0; border-bottom: 1px solid var(--papier-fonce);
+}
+.detail-rang { font-family: var(--serif); color: var(--or); min-width: 2.4rem; }
+.detail-titre { flex: 1; }
+.detail-score { font-weight: 700; white-space: nowrap; }
+
+/* --- le code de reprise --- */
+.code-reprise {
+  font-family: var(--mono); font-size: 1.6rem; letter-spacing: .22em;
+  text-align: center; margin: .6rem 0; color: var(--encre);
+}
+.filet { border: 0; border-top: 1px solid var(--trait); margin: 1.2rem 0; }
+.petite { font-size: .88rem; }
+
+/* --- le diplôme --- */
+.diplome-cadre {
+  margin: .8rem 0; border: 1px solid var(--trait); border-radius: 4px;
+  overflow: hidden; background: var(--papier-fonce);
+}
+.diplome-toile { display: block; width: 100%; height: auto; }
+
+/* --- un mot pour l'auteur --- */
+.etoiles { display: flex; gap: .3rem; margin: .2rem 0 .8rem; }
+.etoile {
+  font: inherit; font-size: 2rem; line-height: 1; cursor: pointer;
+  background: none; border: 0; padding: .1rem .2rem; color: var(--trait);
+  min-width: 2.6rem; min-height: 2.6rem;
+}
+.etoile.pleine { color: var(--or); }
+.champ-avis { width: 100%; max-width: none; font-family: var(--sans); resize: vertical; }
+.deux-champs { display: flex; flex-wrap: wrap; gap: .6rem; margin: .6rem 0; }
+.deux-champs .champ-saisie { flex: 1 1 10rem; }
+
+/* --- l'encart des avis, après l'envoi et bien séparé --- */
+.encart-avis {
+  margin: 1.6rem 0 .6rem; padding: .9rem 1rem;
+  background: var(--carte); border: 1px solid var(--trait);
+  border-top: 3px solid var(--or); border-radius: 4px;
+}
+.encart-titre {
+  font-family: var(--serif); font-weight: 700; font-size: 1.1rem;
+  color: var(--bordeaux); margin: 0 0 .35rem;
+}
+.encart-avis p { margin: 0 0 .5rem; }
+.lien-avis {
+  display: block; margin: .3rem 0; color: var(--bordeaux);
+  font-weight: 700; text-decoration: none; min-height: 2.4rem; line-height: 2.4rem;
+}
+.lien-avis:hover { text-decoration: underline; }
+.encart-avis .petite { color: var(--encre-douce); margin-top: .6rem; }
+
+@media (max-width: 640px) {
+  .sommaire-corps { flex-wrap: wrap; }
+  .sommaire-etat { width: 100%; }
+  .code-reprise { font-size: 1.3rem; letter-spacing: .16em; }
+}

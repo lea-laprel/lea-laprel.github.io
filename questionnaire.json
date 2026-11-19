@@ -1,0 +1,935 @@
+{
+  "titre": "Le questionnaire du lecteur",
+  "sousTitre": "Les Démons de Léa Laprel",
+  "isbn": "9798162497455",
+  "courriel": "lesdemonsdelealaprel@gmail.com",
+  "avis": {
+    "amazon": "https://www.amazon.fr/review/create-review?asin=B0HND5PBXK",
+    "amazonSecours": "https://www.amazon.fr/dp/B0HND5PBXK",
+    "babelio": "https://www.babelio.com/livres/Cardon-Les-demons-de-Lea-Laprel/2156936"
+  },
+  "mentions": [
+    {
+      "jusqua": 9.5,
+      "nom": "Galibot",
+      "phrase": "Vous avez poussé les berlines ; le fond du roman vous attend encore."
+    },
+    {
+      "jusqua": 13.5,
+      "nom": "Mineur de fond",
+      "phrase": "Vous avez taillé dans la veine : le charbon vous connaît."
+    },
+    {
+      "jusqua": 17.5,
+      "nom": "Porion",
+      "phrase": "Vous menez l’équipe à la lampe : peu de choses vous échappent au fond."
+    },
+    {
+      "jusqua": 20,
+      "nom": "Gueule noire d’honneur",
+      "phrase": "Vous êtes remonté la figure noire et la mémoire intacte : le coron vous salue."
+    }
+  ],
+  "chapitres": [
+    {
+      "numero": 1,
+      "romain": "I",
+      "titre": "La boîte métallique",
+      "page": 5,
+      "questions": [
+        {
+          "niveau": "facile",
+          "libelle": "Que découvre Léa, enfant, en fouillant le buffet de la pièce de devant ?",
+          "options": [
+            "Une boîte métallique cachée derrière une planche",
+            "Un album de photographies de famille",
+            "Le carnet de mineur de son père",
+            "Une bouteille d’alcool entamée"
+          ],
+          "reponse": "Une boîte métallique cachée derrière une planche",
+          "explication": "Une planche était restée entrouverte dans un recoin du buffet : Léa y glisse la main et en sort une petite boîte en métal.",
+          "page": 12
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Quel journal Joseph, le père de Léa, achète-t-il chaque matin ?",
+          "options": [
+            "Le Populaire",
+            "L’Humanité",
+            "La Croix du Nord",
+            "Le Petit Parisien"
+          ],
+          "reponse": "L’Humanité",
+          "explication": "Trente centimes chaque matin pour un journal dont le marteau et la faucille teintent le « m » : ses accointances sont claires.",
+          "page": 7
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Au coron, le lundi est le jour de la « buée ». De quoi s’agit-il ?",
+          "options": [
+            "Le jour de la paie à la fosse",
+            "Le jour où l’on vide les cabinets",
+            "Le jour de la lessive",
+            "Le jour du marchand ambulant"
+          ],
+          "reponse": "Le jour de la lessive",
+          "explication": "Vapeur, eau sale et odeur de savon : Maria remplit la lessiveuse au fond du jardin, ce qui laisse le champ libre à Léa.",
+          "page": 10
+        },
+        {
+          "niveau": "detail",
+          "libelle": "Quel nom portait le grand-père de Léa avant de le franciser, à son arrivée des mines de Westphalie ?",
+          "options": [
+            "Jan Laprowicz",
+            "Jan Laprelski",
+            "Jan Kowalski",
+            "Jan Laprelinski"
+          ],
+          "reponse": "Jan Laprelinski",
+          "explication": "Jan Laprelinski devint Jean Laprel quelques années avant la Grande Guerre : une volonté d’intégration rare, et un vrai déchirement.",
+          "page": 8
+        }
+      ]
+    },
+    {
+      "numero": 2,
+      "romain": "II",
+      "titre": "La salle Marmottan",
+      "page": 17,
+      "questions": [
+        {
+          "niveau": "facile",
+          "libelle": "Quel lien unit Nadine, la nouvelle aide-soignante, à Louis Lemoine ?",
+          "options": [
+            "Elle est sa petite-fille",
+            "Elle est sa belle-fille",
+            "Elle est sa fille",
+            "Elle est sa nièce"
+          ],
+          "reponse": "Elle est sa petite-fille",
+          "explication": "Nadine dit son nom, Lemoine, puis montre la photo de son grand-père : Léa reconnaît aussitôt le visage.",
+          "page": 19
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Quel jeune homme Léa fréquente-t-elle depuis trois ans en 1953 ?",
+          "options": [
+            "André Kowalski",
+            "Léonide",
+            "Michel Delattre",
+            "Marc"
+          ],
+          "reponse": "Léonide",
+          "explication": "Trois ans de rendez-vous au café de la Paix et de promenades du dimanche : c’est lui qui se présente chez les Laprel chaque semaine.",
+          "page": 30
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Où Léa travaille-t-elle depuis trois ans ?",
+          "options": [
+            "À la lampisterie de la fosse 6",
+            "À l’épicerie du coron",
+            "À la mercerie Dubois, au centre-ville",
+            "Au café de la Paix"
+          ],
+          "reponse": "À la mercerie Dubois, au centre-ville",
+          "explication": "Un emploi stable qui lui donne une certaine indépendance : Madame Dubois lui confie les commandes importantes.",
+          "page": 28
+        },
+        {
+          "niveau": "detail",
+          "libelle": "Quel musicien, référence de la musique polonaise, enflamme la piste du bal de la salle Marmottan ?",
+          "options": [
+            "André Verchuren",
+            "Yvette Horner",
+            "Aimable",
+            "Stéphane Kubiak"
+          ],
+          "reponse": "Stéphane Kubiak",
+          "explication": "Ses titres font danser ensemble Polonais, Français, mineurs, bouchers et commerçants : neuf ans après la Libération, la jeunesse revit enfin.",
+          "page": 20
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "romain": "III",
+      "titre": "Ce rêve noir",
+      "page": 32,
+      "questions": [
+        {
+          "niveau": "facile",
+          "libelle": "Que demande Léa à sa fille Françoise, au téléphone ?",
+          "options": [
+            "D’aller chercher la boîte métallique au grenier",
+            "De venir la chercher pour le week-end",
+            "De lui apporter un livre de la maison",
+            "De retrouver la canne de son père"
+          ],
+          "reponse": "D’aller chercher la boîte métallique au grenier",
+          "explication": "Françoise fouille le grenier, ne trouve rien, puis retrouve la boîte derrière une planche du meuble, du côté gauche.",
+          "page": 36
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Quel métier exerce Françoise, la fille de Léa ?",
+          "options": [
+            "Libraire",
+            "Enseignante",
+            "Aide-soignante",
+            "Infirmière"
+          ],
+          "reponse": "Enseignante",
+          "explication": "Elle parle de ses classes et des nouvelles générations : la petite-fille d’un mineur de fond devenue enseignante, et Léa en est fière.",
+          "page": 35
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Quel livre Léa lit-elle le soir, avant de s’endormir ?",
+          "options": [
+            "La Nausée, de Jean-Paul Sartre",
+            "Germinal, d’Émile Zola",
+            "Huis clos, de Jean-Paul Sartre",
+            "Les Mains sales, de Jean-Paul Sartre"
+          ],
+          "reponse": "Huis clos, de Jean-Paul Sartre",
+          "explication": "Elle l’a redécouvert la veille, et glisse le marque-page dans son fourreau quand ses paupières réclament leur dû.",
+          "page": 37
+        },
+        {
+          "niveau": "detail",
+          "libelle": "Quel mot est gravé sur le couvercle de la boîte métallique ?",
+          "options": [
+            "pamiątki",
+            "rodzina",
+            "tajemnica",
+            "wspomnienia"
+          ],
+          "reponse": "wspomnienia",
+          "explication": "Léa décrit la boîte à sa fille : la taille d’une boîte à chaussures, et ce mot polonais gravé sur le couvercle.",
+          "page": 35
+        }
+      ]
+    },
+    {
+      "numero": 4,
+      "romain": "IV",
+      "titre": "Le mariage",
+      "page": 41,
+      "questions": [
+        {
+          "niveau": "facile",
+          "libelle": "Quel nom Léa porte-t-elle en sortant de l’église Saint-Joseph ?",
+          "options": [
+            "Morimée",
+            "Delattre",
+            "Laprel",
+            "Lemoine"
+          ],
+          "reponse": "Morimée",
+          "explication": "En disant oui devant l’autel, Léa Laprel devient Léa Morimée — le nom qu’on lui donne encore à la maison de retraite.",
+          "page": 46
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Qui est le garçon d’honneur de Léonide, et dans quel club jouent-ils ensemble ?",
+          "options": [
+            "Marc, au club de la fosse 6",
+            "Marc, à l’Union sportive ouvrière de Bruay",
+            "Paul, à l’Union sportive ouvrière de Bruay",
+            "Michel Delattre, à l’Union sportive ouvrière de Bruay"
+          ],
+          "reponse": "Marc, à l’Union sportive ouvrière de Bruay",
+          "explication": "Marc est son meilleur ami et son coéquipier de l’équipe fanion ; de maison en maison, la vodka aura raison de lui avant même la mairie.",
+          "page": 43
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Quel plat principal est servi au repas de noces ?",
+          "options": [
+            "Le waterzoï",
+            "Le hochepot",
+            "La carbonade flamande",
+            "Le potjevleesch"
+          ],
+          "reponse": "La carbonade flamande",
+          "explication": "La viande mijotée à la bière brune et les oignons confits sont servis à la louche, après le pâté et la soupe à la betterave.",
+          "page": 47
+        },
+        {
+          "niveau": "detail",
+          "libelle": "Avec quel objet Léonide se rase-t-il le matin du mariage ?",
+          "options": [
+            "Un rasoir mécanique offert par Marc",
+            "Un coupe-chou acheté pour l’occasion",
+            "Un coupe-chou gravé du prénom Paul",
+            "Un coupe-chou gravé du prénom Daniel"
+          ],
+          "reponse": "Un coupe-chou gravé du prénom Daniel",
+          "explication": "C’est le rasoir de son père, qu’il sort d’un petit coffret : un rituel hérité, chargé ce jour-là d’une émotion particulière.",
+          "page": 42
+        }
+      ]
+    },
+    {
+      "numero": 5,
+      "romain": "V",
+      "titre": "Le coulonneux, 1939",
+      "page": 52,
+      "questions": [
+        {
+          "niveau": "facile",
+          "libelle": "Qu’advient-il de Champion, le pigeon préféré de Léa, le jour du concours de Chantilly ?",
+          "options": [
+            "Il ne revient jamais",
+            "Il rentre blessé le lendemain",
+            "Il s’échappe avant même le départ",
+            "Il arrive le premier au colombier"
+          ],
+          "reponse": "Il ne revient jamais",
+          "explication": "Drache se pose à 8 h 09, puis Cosmo, Colosse et Blanche ; Léa attend Champion toute la journée, en vain.",
+          "page": 67
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Comment s’appelle la veine de charbon où travaille Joseph ?",
+          "options": [
+            "Adèle",
+            "Ernestine",
+            "Maria",
+            "Célestine"
+          ],
+          "reponse": "Ernestine",
+          "explication": "Au fond, les veines inférieures portent toutes des noms de femmes ; celle de Joseph s’appelle Ernestine.",
+          "page": 57
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Dans le vocabulaire de la mine, qu’est-ce que le « briquet » que Maria prépare chaque matin ?",
+          "options": [
+            "Le jeton de présence",
+            "La lampe du mineur",
+            "Le casse-croûte du mineur",
+            "Le marteau-piqueur"
+          ],
+          "reponse": "Le casse-croûte du mineur",
+          "explication": "Joseph aime découvrir au fond ce que sa femme y a glissé, et en garde toujours un morceau pour Léa : le pain d’alouette.",
+          "page": 58
+        },
+        {
+          "niveau": "detail",
+          "libelle": "Pourquoi le plus ancien pigeon de Joseph s’appelle-t-il « Drache » ?",
+          "options": [
+            "C’est le surnom d’un ancien champion du coron",
+            "C’est le nom d’un terril voisin",
+            "C’est le mot polonais pour « fidèle »",
+            "C’est le mot du patois local pour la pluie"
+          ],
+          "reponse": "C’est le mot du patois local pour la pluie",
+          "explication": "Joseph le disait avec ironie : par ici, il est rassurant d’avoir la pluie pour ami fidèle.",
+          "page": 53
+        }
+      ]
+    },
+    {
+      "numero": 6,
+      "romain": "VI",
+      "titre": "Le coqueleux",
+      "page": 68,
+      "questions": [
+        {
+          "niveau": "facile",
+          "libelle": "Que se passe-t-il sur la route du retour, après les combats du 6 août 1972 ?",
+          "options": [
+            "La voiture s’encastre dans un pylône et Léonide y perd la vie",
+            "La voiture tombe en panne et il faut la faire remorquer",
+            "Léonide se dispute avec un coqueleux belge sur le parking",
+            "La famille rentre sans encombre, les cages pleines"
+          ],
+          "reponse": "La voiture s’encastre dans un pylône et Léonide y perd la vie",
+          "explication": "Sur la route de Lapugnoy, près du parc de la Clarence : ce jour-là, la famille perd Just, Lucky, Fifi, Popeye et Léonide.",
+          "page": 86
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Quel coq la petite Françoise envoie-t-elle au parc pour son tout premier combat ?",
+          "options": [
+            "Lucky",
+            "Fifi",
+            "Popeye",
+            "Just"
+          ],
+          "reponse": "Fifi",
+          "explication": "C’est son poulain, et il triomphe en trente secondes contre Gris Lune, sous les cris des parieurs.",
+          "page": 75
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Dans quel établissement, à Chocques, se tiennent les combats de coqs ?",
+          "options": [
+            "La salle des fêtes Marmottan",
+            "Le café de la Paix",
+            "L’Estaminet Delserre-Degan",
+            "L’estaminet du Chat Noir"
+          ],
+          "reponse": "L’Estaminet Delserre-Degan",
+          "explication": "Une bâtisse de briques rouges de la rue Saint-Sauveur, où « Madame », tout de noir vêtue, surveille la rue sur sa chaise à bascule.",
+          "page": 80
+        },
+        {
+          "niveau": "detail",
+          "libelle": "En hommage à qui le coq « Just » a-t-il été nommé ?",
+          "options": [
+            "Just, le grand-père de Léonide",
+            "Saint Just, le patron de la paroisse",
+            "Juste Delattre, un coqueleux du coron",
+            "Just Fontaine, l’idole de Léonide"
+          ],
+          "reponse": "Just Fontaine, l’idole de Léonide",
+          "explication": "Chaque coq porte le nom d’une admiration de la maison : Fifi vient de Fifi Brindacier, l’héroïne de Françoise.",
+          "page": 75
+        }
+      ]
+    },
+    {
+      "numero": 7,
+      "romain": "VII",
+      "titre": "Le javelot",
+      "page": 87,
+      "questions": [
+        {
+          "niveau": "facile",
+          "libelle": "Comment Léa et Léonide se rencontrent-ils, en cet été 1950 ?",
+          "options": [
+            "En s’affrontant au javelot, dans la cour du café de la Paix",
+            "En dansant au bal de la salle des fêtes Marmottan",
+            "À la mercerie, où il venait acheter du fil",
+            "Au concours de pigeons, un dimanche matin"
+          ],
+          "reponse": "En s’affrontant au javelot, dans la cour du café de la Paix",
+          "explication": "Elle place ses deux javelots dans le cercle blanc ; lui manque le sien en l’apercevant, et perd la partie mais gagne le match.",
+          "page": 92
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Que remarque le kinésithérapeute Hugo sur les côtes de Léa, pendant la séance ?",
+          "options": [
+            "Un tatouage presque effacé",
+            "Une petite grosseur en arc de cercle",
+            "Une marque de brûlure ancienne",
+            "Une longue cicatrice blanchâtre"
+          ],
+          "reponse": "Une petite grosseur en arc de cercle",
+          "explication": "Léa répond qu’elle a cela depuis la naissance ; intrigué, Hugo photographie la zone et appelle son beau-frère médecin.",
+          "page": 88
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Quelle discipline Léonide maîtrise-t-il, héritée de son père Daniel ?",
+          "options": [
+            "La boxe",
+            "La colombophilie",
+            "Le tir à l’arc",
+            "Le javelot"
+          ],
+          "reponse": "Le tir à l’arc",
+          "explication": "Médaillé dans les compétitions régionales, il emmène Léa au tir à l’oiseau et guide ses bras pour son premier tir.",
+          "page": 95
+        },
+        {
+          "niveau": "detail",
+          "libelle": "Sous quel tableau les deux jeunes gens s’installent-ils, au fond de la cour du café ?",
+          "options": [
+            "La Partie de javelot, de Rémy Cogghe",
+            "La Sortie de la fosse, de Constantin Meunier",
+            "Le Marché de Bruay, d’un peintre local",
+            "Combat de coqs en Flandre, de Rémy Cogghe"
+          ],
+          "reponse": "Combat de coqs en Flandre, de Rémy Cogghe",
+          "explication": "Le tableau veille sur leur première conversation — un clin d’œil au monde qui deviendra celui de Léonide.",
+          "page": 95
+        }
+      ]
+    },
+    {
+      "numero": 8,
+      "romain": "VIII",
+      "titre": "Photos souvenirs",
+      "page": 98,
+      "questions": [
+        {
+          "niveau": "facile",
+          "libelle": "De quoi Joseph, le père de Léa, finit-il par mourir, ce 27 juillet 1955 ?",
+          "options": [
+            "De la silicose",
+            "D’une pneumonie contractée l’hiver",
+            "D’une chute dans l’escalier",
+            "D’un coup de grisou au fond"
+          ],
+          "reponse": "De la silicose",
+          "explication": "La toux grasse, le fauteuil près de la cheminée, le souffle qui s’arrête : la maladie des mineurs emporte Joseph dix ans après son retour.",
+          "page": 108
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Quel est le nom de l’enseigne tenue par Léonide ?",
+          "options": [
+            "La boucherie du Marché",
+            "La boucherie de la Fosse",
+            "La boucherie Saint-Joseph",
+            "La boucherie des Mineurs"
+          ],
+          "reponse": "La boucherie de la Fosse",
+          "explication": "Léa reconnaît les lettres « SSE » sur la photo retournée, et sa fille Françoise devant la devanture.",
+          "page": 110
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Comment s’appelle le garçon timide qui vient chaque samedi à la boucherie avec un petit papier ?",
+          "options": [
+            "Lucien",
+            "Marc",
+            "Laurent",
+            "Augustin"
+          ],
+          "reponse": "Laurent",
+          "explication": "Il commande pour sa mère malade ; ce jour-là, sans le savoir, Léa et Léonide accueillent leur futur beau-fils.",
+          "page": 117
+        },
+        {
+          "niveau": "detail",
+          "libelle": "Quel est, selon Léonide, l’outil le plus précis pour séparer les chairs ?",
+          "options": [
+            "Le fusil à aiguiser",
+            "Le trancheur",
+            "Le dénerveur",
+            "L’ongle de son pouce"
+          ],
+          "reponse": "L’ongle de son pouce",
+          "explication": "Scie, désosseurs, cassoir, trancheur, dénerveur et fusil sont sur la table — et pourtant il abandonne la lame pour l’ongle.",
+          "page": 112
+        }
+      ]
+    },
+    {
+      "numero": 9,
+      "romain": "IX",
+      "titre": "De Gaulle",
+      "page": 118,
+      "questions": [
+        {
+          "niveau": "facile",
+          "libelle": "Quel souvenir Léa raconte-t-elle à partir de la carte du général de Gaulle ?",
+          "options": [
+            "Le 11 août 1945, il l’a embrassée sur le front",
+            "Son père a serré la main du général",
+            "Elle lui a remis un bouquet au pied des marches",
+            "Elle a seulement entendu son discours de loin"
+          ],
+          "reponse": "Le 11 août 1945, il l’a embrassée sur le front",
+          "explication": "Elle fend la foule, se jette sur l’homme au képi, et il la serre contre lui : la foule y voit le baiser du pays noir.",
+          "page": 128
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Qu’entend Maria à la radio, en 1940, qui la fait pleurer pour la première fois devant sa fille ?",
+          "options": [
+            "Une chanson de Tino Rossi",
+            "L’appel du général de Gaulle depuis Londres",
+            "L’annonce de l’armistice",
+            "Le bulletin colombophile de Lille-PTT"
+          ],
+          "reponse": "L’appel du général de Gaulle depuis Londres",
+          "explication": "Léa, qui s’ennuie, tripote les boutons du poste ; une voix calme affirme que rien n’est perdu, et Maria ne se sent plus seule.",
+          "page": 123
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Quelle idole Willy évoque-t-il pendant le jeu des cartes, au moment où Léa reprend ses esprits ?",
+          "options": [
+            "Just Fontaine",
+            "Jean-Paul Sartre",
+            "Raymond Kopaszewski",
+            "Claude François"
+          ],
+          "reponse": "Raymond Kopaszewski",
+          "explication": "Léa rate l’anecdote : son idole l’a reconnu après tout ce temps et lui a donné ses chaussures.",
+          "page": 127
+        },
+        {
+          "niveau": "detail",
+          "libelle": "Au concert de Claude François à Lille, en 1976, quelle chanson était la préférée de Marie-Paule et de sa fille ?",
+          "options": [
+            "Comme d’habitude",
+            "Si j’avais un marteau",
+            "Le lundi au soleil",
+            "Belinda"
+          ],
+          "reponse": "Belinda",
+          "explication": "Elles se rapprochent de la scène en criant pendant ce titre ; il se retourne… et ne la voit pas.",
+          "page": 129
+        }
+      ]
+    },
+    {
+      "numero": 10,
+      "romain": "X",
+      "titre": "La canne",
+      "page": 131,
+      "questions": [
+        {
+          "niveau": "facile",
+          "libelle": "Que se passe-t-il sur la dernière des trente-cinq marches, alors que l’ascenseur est en panne ?",
+          "options": [
+            "La canne de Joseph se brise",
+            "L’ascenseur redémarre enfin",
+            "Fabienne doit appeler du renfort",
+            "Léa tombe et se blesse à la hanche"
+          ],
+          "reponse": "La canne de Joseph se brise",
+          "explication": "Crac ! Le bois sculpté par son père cède juste avant le palier, et le hurlement de Léa résonne dans toute la cage d’escalier.",
+          "page": 132
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Qui propose de réparer la canne, et quel métier exerçait-il ?",
+          "options": [
+            "Daniel, ancien instituteur",
+            "Didier, ancien ébéniste",
+            "Hugo, le kinésithérapeute",
+            "Willy, ancien jardinier"
+          ],
+          "reponse": "Didier, ancien ébéniste",
+          "explication": "Le pensionnaire de la chambre trente-sept sort dans le couloir en entendant le cri, puis porte Léa jusqu’à son lit.",
+          "page": 133
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Pourquoi la Feldgendarmerie vient-elle arrêter Joseph en pleine nuit ?",
+          "options": [
+            "Il cachait des armes dans son pigeonnier",
+            "Il a frappé un soldat allemand",
+            "Il a saboté le treuil de la fosse 6",
+            "Il refusait de descendre au fond"
+          ],
+          "reponse": "Il a saboté le treuil de la fosse 6",
+          "explication": "La veille, il a sectionné deux câbles et mouillé les connexions ; la fouille met aussi la main sur des tracts interdits.",
+          "page": 136
+        },
+        {
+          "niveau": "detail",
+          "libelle": "Dans quel état Joseph réapparaît-il au fond de l’église, le jour de la communion de Léa ?",
+          "options": [
+            "En uniforme, décoré, droit comme un i",
+            "Porté sur une civière par deux voisins",
+            "En bonne santé, mais incapable de parler",
+            "Amaigri, appuyé sur une canne, deux doigts sectionnés"
+          ],
+          "reponse": "Amaigri, appuyé sur une canne, deux doigts sectionnés",
+          "explication": "Près de quatre ans d’absence : Léa le montre du doigt sans pouvoir parler, et Maria s’effondre à son tour.",
+          "page": 141
+        }
+      ]
+    },
+    {
+      "numero": 11,
+      "romain": "XI",
+      "titre": "Révélation",
+      "page": 142,
+      "questions": [
+        {
+          "niveau": "facile",
+          "libelle": "Que révèle à Léa la lettre jaunie trouvée dans la boîte métallique ?",
+          "options": [
+            "Qu’elle avait un frère, mort avant de naître",
+            "Qu’elle avait été adoptée toute petite",
+            "Que Maria avait laissé un enfant en Pologne",
+            "Que Joseph n’était pas son père"
+          ],
+          "reponse": "Qu’elle avait un frère, mort avant de naître",
+          "explication": "La sage-femme avait entendu deux cœurs ; Léa est venue seule, et ses parents n’ont jamais su le lui dire autrement que par écrit.",
+          "page": 147
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Pourquoi Joseph refusait-il de porter la montre à gousset rangée dans la boîte ?",
+          "options": [
+            "Parce qu’il la réservait au mariage de sa fille",
+            "Parce que pour lui le temps s’était arrêté ce jour-là",
+            "Parce qu’elle venait d’un ami mort à Verdun",
+            "Parce qu’elle était cassée depuis la guerre"
+          ],
+          "reponse": "Parce que pour lui le temps s’était arrêté ce jour-là",
+          "explication": "Maria l’écrit dans sa lettre, en énumérant ce que contient la boîte : la bague, la terre polonaise, le tissu, la croix et cette montre.",
+          "page": 148
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Comment s’appellent les deux arrière-petites-filles qui déboulent dans la chambre ?",
+          "options": [
+            "Olympe et Joséphine",
+            "Léontine et Céleste",
+            "Olympe et Léontine",
+            "Olympe et Céleste"
+          ],
+          "reponse": "Olympe et Léontine",
+          "explication": "Elles embrassent leur bisaïeule de part et d’autre du lit, yeux bleus et cheveux blonds : l’héritage familial continue.",
+          "page": 145
+        },
+        {
+          "niveau": "detail",
+          "libelle": "Quel psaume Léa ouvre-t-elle au hasard dans sa bible de communion ?",
+          "options": [
+            "Le psaume 23",
+            "Le psaume 51",
+            "Le psaume 91",
+            "Le psaume 139"
+          ],
+          "reponse": "Le psaume 139",
+          "explication": "Les versets 7 à 12 : où aller loin de ton souffle ? Elle les relit sans comprendre pourquoi ils la bouleversent.",
+          "page": 144
+        }
+      ]
+    },
+    {
+      "numero": 12,
+      "romain": "XII",
+      "titre": "Libération",
+      "page": 151,
+      "questions": [
+        {
+          "niveau": "facile",
+          "libelle": "Qui Léa trouve-t-elle assis dans le fauteuil, à son réveil ?",
+          "options": [
+            "Le frère qui n’a jamais vécu dans son monde",
+            "Léonide, son mari",
+            "Le père Philippe, de l’église Saint-Joseph",
+            "Joseph, son père"
+          ],
+          "reponse": "Le frère qui n’a jamais vécu dans son monde",
+          "explication": "Un homme âgé aux yeux d’un bleu magnifique, dont la voix lui semble familière alors qu’elle ne l’a jamais entendue.",
+          "page": 152
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Quel nom donne-t-il au lieu où ils se parlent ?",
+          "options": [
+            "Le purgatoire",
+            "L’entre-deux",
+            "L’au-delà",
+            "Le seuil"
+          ],
+          "reponse": "L’entre-deux",
+          "explication": "Un passage entre les mondes, qu’empruntent les passeurs à chacune des morts : la mort, dit-il, est pour ceux qui restent.",
+          "page": 152
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Combien de fois dit-il avoir retenu Léa au bord de ce passage ?",
+          "options": [
+            "Une fois",
+            "Deux fois",
+            "Trois fois",
+            "Quatre fois"
+          ],
+          "reponse": "Trois fois",
+          "explication": "Elle y repense sans poser la question : le canon sur son front d’enfant, la nuit de la drache, et la voiture contre le pylône.",
+          "page": 153
+        },
+        {
+          "niveau": "detail",
+          "libelle": "Où Léa avait-elle déjà aperçu ces yeux bleus ?",
+          "options": [
+            "Dans les yeux de Léonide, le jour du javelot",
+            "Sur la photo du téléphone de Nadine",
+            "Dans la vitre embuée d’une voiture",
+            "Dans le miroir de son rêve"
+          ],
+          "reponse": "Dans le miroir de son rêve",
+          "explication": "Le miroir qui ne renvoyait rien, puis des yeux bleus et une voix qui lui demandait de rouvrir les yeux.",
+          "page": 151
+        }
+      ]
+    },
+    {
+      "numero": 13,
+      "romain": "XIII",
+      "titre": "Les mystères de la lettre",
+      "page": 155,
+      "questions": [
+        {
+          "niveau": "facile",
+          "libelle": "Qui Françoise doit-elle prévenir par téléphone, et où cette personne se trouve-t-elle ?",
+          "options": [
+            "Sa fille Céleste, en week-end à Paris",
+            "Le notaire de la famille, à Béthune",
+            "Son frère, resté dans le Nord",
+            "Nadine, l’aide-soignante, chez elle"
+          ],
+          "reponse": "Sa fille Céleste, en week-end à Paris",
+          "explication": "Céleste boit un verre en terrasse quand le téléphone sonne ; la soirée dansante s’efface, et elle partira dès l’aube.",
+          "page": 158
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Que dit le médecin à Françoise, en relevant les paupières de sa mère ?",
+          "options": [
+            "« Elle n’a pas souffert »",
+            "« Vous avez ses yeux »",
+            "« Il faudra prévenir la famille »",
+            "« Elle vous attendait »"
+          ],
+          "reponse": "« Vous avez ses yeux »",
+          "explication": "Il le dit sans même la regarder, en notant l’heure du décès sur son petit carnet.",
+          "page": 156
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Comment Françoise retrouve-t-elle la lettre de sa grand-mère avant de quitter la chambre ?",
+          "options": [
+            "Elle était restée dans la main de Léa",
+            "L’infirmière la lui tend dans le couloir",
+            "Une feuille se colle sous sa chaussure",
+            "Elle la retrouve pliée dans la bible"
+          ],
+          "reponse": "Une feuille se colle sous sa chaussure",
+          "explication": "Elle se penche, la ramasse et la replace dans la boîte métallique restée entrouverte.",
+          "page": 157
+        },
+        {
+          "niveau": "detail",
+          "libelle": "Comment la petite Léontine appelle-t-elle sa grand-mère, ne sachant pas encore bien dire « mamie » ?",
+          "options": [
+            "« Mimie »",
+            "« Nanie »",
+            "« Mamine »",
+            "« Momie »"
+          ],
+          "reponse": "« Momie »",
+          "explication": "Ce mot d’enfant arrache à Françoise son premier sourire de la soirée.",
+          "page": 157
+        }
+      ]
+    },
+    {
+      "numero": 14,
+      "romain": "XIV",
+      "titre": "La chasse aux secrets",
+      "page": 160,
+      "questions": [
+        {
+          "niveau": "facile",
+          "libelle": "Que conclut le compte rendu reçu six jours après l’autopsie ?",
+          "options": [
+            "Un fœtus in fœtu, un jumeau parasite",
+            "Une fracture mal consolidée",
+            "Une tumeur bénigne ancienne",
+            "Une malformation de la colonne vertébrale"
+          ],
+          "reponse": "Un fœtus in fœtu, un jumeau parasite",
+          "explication": "Une masse encapsulée de douze centimètres : fragments osseux, ébauche de colonne, des poils, une dent — la lettre disait vrai.",
+          "page": 165
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Que remet Louis Lemoine à sa petite-fille, à la fin de leur entretien ?",
+          "options": [
+            "Une photographie du bal de 1953",
+            "Une enveloppe adressée à Léa",
+            "Un carnet où il a tout consigné",
+            "Les clés de sa maison"
+          ],
+          "reponse": "Une enveloppe adressée à Léa",
+          "explication": "Il écrit longtemps, rature, recommence, puis tend la lettre à Nadine : « ne me pardonne pas, ce n’est pas à toi de le faire ».",
+          "page": 164
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Quel détail des rues voisines de l’établissement frappe Françoise, ce matin-là ?",
+          "options": [
+            "Elles sont toutes des impasses",
+            "Elles portent des noms de mineurs disparus",
+            "Elles portent toutes des noms américains",
+            "Elles portent des noms de saints"
+          ],
+          "reponse": "Elles portent toutes des noms américains",
+          "explication": "Washington, Mississippi, Chicago, Texas, Californie : le rêve américain bien loin de la fosse 3, sous un ciel grisâtre.",
+          "page": 160
+        },
+        {
+          "niveau": "detail",
+          "libelle": "Sous quel nom de famille le docteur Martin s’adresse-t-il à Françoise ?",
+          "options": [
+            "Madame Lemoine",
+            "Madame Morimée",
+            "Madame Laprel",
+            "Madame Lefebvre"
+          ],
+          "reponse": "Madame Lefebvre",
+          "explication": "C’est son nom d’épouse ; sa mère était Morimée, et sa grand-mère, née Laprel.",
+          "page": 162
+        }
+      ]
+    },
+    {
+      "numero": 15,
+      "romain": "XV",
+      "titre": "Le dernier adieu",
+      "page": 166,
+      "questions": [
+        {
+          "niveau": "facile",
+          "libelle": "Qui arrive en retard au cimetière, et que rapporte-t-on ce jour-là ?",
+          "options": [
+            "Fabienne et Didier, avec la canne réparée",
+            "Hugo et le docteur Martin, avec le compte rendu",
+            "Nadine, avec la boîte métallique",
+            "Céleste, avec les petites filles"
+          ],
+          "reponse": "Fabienne et Didier, avec la canne réparée",
+          "explication": "Sous un parapluie noir, Fabienne ouvre les mains devant Françoise et transmet le bois recollé, sans un mot.",
+          "page": 167
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Qui prend la parole au nom de la famille, avant la minute de silence ?",
+          "options": [
+            "Françoise",
+            "Céleste",
+            "Laurent",
+            "Nadine"
+          ],
+          "reponse": "Céleste",
+          "explication": "Elle lit une feuille pliée en quatre et appelle sa bisaïeule « mamie chou », en promettant de la raconter à Olympe et Léontine.",
+          "page": 167
+        },
+        {
+          "niveau": "moyen",
+          "libelle": "Quel mot est écrit au dos de l’enveloppe que Nadine laisse tomber sur le cercueil ?",
+          "options": [
+            "« Adieu »",
+            "« Enfin »",
+            "« Pardon »",
+            "« Merci »"
+          ],
+          "reponse": "« Pardon »",
+          "explication": "Un seul mot, d’une main tremblante, au dos d’une lettre que Léa ne lira jamais.",
+          "page": 168
+        },
+        {
+          "niveau": "detail",
+          "libelle": "Quelles dates figurent sur la pierre de granit de Léonide ?",
+          "options": [
+            "1933-1972",
+            "1930-1972",
+            "1932-1968",
+            "1932-1972"
+          ],
+          "reponse": "1932-1972",
+          "explication": "Voilà ce qu’il reste de lui sur la tombe où Léa le rejoint : deux dates, et une attente de plus de cinquante ans.",
+          "page": 166
+        }
+      ]
+    }
+  ]
+}

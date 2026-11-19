@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le questionnaire du lecteur — Les Démons de Léa Laprel</title>
+<meta name="description" content="Soixante questions sur Les Démons de Léa Laprel, roman de Paul Cardon : une par chapitre lu, une note sur 20, une mention et un diplôme.">
+<meta name="robots" content="noindex">
+
+<meta name="theme-color" content="#1e1a17">
+<link rel="icon" href="icone-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="icone-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Léa Laprel">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="questionnaire.css">
+</head>
+<body class="lecteur questionnaire">
+
+<div id="fond" class="fond" aria-hidden="true"></div>
+
+<header class="entete" id="entete">
+  <div class="entete-haut">
+    <p class="marque">Le questionnaire du lecteur</p>
+    <div class="compteurs">
+      <span class="compteur" id="compte-score" hidden>0 / 60</span>
+      <a class="bouton bouton-discret" href="index.html">Le jeu</a>
+    </div>
+  </div>
+  <div class="jauge" id="jauge" hidden>
+    <div class="jauge-barre" id="jauge-barre"></div>
+  </div>
+</header>
+
+<main id="scene" class="scene">
+  <section class="ecran">
+    <h2 tabindex="-1">Chargement…</h2>
+    <p>Le questionnaire récupère ses questions.</p>
+  </section>
+</main>
+
+<footer class="pied">
+  <p>D’après <em>Les Démons de Léa Laprel</em>, roman de Paul Cardon.</p>
+</footer>
+
+<p id="annonces" class="lecteur-seul" aria-live="polite"></p>
+
+<noscript>
+  <p class="bandeau">Ce questionnaire a besoin de JavaScript. Activez-le, puis rechargez la page.</p>
+</noscript>
+
+<script src="questionnaire.js"></script>
+</body>
+</html>
