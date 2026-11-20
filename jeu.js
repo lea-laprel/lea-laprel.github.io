@@ -2468,6 +2468,22 @@
     if (e.clinDoeil) {
       section.appendChild(el('p', { class: 'note', texte: e.clinDoeil }));
     }
+
+    /* L'encart des avis, APRÈS le coffre du concours et hors de son
+       cadre, séparé par un filet. Les règles d'Amazon interdisent de
+       lier un avis à un gain ; côté public, on le dit même en toutes
+       lettres sous l'encart. Le composant est partagé avec le
+       questionnaire du lecteur (avis.js) : une seule adresse, un seul
+       texte, trois modes. */
+    if (window.LV_AVIS && window.LV_AVIS.encart) {
+      section.appendChild(el('hr', { class: 'filet-avis' }));
+      section.appendChild(window.LV_AVIS.encart(el, estEleves() ? 'eleves' : 'public'));
+      if (!estEleves() && e.code) {
+        section.appendChild(el('p', { class: 'mention-avis',
+          texte: 'Laisser un avis est libre et n’a aucun lien avec le jeu concours.' }));
+      }
+    }
+
     section.appendChild(el('div', { class: 'ligne-actions', style: 'justify-content:center' }, [
       el('button', { class: 'bouton bouton-secondaire', type: 'button', texte: 'Rejouer depuis le début', onclick: recommencer })
     ]));

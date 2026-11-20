@@ -104,24 +104,6 @@
 .deux-champs { display: flex; flex-wrap: wrap; gap: .6rem; margin: .6rem 0; }
 .deux-champs .champ-saisie { flex: 1 1 10rem; }
 
-/* --- l'encart des avis, après l'envoi et bien séparé --- */
-.encart-avis {
-  margin: 1.6rem 0 .6rem; padding: .9rem 1rem;
-  background: var(--carte); border: 1px solid var(--trait);
-  border-top: 3px solid var(--or); border-radius: 4px;
-}
-.encart-titre {
-  font-family: var(--serif); font-weight: 700; font-size: 1.1rem;
-  color: var(--bordeaux); margin: 0 0 .35rem;
-}
-.encart-avis p { margin: 0 0 .5rem; }
-.lien-avis {
-  display: block; margin: .3rem 0; color: var(--bordeaux);
-  font-weight: 700; text-decoration: none; min-height: 2.4rem; line-height: 2.4rem;
-}
-.lien-avis:hover { text-decoration: underline; }
-.encart-avis .petite { color: var(--encre-douce); margin-top: .6rem; }
-
 @media (max-width: 640px) {
   .sommaire-corps { flex-wrap: wrap; }
   .sommaire-etat { width: 100%; }

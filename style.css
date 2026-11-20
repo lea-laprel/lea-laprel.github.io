@@ -683,6 +683,37 @@ body.sans-pied #chrono { font-size: 1.05rem; }
   border-color: rgba(227,200,106,.55); background: rgba(227,200,106,.12);
 }
 
+/* --- L’encart des avis ------------------------------------------
+   Partagé par les trois modes : la révélation du grand public, celle
+   de la classe, et la fin du questionnaire du lecteur. Il vient
+   toujours APRÈS ce qui précède, hors de son cadre, séparé par un
+   filet — un avis ne s’échange pas contre un gain. */
+.encart-avis {
+  margin: 1.6rem 0 .6rem; padding: .9rem 1rem;
+  background: var(--carte); border: 1px solid var(--trait);
+  border-top: 3px solid var(--or); border-radius: 4px;
+}
+.encart-titre {
+  font-family: var(--serif); font-weight: 700; font-size: 1.1rem;
+  color: var(--bordeaux); margin: 0 0 .35rem;
+}
+.encart-avis p { margin: 0 0 .5rem; }
+.lien-avis {
+  display: block; margin: .3rem 0; color: var(--bordeaux);
+  font-weight: 700; text-decoration: none; min-height: 2.4rem; line-height: 2.4rem;
+}
+.lien-avis:hover { text-decoration: underline; }
+.encart-avis .petite { color: var(--encre-douce); margin-top: .6rem; }
+
+/* le filet qui le détache, et la ligne qui dit que l’avis n’a rien à
+   voir avec le jeu concours */
+.filet-avis { border: 0; border-top: 1px solid var(--trait); margin: 1.6rem 0 0; }
+.mention-avis {
+  margin: .5rem 0 0; font-size: .86rem; color: var(--encre-douce);
+  font-style: italic; text-align: center;
+}
+.encart-avis .petite { font-size: .88rem; }
+
 .avertissement-fort {
   background: #fbf1cf; border: 1px solid var(--or); border-left: 4px solid var(--bordeaux);
   border-radius: 4px; padding: .65rem .9rem; margin: 0 0 1.2rem;

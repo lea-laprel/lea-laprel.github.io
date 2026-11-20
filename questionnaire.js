@@ -939,7 +939,8 @@
       el('p', { class: 'narration petite', texte: 'Votre message part depuis votre propre messagerie ; ce site ne conserve aucune donnée.' })
     ]);
 
-    section.appendChild(encartAvis());
+    var encart = encartAvis();
+    if (encart) section.appendChild(encart);
     section.appendChild(el('div', { class: 'ligne-actions ligne-actions-gauche' }, [
       el('button', { class: 'bouton bouton-secondaire', type: 'button', texte: 'Mon diplôme', onclick: montrerDiplome }),
       el('button', { class: 'bouton bouton-secondaire', type: 'button', texte: 'Ma note', onclick: montrerResultat })
@@ -951,18 +952,12 @@
      avec la note, la mention ou le diplôme : les règles d'Amazon
      interdisent d'échanger un avis contre quoi que ce soit, et un avis
      acheté ne vaut rien de toute façon. */
+  /* Le même encart que les deux autres modes : il vit dans avis.js,
+     avec ses adresses et ses mots. Si le fichier manquait, on ne
+     montrerait rien plutôt qu'un encart à moitié écrit. */
   function encartAvis() {
-    var a = qcm.avis || {};
-    function lien(texte, href) {
-      return el('a', { class: 'lien-avis', href: href, target: '_blank', rel: 'noopener', texte: '→ ' + texte });
-    }
-    return el('aside', { class: 'encart-avis' }, [
-      el('p', { class: 'encart-titre', texte: 'Vous avez aimé le roman ?' }),
-      el('p', { texte: 'Un avis, même de deux lignes, aide beaucoup un auteur indépendant à faire connaître son livre. Une note en étoiles suffit.' }),
-      a.amazon ? lien('Laisser un avis sur Amazon', a.amazon) : null,
-      a.babelio ? lien('Laisser un avis sur Babelio', a.babelio) : null,
-      el('p', { class: 'petite', texte: 'Sur Amazon, il faut être connecté à son compte. Sur Babelio, il suffit d’un compte gratuit, puis de toucher « Contribuer » et « Publier une critique ».' })
-    ]);
+    if (!window.LV_AVIS || !window.LV_AVIS.encart) return null;
+    return window.LV_AVIS.encart(el, 'public');
   }
 
   /* ------------------------------------------------------- démarrage --- */
