@@ -62,6 +62,31 @@
     var t = noeud.querySelector('h2');
     if (t) t.focus();
     if (window.scrollTo) window.scrollTo(0, 0);
+    brancherEntree(noeud);
+  }
+
+  /* La touche Entrée valide partout où il y a un champ : taper Entrée,
+     c'est presser le bouton qui valide. Les champs qui s'en chargent
+     déjà portent data-entree et sont laissés tranquilles. */
+  var VALIDE = /^(Valider|Entrer|Reprendre|Continuer|Envoyer)/;
+  function brancherEntree(noeud) {
+    if (!noeud || !noeud.addEventListener) return;
+    noeud.addEventListener('keydown', function (ev) {
+      if (ev.key !== 'Enter' || ev.defaultPrevented) return;
+      var cible = ev.target;
+      if (!cible || cible.tagName !== 'INPUT') return;
+      if (cible.type && cible.type !== 'text' && cible.type !== 'search') return;
+      if (cible.getAttribute('data-entree')) return;
+      var boutons = noeud.querySelectorAll('button');
+      for (var i = 0; i < boutons.length; i++) {
+        if (boutons[i].disabled) continue;
+        if (VALIDE.test(boutons[i].textContent.trim())) {
+          ev.preventDefault();
+          boutons[i].click();
+          return;
+        }
+      }
+    });
   }
 
   /* --------------------------------------------------------- l'état --- */
@@ -98,6 +123,23 @@
      et on s'abstient si l'autre a répondu à davantage de questions.
      `force` est réservé aux retours en arrière voulus : tout
      recommencer, ou appliquer un code de reprise. */
+  /* Un navigateur qui refuse d'enregistrer ne plante pas le
+     questionnaire : il le fait simplement disparaître au premier
+     rechargement. On le dit, une fois. */
+  var stockageSignale = false;
+  function signalerStockageRefuse() {
+    if (stockageSignale) return;
+    stockageSignale = true;
+    var z = document.getElementById('avertissements');
+    if (!z) return;
+    vider(z);
+    z.hidden = false;
+    z.className = 'bandeau bandeau-alerte';
+    z.appendChild(el('strong', { texte: 'Votre navigateur bloque l’enregistrement : ' }));
+    z.appendChild(document.createTextNode('vos réponses ne seront pas conservées si vous quittez la page.'));
+    annoncer('Votre navigateur bloque l’enregistrement : vos réponses ne seront pas conservées si vous quittez la page.');
+  }
+
   function sauver(force) {
     try {
       if (force !== true) {
@@ -105,15 +147,43 @@
         if (surDisque && avancement(surDisque) > avancement(etat)) return;
       }
       window.localStorage.setItem(CLE, JSON.stringify(etat));
-    } catch (e) {}
+    } catch (e) { signalerStockageRefuse(); }
   }
+  /* Les réponses sont rangées par NUMÉRO de chapitre, pas par rang :
+     une question corrigée, un chapitre ajouté, et tout le reste garde
+     son sens. On migre donc au lieu de jeter — on ne garde que les
+     chapitres qui existent encore et dont le nombre de questions n'a
+     pas bougé, et on dit combien ont dû être abandonnés. */
+  var chapitresPerdus = 0;
   function charger() {
     try {
       var b = window.localStorage.getItem(CLE);
       if (!b) return null;
       var l = JSON.parse(b);
-      return l && l.signature === signature() ? l : null;
-    } catch (e) { return null; }
+      if (!l || !l.reponses) return null;
+      if (l.signature === signature()) return l;
+      return migrer(l);
+    } catch (e) { signalerStockageRefuse(); return null; }
+  }
+
+  function migrer(ancien) {
+    var garde = {}, repris = {}, perdus = 0;
+    (qcm.chapitres || []).forEach(function (c) {
+      var cle = String(c.numero);
+      var r = ancien.reponses[cle];
+      if (!r) return;
+      if (r.length !== c.questions.length) { perdus++; return; }
+      garde[cle] = r;
+      if ((ancien.repris || {})[cle]) repris[cle] = true;
+    });
+    Object.keys(ancien.reponses).forEach(function (cle) {
+      if (!garde[cle] && !(qcm.chapitres || []).some(function (c) { return String(c.numero) === cle; })) perdus++;
+    });
+    chapitresPerdus = perdus;
+    ancien.reponses = garde;
+    ancien.repris = repris;
+    ancien.signature = signature();
+    return ancien;
   }
   function effacer() { try { window.localStorage.removeItem(CLE); } catch (e) {} }
 
@@ -379,6 +449,12 @@
       qcm.avertissement ? el('div', { class: 'consigne-lecture' }, [
         el('strong', { texte: qcm.avertissement })
       ]) : null,
+      /* une mise à jour du questionnaire a pu rendre des chapitres
+         incomparables : on le dit plutôt que de les escamoter */
+      chapitresPerdus ? el('div', { class: 'consigne-lecture' }, [
+        el('strong', { texte: 'Le questionnaire a été mis à jour.' }),
+        el('p', { texte: chapitresPerdus + ' chapitre(s) déjà répondu(s) ont changé et ont dû être remis à zéro. Le reste de vos réponses est intact.' })
+      ]) : null,
       liste
     ]);
 
@@ -581,7 +657,7 @@
 
   function montrerReprise() {
     var champ = el('input', { type: 'text', class: 'champ-saisie', autocomplete: 'off',
-      autocapitalize: 'characters', spellcheck: 'false', maxlength: '12',
+      autocapitalize: 'characters', spellcheck: 'false', maxlength: '12', 'data-entree': 'propre',
       'aria-label': 'Code de reprise, dix caractères' });
     var retour = el('p', { class: 'retour', hidden: true });
 

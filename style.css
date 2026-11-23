@@ -714,6 +714,15 @@ body.sans-pied #chrono { font-size: 1.05rem; }
 }
 .encart-avis .petite { font-size: .88rem; }
 
+/* Le bandeau qui prévient le joueur — pas le bandeau de contrôle de
+   l’auteur : celui-ci s’adresse à quelqu’un qui joue, et doit se voir. */
+.bandeau-alerte {
+  background: #fbf1cf; color: #4a3a06;
+  border-bottom: 2px solid var(--or);
+  padding: .6rem .9rem; font-size: .95rem;
+}
+.bandeau-alerte strong { color: var(--bordeaux); }
+
 .avertissement-fort {
   background: #fbf1cf; border: 1px solid var(--or); border-left: 4px solid var(--bordeaux);
   border-radius: 4px; padding: .65rem .9rem; margin: 0 0 1.2rem;

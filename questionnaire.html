@@ -15,12 +15,15 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="mobile-web-app-capable" content="yes">
 
+<link rel="manifest" href="manifest.webmanifest">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="questionnaire.css">
 </head>
 <body class="lecteur questionnaire">
 
 <div id="fond" class="fond" aria-hidden="true"></div>
+
+<div id="avertissements" class="bandeau" role="status" hidden></div>
 
 <header class="entete" id="entete">
   <div class="entete-haut">
@@ -54,5 +57,12 @@
 
 <script src="avis.js"></script>
 <script src="questionnaire.js"></script>
+<script>
+if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js').catch(function () {});
+  });
+}
+</script>
 </body>
 </html>

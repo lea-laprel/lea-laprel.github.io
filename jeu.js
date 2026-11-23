@@ -426,6 +426,25 @@
      On relit donc ce qui est écrit avant d'écrire, et on s'abstient si
      l'autre est allé plus loin. `force` est réservé aux retours en
      arrière VOULUS : tout recommencer, ou appliquer un code d'équipe. */
+  /* Un navigateur réglé sur « ne rien enregistrer » ne plante pas le
+     jeu : tout est en try/catch, et la partie se déroule jusqu'au bout.
+     Mais elle disparaissait au premier rechargement, sans que rien
+     n'ait prévenu. On le dit maintenant, une fois, dans le bandeau. */
+  var stockageSignale = false;
+  function signalerStockageRefuse() {
+    if (stockageSignale) return;
+    stockageSignale = true;
+    var z = $('avertissements');
+    if (!z) return;
+    vider(z);
+    z.hidden = false;
+    z.className = 'bandeau bandeau-alerte';
+    z.appendChild(el('strong', { texte: 'Votre navigateur bloque l’enregistrement : ' }));
+    z.appendChild(document.createTextNode(
+      'la partie ne sera pas sauvegardée si vous quittez la page.'));
+    annoncer('Votre navigateur bloque l’enregistrement : la partie ne sera pas sauvegardée si vous quittez la page.');
+  }
+
   function sauver(force) {
     try {
       if (force !== true) {
@@ -433,15 +452,40 @@
         if (surDisque && avancement(surDisque) > avancement(etat)) return;
       }
       window.localStorage.setItem(CLE, JSON.stringify(etat));
-    } catch (e) {}
+    } catch (e) { signalerStockageRefuse(); }
   }
+  /* Une partie écartée parce que le contenu a changé, et le lecteur
+     qui retombe sur l'accueil sans un mot : c'est ce qui arrivait à
+     chaque publication. On MIGRE ce qui peut l'être, et quand on ne
+     peut pas, on le dit — avec le code de reprise si les salles n'ont
+     pas bougé de place. */
+  var partieEcartee = null;
   function charger() {
     try {
       var b = window.localStorage.getItem(CLE);
       if (!b) return null;
       var l = JSON.parse(b);
-      return l && l.signature === signature(jeu) ? l : null;
-    } catch (e) { return null; }
+      if (!l || !l.signature) return null;
+      if (l.signature === signature(jeu)) return l;
+      return migrer(l);
+    } catch (e) { signalerStockageRefuse(); return null; }
+  }
+
+  /* La signature vaut « v4|titre|nombre d'étapes|lettres|versions ».
+     Si seuls le titre ou le numéro de version changent, les salles
+     gardent leur rang : la partie se poursuit telle quelle. */
+  function migrer(ancien) {
+    var avant = String(ancien.signature).split('|');
+    var apres = signature(jeu).split('|');
+    if (avant[2] === apres[2] && avant[3] === apres[3] && avant[4] === apres[4]) {
+      ancien.signature = signature(jeu);
+      return ancien;
+    }
+    /* Les salles ont changé de nombre ou les lettres de sac : on ne
+       sait plus à quoi correspond « e7 ». On ne devine pas. */
+    partieEcartee = ancien;
+    partieEcartee.memeNombreDeSalles = avant[2] === apres[2];
+    return null;
   }
   function effacer() { try { window.localStorage.removeItem(CLE); } catch (e) {} }
 
@@ -704,11 +748,47 @@
     var t = noeud.querySelector('h2');
     if (t) t.focus();
     if (window.scrollTo) window.scrollTo(0, 0);
+    /* « Accueil » ne détruit rien : il montre l'accueil, d'où l'on
+       reprend la partie telle quelle. Sans lui, une partie commencée
+       condamnait l'accueil — et avec lui le questionnaire. */
+    var ac = $('btn-accueil');
+    if (ac) ac.hidden = !(etat.mode && etat.entre);
     var r = $('btn-recommencer');
     if (r) {
       r.hidden = !etat.mode;
       r.textContent = versionUnique() ? 'Tout recommencer' : 'Changer de version';
     }
+    brancherEntree(noeud);
+  }
+
+  /* LA TOUCHE ENTRÉE, PARTOUT. Elle ne validait qu'à la porte — c'est-
+     à-dire à l'endroit même où le lecteur prend l'habitude de s'en
+     servir. Ailleurs, elle ne faisait rien, sans un mot. On la branche
+     ici, une fois pour toutes : taper Entrée dans un champ, c'est
+     presser le bouton qui valide, celui du volet ouvert s'il y en a un.
+     Les champs qui gèrent déjà Entrée eux-mêmes portent data-entree et
+     sont laissés tranquilles : deux validations valent moins qu'une. */
+  var VALIDE = /^(Valider|Ouvrir|Entrer|Reprendre|Vérifier mes réponses|Continuer|Niveau suivant|La finale|Commencer)/;
+  function brancherEntree(noeud) {
+    if (!noeud || !noeud.addEventListener) return;
+    noeud.addEventListener('keydown', function (ev) {
+      if (ev.key !== 'Enter' || ev.defaultPrevented) return;
+      var cible = ev.target;
+      if (!cible || cible.tagName !== 'INPUT') return;
+      if (cible.type && cible.type !== 'text' && cible.type !== 'search') return;
+      if (cible.getAttribute('data-entree')) return;
+      /* on cherche le bouton dans le volet ouvert, sinon dans l'écran */
+      var zone = cible.closest ? (cible.closest('.volet:not([hidden])') || noeud) : noeud;
+      var boutons = zone.querySelectorAll('button');
+      for (var i = 0; i < boutons.length; i++) {
+        if (boutons[i].disabled) continue;
+        if (VALIDE.test(boutons[i].textContent.trim())) {
+          ev.preventDefault();
+          boutons[i].click();
+          return;
+        }
+      }
+    });
   }
 
   function rienDeGagne() {
@@ -733,7 +813,7 @@
   function montrerReprise() {
     var champ = el('input', {
       type: 'text', class: 'champ-saisie', autocomplete: 'off', autocapitalize: 'characters',
-      spellcheck: 'false', maxlength: '11', 'aria-label': 'Code d’équipe, huit caractères'
+      spellcheck: 'false', maxlength: '11', 'data-entree': 'propre', 'aria-label': 'Code d’équipe, huit caractères'
     });
     var retour = el('p', { class: 'retour', hidden: true });
 
@@ -815,6 +895,26 @@
 
   /* --- Accueil : deux portes --- */
 
+  /* « J'ai un code d'équipe » — à l'accueil comme en cours de partie.
+     L'écran de reprise n'était proposé qu'une fois, au tout premier
+     chargement, et ne revenait jamais : une équipe qui changeait de
+     téléphone après coup n'avait plus aucun moyen de donner son code.
+     Le lien y conduit sans rien détruire ; c'est le code, ensuite, qui
+     demandera confirmation avant de remplacer. */
+  function lienCodeEquipe() {
+    return el('p', { class: 'aide-clavier' }, [
+      el('button', {
+        type: 'button', class: 'lien-discret', texte: 'J’ai un code d’équipe',
+        onclick: function () {
+          etat.mode = 'eleves';
+          etat.repriseVue = false;
+          sauver(true);
+          montrerReprise();
+        }
+      })
+    ]);
+  }
+
   function montrerAccueil() {
     arreterHorloge();
     var reprise = etat.mode && (etat.entre || etat.etape > 0);
@@ -851,6 +951,23 @@
         }),
         el('button', { class: 'bouton bouton-secondaire', type: 'button', texte: 'Changer de version', onclick: recommencer })
       ]));
+      /* Une partie en cours ne doit pas condamner l'accueil : on
+         pouvait rejoindre le questionnaire ou donner un code d'équipe
+         seulement en détruisant tout. Ces deux chemins restent
+         ouverts, et ne touchent à rien. */
+      var q = jeu.questionnaire || {};
+      if (questionnaireDisponible()) {
+        section.appendChild(el('div', { class: 'portes' }, [
+          el('button', {
+            type: 'button', class: 'porte-carte',
+            onclick: function () { window.location.href = q.adresse; }
+          }, [
+            el('span', { class: 'porte-titre', texte: q.titre || 'Le questionnaire du lecteur' }),
+            el('span', { class: 'porte-sous', texte: q.resumeAccueil || q.resume || '' })
+          ])
+        ]));
+      }
+      section.appendChild(lienCodeEquipe());
       montrer(section);
       return;
     }
@@ -889,6 +1006,7 @@
     }
     porteVersion('eleves');
     section.appendChild(portes);
+    section.appendChild(lienCodeEquipe());
     if (jeu.avertissement) {
       section.appendChild(el('p', { class: 'avertissement-fort', texte: jeu.avertissement }));
     }
@@ -1036,12 +1154,13 @@
   var SALLES_MAX = 17;
   var DEUX17 = Math.pow(2, SALLES_MAX);
 
-  function codeEquipe() {
+  function codeEquipe(source) {
+    var src = source || etat;
     var bits = 0, i;
     for (i = 0; i < jeu.etapes.length && i < SALLES_MAX; i++) {
-      if (etat.reussies['e' + i]) bits += Math.pow(2, i);
+      if ((src.reussies || {})['e' + i]) bits += Math.pow(2, i);
     }
-    var graine = (Number(etat.graine) || 0) % 4096;
+    var graine = (Number(src.graine) || 0) % 4096;
     var valeur = ((graine * DEUX17 + bits) ^ VOILE) >>> 0;
     var corps = '';
     for (i = 5; i >= 0; i--) corps += ALPHABET32.charAt(Math.floor(valeur / Math.pow(32, i)) % 32);
@@ -1192,9 +1311,42 @@
     });
   }
 
+  /* Le contenu a changé et la partie enregistrée ne peut pas suivre.
+     On ne l'efface pas en silence : on l'explique, et si les salles
+     n'ont pas changé de rang, on rend son code à l'équipe avant de
+     repartir — c'est tout ce qui lui reste. */
+  function montrerMiseAJour() {
+    var ancien = partieEcartee;
+    partieEcartee = null;
+    var salles = 0, k;
+    for (k in (ancien.reussies || {})) if (Object.prototype.hasOwnProperty.call(ancien.reussies, k)) salles++;
+    var code = (ancien.memeNombreDeSalles && salles) ? codeEquipe(ancien) : '';
+
+    var bloc = [
+      el('p', { class: 'sur-titre', texte: 'Le jeu a été mis à jour' }),
+      el('h2', { tabindex: '-1', texte: 'Votre partie ne peut pas être reprise' }),
+      el('p', { class: 'narration', texte: salles
+        ? 'Le contenu du jeu a changé depuis votre dernière visite : les ' + salles +
+          ' salle(s) déjà gagnée(s) ne correspondent plus à ce qui est en place. Il faut repartir du début.'
+        : 'Le contenu du jeu a changé depuis votre dernière visite. Rien n’était encore gagné : vous ne perdez rien.' })
+    ];
+    if (code) {
+      bloc.push(el('div', { class: 'consigne-lecture' }, [
+        el('strong', { texte: 'Votre code d’équipe, avant de partir' }),
+        el('p', { class: 'code-equipe' }, [el('strong', { texte: code })]),
+        el('p', { texte: 'Notez-le : il décrit les salles que vous aviez gagnées. Si votre professeur vous dit que le jeu n’a pas changé pour vous, ce code les rendra.' })
+      ]));
+    }
+    bloc.push(el('div', { class: 'ligne-actions' }, [
+      el('button', { class: 'bouton bouton-large', type: 'button', texte: 'Commencer',
+        onclick: function () { ecranCourant(); } })
+    ]));
+    montrer(el('section', { class: 'ecran' }, bloc));
+  }
+
   function montrerPorte() {
     var porte = reglages().entree || jeu.porte || {};
-    var champ = el('input', { type: 'text', class: 'champ-saisie champ-porte', autocomplete: 'off', autocapitalize: 'none', spellcheck: 'false', 'aria-label': porte.libelle || 'Le mot d’entrée' });
+    var champ = el('input', { type: 'text', class: 'champ-saisie champ-porte', autocomplete: 'off', autocapitalize: 'none', spellcheck: 'false', 'data-entree': 'propre', 'aria-label': porte.libelle || 'Le mot d’entrée' });
     var retour = el('p', { class: 'retour', hidden: true });
     var zoneIndice = el('div');
 
@@ -2809,6 +2961,7 @@
     afficherAvertissements(controler(jeu));
     etat = charger() || etatNeuf();
     $('btn-recommencer').addEventListener('click', recommencer);
+    $('btn-accueil').addEventListener('click', montrerAccueil);
     /* Plus d'enregistrement au beforeunload : il ne protégeait rien —
        la progression est déjà écrite à chaque salle gagnée — et il
        détruisait, en imposant l'état d'un onglet resté en arrière.
@@ -2827,6 +2980,7 @@
       annoncer('La partie a avancé dans un autre onglet. Cet écran se remet à jour.');
       ecranCourant();
     });
+    if (partieEcartee) return montrerMiseAJour();
     ecranCourant();
   }
 
