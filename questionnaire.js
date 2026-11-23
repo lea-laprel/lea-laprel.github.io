@@ -78,8 +78,34 @@
     return 'q1|' + (qcm.chapitres || []).length + '|' +
       (qcm.chapitres || []).reduce(function (n, c) { return n + c.questions.length; }, 0);
   }
-  function sauver() {
-    try { window.localStorage.setItem(CLE, JSON.stringify(etat)); } catch (e) {}
+  /* Combien de questions ont reçu une réponse ? C'est la mesure de ce
+     qu'on ne veut pas perdre : elle ne fait que monter. */
+  function avancement(e) {
+    if (!e || !e.reponses) return -1;
+    var n = 0, k;
+    for (k in e.reponses) {
+      if (!Object.prototype.hasOwnProperty.call(e.reponses, k)) continue;
+      (e.reponses[k] || []).forEach(function (x) {
+        if (x !== null && x !== undefined && x >= 0) n++;
+      });
+    }
+    return n;
+  }
+
+  /* Deux onglets sur le questionnaire, c'est vite arrivé. L'onglet
+     oublié effaçait le travail de l'autre, et redonnait même une
+     tentative sur un chapitre déjà joué. On relit donc avant d'écrire,
+     et on s'abstient si l'autre a répondu à davantage de questions.
+     `force` est réservé aux retours en arrière voulus : tout
+     recommencer, ou appliquer un code de reprise. */
+  function sauver(force) {
+    try {
+      if (force !== true) {
+        var surDisque = charger();
+        if (surDisque && avancement(surDisque) > avancement(etat)) return;
+      }
+      window.localStorage.setItem(CLE, JSON.stringify(etat));
+    } catch (e) {}
   }
   function charger() {
     try {
@@ -274,7 +300,7 @@
       });
       etat.reponses[String(c.numero)] = r;
     });
-    sauver();
+    sauver(true);                  /* voulu : le code de reprise fait autorité */
     return n;
   }
 
@@ -350,7 +376,7 @@
           if (!window.confirm('Tout effacer et recommencer depuis le chapitre I ? Vos réponses et votre note seront perdues.')) return;
           effacer();
           etat = etatNeuf();
-          sauver();
+          sauver(true);              /* voulu : on repart de zéro */
           annoncer('Questionnaire remis à zéro.');
           montrerSommaire();
         } })
@@ -984,6 +1010,17 @@
     qcm = contenu;
     etat = charger() || etatNeuf();
     sauver();
+    /* Plus d'écrasement entre onglets : on rejoint celui qui a avancé. */
+    window.addEventListener('storage', function (ev) {
+      if (ev.key !== CLE || !ev.newValue) return;
+      var arrive = null;
+      try { arrive = JSON.parse(ev.newValue); } catch (e) { return; }
+      if (!arrive || arrive.signature !== signature()) return;
+      if (avancement(arrive) <= avancement(etat)) return;
+      etat = arrive;
+      annoncer('Le questionnaire a avancé dans un autre onglet. Cet écran se remet à jour.');
+      if (toutFini()) montrerResultat(); else montrerSommaire();
+    });
     if (toutFini()) return montrerResultat();
     montrerSommaire();
   }).catch(function (e) {

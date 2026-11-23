@@ -3,7 +3,7 @@
    réseau (réseau d'abord, cache en secours). Ainsi, une modification de
    salles.json est prise en compte dès que l'élève a de la connexion. */
 
-var CACHE = 'lea-laprel-public-v18';
+var CACHE = 'lea-laprel-public-v19';
 var FICHIERS = [
   './',
   './index.html',

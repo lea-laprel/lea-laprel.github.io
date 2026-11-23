@@ -404,7 +404,37 @@
     garde.sort(function (a, b) { return a - b; });
     return garde.length ? garde : tous;
   }
-  function sauver() { try { window.localStorage.setItem(CLE, JSON.stringify(etat)); } catch (e) {} }
+  /* Combien cette partie a-t-elle avancé ? Sert à ne jamais écraser une
+     progression par une plus maigre. L'ordre compte : les salles
+     gagnées d'abord — c'est ce qu'on ne veut pas perdre —, puis l'étape
+     en cours, les chapitres ouverts, et la finale. */
+  function avancement(e) {
+    if (!e) return -1;
+    var n = 0, k;
+    for (k in (e.reussies || {})) if (Object.prototype.hasOwnProperty.call(e.reussies, k)) n++;
+    return n * 1e8
+      + Math.max(0, Number(e.etape) || 0) * 1e6
+      + Math.min(99, Math.max(0, Number(e.ouvertes) || 0)) * 1e4
+      + Math.max(0, Number(e.finale) || 0) * 100
+      + (e.entre ? 1 : 0);
+  }
+
+  /* Deux onglets sur le même jeu, c'est un geste banal : on rescanne le
+     QR code, on rouvre un raccourci. L'onglet oublié ne doit pas
+     imposer son instantané périmé — il écrasait jusqu'à douze salles
+     gagnées, et le grand public n'a aucun code pour les retrouver.
+     On relit donc ce qui est écrit avant d'écrire, et on s'abstient si
+     l'autre est allé plus loin. `force` est réservé aux retours en
+     arrière VOULUS : tout recommencer, ou appliquer un code d'équipe. */
+  function sauver(force) {
+    try {
+      if (force !== true) {
+        var surDisque = charger();
+        if (surDisque && avancement(surDisque) > avancement(etat)) return;
+      }
+      window.localStorage.setItem(CLE, JSON.stringify(etat));
+    } catch (e) {}
+  }
   function charger() {
     try {
       var b = window.localStorage.getItem(CLE);
@@ -762,11 +792,11 @@
            aucun moyen de donner le nouveau code du tableau. */
         el('button', {
           type: 'button', class: 'bouton', texte: 'Entrer le code de la séance suivante',
-          onclick: function () { etat.entre = false; sauver(); montrerPorte(); }
+          onclick: function () { etat.entre = false; sauver(true); montrerPorte(); }
         }),
         el('button', {
           type: 'button', class: 'bouton bouton-secondaire', texte: 'Revoir les salles déjà ouvertes',
-          onclick: function () { etat.etape = 0; sauver(); ecranCourant(); }
+          onclick: function () { etat.etape = 0; sauver(true); ecranCourant(); }
         })
       ])
     ]));
@@ -1024,7 +1054,11 @@
     }
     etat.boite = [];                     /* l'ordre d'obtention est perdu */
     etat.etape = premiereNonFaite();
-    sauver();
+    /* Reprendre sur un autre appareil, c'est entamer une séance : le
+       minuteur repart, il ne reprend pas celui d'un autre jour. */
+    arreterHorloge();
+    etat.ecouleMs = 0;
+    sauver(true);                        /* voulu : le code d'équipe fait autorité */
     return n;
   }
 
@@ -1132,6 +1166,13 @@
         /* Nouvelle séance : on reprend là où la classe s'était arrêtée,
            pas au premier chapitre. */
         if (enParcours()) etat.etape = premiereNonFaite();
+        /* UNE SÉANCE, UN MINUTEUR. Le temps écoulé s'accumulait d'une
+           semaine à l'autre : la deuxième séance démarrait à 37:35 au
+           lieu de 60:00, et dès la quatrième la classe jouait sous
+           « temps écoulé » — pour toujours. Franchir la porte, c'est
+           ouvrir une séance : le chronomètre repart. */
+        arreterHorloge();
+        etat.ecouleMs = 0;
         sauver();
         /* Le code SEUL ouvre deux portes : le jeu, ou le questionnaire.
            Le code suivi d'un numéro, lui, est l'ordre du professeur pour
@@ -2502,7 +2543,7 @@
     effacer();
     etat = etatNeuf();
     essais = {};
-    sauver();
+    sauver(true);                        /* voulu : on repart de zéro */
     montrerAccueil();
   }
 
@@ -2703,7 +2744,24 @@
     afficherAvertissements(controler(jeu));
     etat = charger() || etatNeuf();
     $('btn-recommencer').addEventListener('click', recommencer);
-    window.addEventListener('beforeunload', sauver);
+    /* Plus d'enregistrement au beforeunload : il ne protégeait rien —
+       la progression est déjà écrite à chaque salle gagnée — et il
+       détruisait, en imposant l'état d'un onglet resté en arrière.
+       À la place, on écoute ce que les autres onglets écrivent. */
+    window.addEventListener('storage', function (ev) {
+      if (ev.key !== CLE || !ev.newValue) return;
+      var arrive = null;
+      try { arrive = JSON.parse(ev.newValue); } catch (e) { return; }
+      if (!arrive || arrive.signature !== signature(jeu)) return;
+      if (avancement(arrive) <= avancement(etat)) return;
+      /* un autre onglet est allé plus loin : on le rejoint plutôt que
+         de le contredire */
+      etat = arrive;
+      TIRAGE = null;
+      arreterHorloge();
+      annoncer('La partie a avancé dans un autre onglet. Cet écran se remet à jour.');
+      ecranCourant();
+    });
     ecranCourant();
   }
 
