@@ -72,7 +72,7 @@
      d'un lecteur à l'autre, celui du fichier ne bouge pas. */
   function etatNeuf() {
     return { version: 1, signature: signature(), graine: nouvelleGraine(),
-      reponses: {}, prenom: '', ville: '', etoiles: 0, avis: '' };
+      reponses: {}, repris: {}, prenom: '', ville: '', etoiles: 0, avis: '' };
   }
   function signature() {
     return 'q1|' + (qcm.chapitres || []).length + '|' +
@@ -244,10 +244,21 @@
      rapporte les scores, pas les corrections.
      On évite I, L, O et U à l'affichage — une fiche se recopie à la
      main, souvent mal. */
+  /* DEUX caractères de contrôle : la première clé, pondérée par le
+     rang, attrape l'inversion de deux lettres voisines ; la seconde,
+     pondérée par les puissances de trois, attrape toute lettre fausse.
+     Une seule clé laissait passer des codes faux, et le questionnaire
+     inventait alors des scores. (Même recette que le code d'équipe du
+     jeu : si l'une change, l'autre doit changer avec elle.) */
   function cleDe(corps) {
-    var somme = 0;
-    for (var i = 0; i < corps.length; i++) somme += ALPHABET32.indexOf(corps.charAt(i)) * (i + 1);
-    return ALPHABET32.charAt(somme % 32);
+    var s1 = 0, s2 = 0, poids = 1, i;
+    for (i = 0; i < corps.length; i++) {
+      var v = ALPHABET32.indexOf(corps.charAt(i));
+      s1 += v * (i + 1);
+      poids = (poids * 3) % 32;
+      s2 += v * poids;
+    }
+    return ALPHABET32.charAt(s1 % 32) + ALPHABET32.charAt(s2 % 32);
   }
   function codeReprise() {
     var l = qcm.chapitres || [], valeur = 0, i;
@@ -265,27 +276,45 @@
   function lireCodeReprise(saisi) {
     var s = String(saisi || '').toUpperCase().replace(/[^0-9A-Z]/g, '')
       .replace(/I/g, '1').replace(/L/g, '1').replace(/O/g, '0').replace(/U/g, 'V');
-    if (s.length !== 9) return null;
+    if (s.length !== 10) return { erreur: 'forme' };
     var corps = s.slice(0, 8);
-    for (var i = 0; i < 8; i++) if (ALPHABET32.indexOf(corps.charAt(i)) === -1) return null;
-    if (cleDe(corps) !== s.charAt(8)) return null;
+    for (var i = 0; i < 8; i++) if (ALPHABET32.indexOf(corps.charAt(i)) === -1) return { erreur: 'forme' };
+    if (cleDe(corps) !== s.slice(8)) return { erreur: 'cle' };
     var valeur = 0;
     for (i = 0; i < 8; i++) valeur = valeur * 32 + ALPHABET32.indexOf(corps.charAt(i));
-    var l = qcm.chapitres || [], scores = {};
+    var l = qcm.chapitres || [], scores = {}, fini = false;
     for (i = 0; i < l.length; i++) {
       var d = valeur % 6;
       valeur = Math.floor(valeur / 6);
-      if (d > 0) scores[l[i].numero] = d - 1;
+      /* COHÉRENCE : on lit les chapitres dans l'ordre, et un chapitre
+         fait après un chapitre qui ne l'est pas n'existe pas — le
+         questionnaire ne s'ouvre que de proche en proche. Un code qui
+         le prétend est fabriqué, ou mal recopié. */
+      if (d > 0) {
+        if (fini) return { erreur: 'incoherent' };
+        if (d - 1 > l[i].questions.length) return { erreur: 'incoherent' };
+        scores[l[i].numero] = d - 1;
+      } else fini = true;
     }
-    return scores;
+    if (valeur !== 0) return { erreur: 'incoherent' };   /* des bits en trop */
+    return { scores: scores };
   }
   /* Appliquer un code : on ne connaît que les scores, pas les réponses.
      On reconstitue donc des réponses « plausibles » — les bonnes pour le
      nombre de points obtenus, les premières fausses pour le reste. Le
      total et la note sont exacts ; le détail des corrections passées,
      lui, est perdu, et on le dit au lecteur. */
+  /* Un code REMPLACE le questionnaire de l'appareil, il ne s'y ajoute
+     pas : l'ancienne version fusionnait, et une faute de recopie
+     laissait des chapitres fantômes que même le bon code ne pouvait
+     plus effacer.
+     Les chapitres ainsi retrouvés sont MARQUÉS : le code ne porte que
+     des scores, pas les réponses. On garde donc le compte juste, mais
+     on n'ira pas montrer une correction que personne n'a passée. */
   function appliquerCodeReprise(scores) {
     var n = 0;
+    etat.reponses = {};
+    etat.repris = {};
     (qcm.chapitres || []).forEach(function (c) {
       var s = scores[c.numero];
       if (s === undefined) return;
@@ -299,6 +328,7 @@
         r.push(faux);
       });
       etat.reponses[String(c.numero)] = r;
+      etat.repris[String(c.numero)] = true;
     });
     sauver(true);                  /* voulu : le code de reprise fait autorité */
     return n;
@@ -470,6 +500,7 @@
       for (var i = 0; i < c.questions.length; i++) etat.reponses[cle].push(-1);
     }
     etat.reponses[cle][rang] = indice;
+    if (etat.repris) delete etat.repris[cle];   /* rejoué pour de vrai */
     sauver();
   }
 
@@ -478,6 +509,31 @@
   function montrerCorrection(n, depuisSommaire) {
     var c = chapitre(n), r = reponsesDe(n) || [];
     var bons = scoreDe(n);
+
+    /* Un chapitre retrouvé par code n'a pas de correction à montrer :
+       le code ne porte qu'un score. Inventer les réponses pour remplir
+       l'écran serait mentir au lecteur sur ce qu'il a répondu. */
+    if ((etat.repris || {})[String(n)]) {
+      var suite = premierNonFait();
+      var gestes = [];
+      if (suite && suite !== n) {
+        gestes.push(el('button', { class: 'bouton bouton-large', type: 'button',
+          texte: 'Chapitre ' + chapitre(suite).romain,
+          onclick: function () { montrerAvertissement(suite); } }));
+      }
+      gestes.push(el('button', { class: 'bouton bouton-secondaire', type: 'button',
+        texte: 'Retour au sommaire', onclick: montrerSommaire }));
+      return montrer(el('section', { class: 'ecran' }, [
+        el('p', { class: 'sur-titre', texte: 'Chapitre ' + c.romain }),
+        el('h2', { tabindex: '-1', texte: bons + ' bonne(s) réponse(s) sur ' + c.questions.length }),
+        el('div', { class: 'consigne-lecture' }, [
+          el('strong', { texte: 'Chapitre retrouvé par votre code de reprise.' }),
+          el('p', { texte: 'Le code porte vos scores, pas le détail de vos réponses : la correction de ce chapitre a été lue sur l’appareil où vous l’avez passé, et ne peut pas être reconstituée ici.' })
+        ]),
+        el('div', { class: 'ligne-actions' }, gestes)
+      ]));
+    }
+
     var liste = el('ol', { class: 'correction' });
     c.questions.forEach(function (q, i) {
       var donnee = r[i];
@@ -525,20 +581,30 @@
 
   function montrerReprise() {
     var champ = el('input', { type: 'text', class: 'champ-saisie', autocomplete: 'off',
-      autocapitalize: 'characters', spellcheck: 'false', maxlength: '11',
-      'aria-label': 'Code de reprise, neuf caractères' });
+      autocapitalize: 'characters', spellcheck: 'false', maxlength: '12',
+      'aria-label': 'Code de reprise, dix caractères' });
     var retour = el('p', { class: 'retour', hidden: true });
 
     function reprendre() {
       var lu = lireCodeReprise(champ.value);
-      if (!lu) {
+      if (lu && lu.erreur) {
         retour.hidden = false;
         retour.setAttribute('data-ton', 'echec');
-        retour.textContent = 'Ce code ne ressemble à rien de connu. Neuf caractères, recopiés tels quels.';
+        retour.textContent = lu.erreur === 'incoherent'
+          ? 'Code incorrect, vérifiez-le : il décrit des chapitres faits dans le désordre.'
+          : 'Code incorrect, vérifiez-le. Dix caractères, recopiés tels quels.';
+        annoncer(retour.textContent);
         champ.focus(); champ.select();
         return;
       }
-      var n = appliquerCodeReprise(lu);
+      /* Le code fait autorité, donc il efface : on prévient avant. */
+      var dejaLa = (qcm.chapitres || []).filter(function (c) { return chapitreFait(c.numero); }).length;
+      if (dejaLa && !window.confirm('Cet appareil a déjà ' + dejaLa + ' chapitre(s) terminé(s).\n\n' +
+        'Le code de reprise va les remplacer par ceux qu’il porte. Continuer ?')) {
+        champ.focus(); champ.select();
+        return;
+      }
+      var n = appliquerCodeReprise(lu.scores);
       annoncer(n + ' chapitre(s) retrouvé(s).');
       montrerSommaire();
     }
@@ -547,7 +613,7 @@
     montrer(el('section', { class: 'ecran' }, [
       el('p', { class: 'sur-titre', texte: 'Changer d’appareil' }),
       el('h2', { tabindex: '-1', texte: 'Votre code de reprise' }),
-      el('p', { class: 'narration', texte: 'Notez ces neuf caractères. Sur un autre téléphone, entrez le code du livre, puis ce code : vous retrouverez vos chapitres et votre score.' }),
+      el('p', { class: 'narration', texte: 'Notez ces dix caractères. Sur un autre téléphone, ouvrez le questionnaire et entrez ce code : vous retrouverez vos chapitres et votre score.' }),
       el('p', { class: 'code-reprise' }, [el('strong', { texte: codeReprise() })]),
       el('p', { class: 'narration petite', texte: 'Il porte vos scores par chapitre, pas le détail de chaque réponse : les corrections déjà lues ne reviendront pas.' }),
       el('hr', { class: 'filet' }),

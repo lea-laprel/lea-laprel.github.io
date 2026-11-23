@@ -733,16 +733,27 @@
   function montrerReprise() {
     var champ = el('input', {
       type: 'text', class: 'champ-saisie', autocomplete: 'off', autocapitalize: 'characters',
-      spellcheck: 'false', maxlength: '9', 'aria-label': 'Code d’équipe, sept caractères'
+      spellcheck: 'false', maxlength: '11', 'aria-label': 'Code d’équipe, huit caractères'
     });
     var retour = el('p', { class: 'retour', hidden: true });
 
     function reprendre() {
       var lu = lireCodeEquipe(champ.value);
-      if (!lu) {
+      if (lu && lu.erreur) {
         retour.hidden = false;
         retour.setAttribute('data-ton', 'echec');
-        retour.textContent = 'Ce code ne ressemble à rien de connu. Sept caractères, recopiés de la fiche.';
+        retour.textContent = lu.erreur === 'incoherent'
+          ? 'Code incorrect, vérifiez-le : il décrit des salles gagnées dans le désordre.'
+          : 'Code incorrect, vérifiez-le. Huit caractères, recopiés de la fiche d’équipe.';
+        annoncer(retour.textContent);
+        champ.focus(); champ.select();
+        return;
+      }
+      /* Le code fait autorité, donc il efface : on prévient avant. */
+      var dejaLa = 0, k;
+      for (k in etat.reussies) if (Object.prototype.hasOwnProperty.call(etat.reussies, k)) dejaLa++;
+      if (dejaLa && !window.confirm('Cet appareil a déjà ' + dejaLa + ' salle(s) gagnée(s).\n\n' +
+        'Le code d’équipe va les remplacer par celles qu’il porte. Continuer ?')) {
         champ.focus(); champ.select();
         return;
       }
@@ -758,7 +769,7 @@
     montrer(el('section', { class: 'ecran' }, [
       el('p', { class: 'sur-titre', texte: 'Votre équipe' }),
       el('h2', { tabindex: '-1', texte: 'Avez-vous déjà un code d’équipe ?' }),
-      el('p', { class: 'narration', texte: 'Si votre équipe a joué lors d’une séance précédente, recopiez ici les sept caractères notés sur votre fiche. Vous retrouverez vos salles ET vos lettres sur cet appareil. Sinon, commencez : le code vous sera donné après la première salle.' }),
+      el('p', { class: 'narration', texte: 'Si votre équipe a joué lors d’une séance précédente, recopiez ici les huit caractères notés sur votre fiche. Vous retrouverez vos salles ET vos lettres sur cet appareil. Sinon, commencez : le code vous sera donné après la première salle.' }),
       el('div', { class: 'ligne-saisie' }, [champ]),
       retour,
       el('div', { class: 'ligne-actions' }, [
@@ -981,11 +992,12 @@
   /* --- Le code d'équipe -------------------------------------------
      Une classe joue sur le téléphone du jour, pas sur « son »
      appareil : la progression doit pouvoir voyager. À la fin de chaque
-     salle, le jeu affiche sept caractères à noter sur la fiche
+     salle, le jeu affiche huit caractères à noter sur la fiche
      d'équipe ; les retaper ailleurs rend les salles déjà gagnées ET
      le tirage des lettres. Six caractères portent les dix-sept salles
-     (un bit chacune) et la graine du tirage (douze bits), le septième
-     est une clé qui attrape les fautes de recopie. On évite
+     (un bit chacune) et la graine du tirage (douze bits), les deux
+     derniers sont des clés qui attrapent les fautes de recopie — une
+     seule n'y suffisait pas. On évite
      I, L, O et U à l'affichage, et on les rattrape à la saisie : une
      fiche se recopie à la main, souvent mal. */
   var ALPHABET32 = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
@@ -994,10 +1006,27 @@
      qu'à un code. Il ne protège rien — il donne sa tête à la chose. */
   var VOILE = 0x1A5C3E7;   /* vingt-neuf bits : salles ET graine */
 
+  /* DEUX caractères de contrôle, pas un.
+     L'unique clé d'avant laissait passer toute une famille de fautes :
+     une somme pondérée modulo trente-deux ne voit pas qu'on a écrit O
+     pour 0 à un rang pair, et le jeu rendait alors les mauvaises
+     salles — sans un mot. Deux clés indépendantes suffisent à fermer
+     les deux portes :
+       — la première, pondérée par le rang, attrape l'inversion de deux
+         lettres voisines (la différence vaut exactement a − b) ;
+       — la seconde, pondérée par les puissances de trois — impaires,
+         donc inversibles modulo trente-deux —, attrape TOUTE lettre
+         fausse, quelle qu'elle soit et où qu'elle tombe.
+     Une faute passe donc les deux seulement si elle n'en est pas une. */
   function cleDe(corps) {
-    var somme = 0;
-    for (var i = 0; i < corps.length; i++) somme += ALPHABET32.indexOf(corps.charAt(i)) * (i + 1);
-    return ALPHABET32.charAt(somme % 32);
+    var s1 = 0, s2 = 0, poids = 1, i;
+    for (i = 0; i < corps.length; i++) {
+      var v = ALPHABET32.indexOf(corps.charAt(i));
+      s1 += v * (i + 1);
+      poids = (poids * 3) % 32;
+      s2 += v * poids;
+    }
+    return ALPHABET32.charAt(s1 % 32) + ALPHABET32.charAt(s2 % 32);
   }
 
   /* Le code porte DEUX choses : les salles gagnées (dix-sept bits) et la
@@ -1016,22 +1045,51 @@
     var valeur = ((graine * DEUX17 + bits) ^ VOILE) >>> 0;
     var corps = '';
     for (i = 5; i >= 0; i--) corps += ALPHABET32.charAt(Math.floor(valeur / Math.pow(32, i)) % 32);
-    return corps + cleDe(corps);
+    return corps + cleDe(corps);          /* six caractères, puis deux clés */
+  }
+
+  /* L'ordre dans lequel la classe traverse ses salles. Sert à vérifier
+     qu'un code est COHÉRENT : on ne gagne pas la salle du chapitre XIV
+     sans avoir gagné celles d'avant, et un code qui le prétend est
+     fabriqué — ou mal recopié. */
+  function sallesDeLaClasse() {
+    var out = [], bonus = [], i;
+    for (i = 0; i < jeu.etapes.length && i < SALLES_MAX; i++) {
+      var e = jeu.etapes[i];
+      if (e.versions && e.versions.indexOf('eleves') === -1) continue;
+      (e.bonus === true ? bonus : out).push(i);
+    }
+    return out.concat(bonus);               /* la séance bonus vient en dernier */
   }
 
   function lireCodeEquipe(saisi) {
     var s = String(saisi || '').toUpperCase().replace(/[^0-9A-Z]/g, '')
       .replace(/[IL]/g, '1').replace(/O/g, '0').replace(/U/g, 'V');
-    if (s.length !== 7) return null;
+    if (s.length !== 8) return { erreur: 'forme' };
     var corps = s.slice(0, 6), i;
-    for (i = 0; i < 6; i++) if (ALPHABET32.indexOf(corps.charAt(i)) === -1) return null;
-    if (cleDe(corps) !== s.charAt(6)) return null;
+    for (i = 0; i < 6; i++) if (ALPHABET32.indexOf(corps.charAt(i)) === -1) return { erreur: 'forme' };
+    if (cleDe(corps) !== s.slice(6)) return { erreur: 'cle' };
     var valeur = 0;
     for (i = 0; i < 6; i++) valeur = valeur * 32 + ALPHABET32.indexOf(corps.charAt(i));
     valeur = (valeur ^ VOILE) >>> 0;
     var graine = Math.floor(valeur / DEUX17) % 4096;
-    if (!graine) return null;               /* une partie a toujours sa graine */
-    return { salles: valeur % DEUX17, graine: graine };
+    if (!graine) return { erreur: 'cle' };  /* une partie a toujours sa graine */
+    var salles = valeur % DEUX17;
+
+    /* cohérence : les salles gagnées doivent former un début de parcours */
+    var ordre = sallesDeLaClasse(), fini = false;
+    for (i = 0; i < ordre.length; i++) {
+      var gagnee = Math.floor(salles / Math.pow(2, ordre[i])) % 2 === 1;
+      if (gagnee && fini) return { erreur: 'incoherent' };
+      if (!gagnee) fini = true;
+    }
+    /* et aucune salle hors du parcours de la classe */
+    for (i = 0; i < SALLES_MAX; i++) {
+      if (Math.floor(salles / Math.pow(2, i)) % 2 === 1 && ordre.indexOf(i) === -1) {
+        return { erreur: 'incoherent' };
+      }
+    }
+    return { salles: salles, graine: graine };
   }
 
   /* Où reprendre ? À la première salle non gagnée de la séance — pas au
@@ -1045,10 +1103,17 @@
     return jouees.length;
   }
 
+  /* Un code REMPLACE la partie de l'appareil, il ne s'y ajoute pas.
+     L'ancienne version fusionnait : une faute de recopie laissait des
+     salles fantômes que même le bon code ne pouvait plus effacer. */
   function appliquerCodeEquipe(lu) {
     var n = 0;
     etat.graine = lu.graine;
     TIRAGE = null;                       /* le tirage suit la graine */
+    etat.reussies = {};                  /* on repart de ce que dit le code */
+    etat.travaux = {};
+    etat.finale = 0;
+    etat.termine = false;
     for (var i = 0; i < jeu.etapes.length && i < SALLES_MAX; i++) {
       if (Math.floor(lu.salles / Math.pow(2, i)) % 2) { etat.reussies['e' + i] = true; n++; }
     }
